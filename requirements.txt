@@ -1,0 +1,4 @@
+matplotlib>=3.5
+mkdocs>=1.4
+mkdocs-material>=9.0
+mkdocstrings>=0.24

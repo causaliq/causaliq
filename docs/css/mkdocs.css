@@ -1,0 +1,75 @@
+/* Hide argument entries (method parameters) from the right-hand sidebar TOC */
+.md-nav--secondary .md-nav__item a[href*="("][href*=")"] {
+  display: none !important;
+}
+
+/* Define CausalIQ colour palette */
+:root {
+  --color-text-light: #1a1a1a;
+  --color-text-dark: #E8E8E8;
+
+  --color-bg-light: #f8f9f9;
+  --color-bg-dark: #121A1C;
+
+  --color-primary-light: #2a9d8f;
+  --color-primary-dark: #3fb5a3;
+
+  --color-accent-light: #8c2f39;
+  --color-accent-dark: #f39c6b;
+}
+[data-md-color-scheme="light"] {
+  --color-text: var(--color-text-light);
+  --color-bg: var(--color-bg-light);
+  --color-primary: var(--color-primary-light);
+  --color-accent: var(--color-accent-light)
+}
+[data-md-color-scheme="slate"] {
+  --color-text: var(--color-text-dark);
+  --color-bg: var(--color-bg-dark);
+  --color-primary: var(--color-primary-dark);
+  --color-accent: var(--color-accent-dark)
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Use your highlight color wherever needed */
+a,
+.md-nav__link--active,
+.md-typeset a {
+  color: var(--color-primary);
+}
+
+/* Inactive header menu links */
+.md-tabs__link {
+  color: white !important;
+}
+
+/* API symbol types - mod, class, methd - and names use text colour */
+.doc-symbol-heading,
+.doc-object-name {
+  color: var(--color-accent) !important
+}
+
+/* Attributes, parameters, raises, method names in lists are primary colour */
+li.doc-section-item code {
+  color: var(--color-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Names of classes and functions in code examples are primary */
+.doc-signature span.nf {
+  color: var(--color-accent) !important
+}
+
+/* Increase font weight for ToC sidebar links in both themes */
+.md-nav--secondary .md-nav__link {
+  font-weight: 600 !important;
+}
+
+/* Increase weight of h1, h2, h3 headings for legibility */
+h1, h2, h3 {
+  font-weight: 700 !important
+}

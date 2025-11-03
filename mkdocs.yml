@@ -1,0 +1,38 @@
+site_name: causaliq
+theme:
+  name: material
+  palette:
+    # Light mode
+    - scheme: light
+      primary: teal
+      accent: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Dark mode
+    - scheme: slate
+      primary: teal
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+
+  font:
+    text: Inter
+    code: Fira Code
+  features:
+    - navigation.tabs  # so links appear in header
+    - navigation.top   # adds a floating "to top" control
+
+
+
+extra_css:
+  - css/mkdocs.css
+
+nav:
+  - Home: index.md
+
+plugins:
+  - search

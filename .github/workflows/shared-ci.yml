@@ -1,0 +1,98 @@
+name: Shared CI Workflow
+
+on:
+  workflow_call:
+    inputs:
+      python-versions:
+        description: 'JSON array of Python versions to test'
+        required: false
+        type: string
+        default: '["3.10", "3.11", "3.12"]'
+      operating-systems:
+        description: 'JSON array of operating systems to test'
+        required: false
+        type: string
+        default: '["ubuntu-latest", "windows-latest", "macos-latest"]'
+      package-name:
+        description: 'Name of the Python package (for coverage)'
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ${{ fromJson(inputs.python-versions) }}
+        os: ${{ fromJson(inputs.operating-systems) }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+
+    - name: Run code formatting check
+      run: |
+        echo "Running Black formatting check..."
+        black --check src tests
+
+    - name: Run import sorting check
+      run: |
+        echo "Running isort import sorting check..."
+        isort --check-only src tests
+
+    - name: Run linting
+      run: |
+        echo "Running flake8 linting..."
+        flake8 src tests
+
+    - name: Run type checking
+      run: |
+        echo "Running MyPy type checking..."
+        python -m mypy src/
+
+    - name: Run unit tests with coverage
+      env:
+        PYTHONIOENCODING: utf-8
+      run: |
+        echo "Running unit pytest with coverage..."
+        python -m pytest -s -v tests/unit --cov=src/${{ inputs.package-name }} --cov-append --cov-report=xml
+
+    - name: Run functional tests with coverage
+      env:
+        PYTHONIOENCODING: utf-8
+      run: |
+        echo "Running functional pytest with coverage..."
+        python -m pytest -s -v tests/functional --cov=src/${{ inputs.package-name }} --cov-append --cov-report=xml
+
+    - name: Run integration tests for zenodo_sync (when secrets available)
+      if: ${{ inputs.package-name == 'zenodo_sync' }}
+      env:
+        PYTHONIOENCODING: utf-8
+        ZENODO_SYNC_SANDBOX: ${{ secrets.ZENODO_SYNC_SANDBOX }}
+        ZENODO_SYNC_EMAIL: ${{ secrets.ZENODO_SYNC_EMAIL }}
+      shell: bash
+      run: |
+        if [ -n "$ZENODO_SYNC_SANDBOX" ]; then
+          echo "Running integration tests with Zenodo API..."
+          python -m pytest -s -v tests/integration --cov=src/zenodo_sync --cov-append --cov-report=xml
+        else
+          echo "Skipping integration tests (no Zenodo secrets configured)"
+        fi
+
+    - name: Run integration tests for other packages
+      if: ${{ inputs.package-name != 'zenodo_sync' }}
+      env:
+        PYTHONIOENCODING: utf-8
+      shell: bash
+      run: |
+        python -m pytest -s -v tests/integration --cov=src/${{ inputs.package-name }} --cov-append --cov-report=xml

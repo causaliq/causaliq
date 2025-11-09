@@ -1,70 +1,53 @@
-# 👋 Welcome to CausalIQ
+# Welcome to CausalIQ
 
-CausalIQ is an open-source research initiative focused on **causal discovery** and **Bayesian network structure learning**. Our goal is to develop more accurate and transparent methods for causal discovery by integrating statistical algorithms with Large Language Models (LLMs).
 
----
+## Research Mission
 
-## 🔍 Research Focus
+This research addresses fundamental challenges in causal discovery: *How can we discover causal relationships from observational data more accurately and transparently?* By combining rigorous statistical methods with AI reasoning capabilities, this project aims to create tools that help researchers across disciplines uncover the causal mechanisms underlying their data.
 
-- Bayesian networks (discrete and continuous)
-- Statistical score-based causal discovery algorithms
-- Variable ordering and stability in learned graphs
-- Integration of human and LLM knowledge into causal discovery
-- Open-source, reproducible pipelines for experiments and evaluation
+## Core Research Areas
 
----
+### 🔗 Causal Discovery & Bayesian Networks
+Developing and improving algorithms for learning causal graph structures from observational data, with a focus on score-based methods, constraint-based approaches, and hybrid techniques.
 
-## 📂 Key Repositories
+### 🤖 AI-Enhanced Causal Reasoning  
+Exploring how Large Language Models can augment traditional statistical methods by incorporating domain knowledge, suggesting causal directions, and providing interpretable explanations.
 
-- [**discovery**](https://github.com/causaliq/discovery): Core algorithms for structure learning
-- [**zenodo-sync**](https://github.com/causaliq/zenodo-sync): Synchronizing research outputs onto Zenodo
+### 📊 Methodological Innovation
+Creating robust, reproducible pipelines for causal discovery experiments, with emphasis on stability analysis, uncertainty quantification, and performance evaluation.
+
 
 ---
 
-## 🌍 Project Identity
+## Research Philosophy
 
-The **CausalIQ** name reflects both:
+We believe that the future of causal discovery lies in the thoughtful integration of statistical rigour with artificial intelligence. By combining the precision of mathematical algorithms with the contextual understanding of language models, we can create more robust, interpretable, and useful tools for understanding, and making reasoned decisions, in our world.
 
-- *Causal Inference and Discovery*
-- The role of *human intelligence* in guiding algorithmic learning
+### Open Science Commitment
+All research outputs—code, data, and results—are made freely available to support reproducible research and collaborative advancement of the field.
 
-All code and datasets are released to support open, reproducible research.
-
----
-
-## 🧬 Modular Framework Structure
-
-The CausalIQ ecosystem is composed of modular packages that can be used independently or together:
-
-- **zenodo-sync**: Integration with Zenodo for dataset and result synchronization
-- **causaliq-pipeline**: Orchestration of causal discovery experiments and LLM integration using Dask and Snakemake
-- **causaliq-discovery**: Core statistical algorithms for Bayesian network structure learning
-- **causaliq-experiments**: Published experiment configurations, datasets, and results
-- **causaliq-score**: Optimized scoring functions for evaluating graph structures
-- **causaliq-analysis**: Tools for statistical analysis and metrics of learnt graphs
-- **causaliq-llm**: Integration of large language models to assist with graph generation, causal direction inference, and interpretation
+### Interdisciplinary Impact
+This work aims to benefit researchers across domains: from epidemiologists studying disease causation to economists analyzing policy effects to machine learning researchers building more robust AI systems.
 
 ---
 
-## 🔄 Human + LLM Collaboration
+## Get Involved
 
-CausalIQ emphasizes the integration of **statistical causal discovery algorithms** with **LLM reasoning**:
+**Collaboration**: We welcome discussions with researchers working on related problems. Feel free to reach out through GitHub Discussions on any of the project repositories.
 
-- LLMs help generate initial causal graphs from metadata or domain knowledge
-- Assist in interpreting results and suggesting causal directions
-- Support natural language experiment specification and reporting
+**Open Source**: All projects are open source and accept contributions. See the development guidelines for details on how to contribute.
 
-This dual approach enables both **human researchers** and **LLMs** to collaborate in designing, executing, and analyzing causal discovery workflows.
+**Academic Partnerships**: We're interested in collaborations with research groups working on causal inference, Bayesian networks, or AI-assisted scientific discovery.
 
 ---
+
+*"Understanding causation is fundamental to science, policy, and human reasoning. By building better tools for causal discovery, we can help researchers across disciplines make more reliable inferences about the mechanisms that drive their domains of study."*
 
 ## 🧠 For LLMs
 
 This documentation is designed to:
 
-- Help LLMs understand the structure and purpose of each package
-- Enable LLMs to assist in writing code, generating configurations, and interpreting results
-- Facilitate autonomous or semi-autonomous use of the framework by intelligent agents
+- Help LLMs understand the overall mission of the CausalIQ Projects.
 
 ---
 

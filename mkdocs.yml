@@ -1,4 +1,11 @@
-site_name: causaliq
+site_name: CausalIQ
+site_description: Independent research on causal discovery and Bayesian network structure learning
+site_author: CausalIQ Research
+site_url: https://causaliq.github.io/causaliq
+
+repo_name: causaliq/causaliq
+repo_url: https://github.com/causaliq/causaliq
+
 theme:
   name: material
   palette:
@@ -18,21 +25,115 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
 
-
   font:
     text: Inter
     code: Fira Code
+    
   features:
-    - navigation.tabs  # so links appear in header
-    - navigation.top   # adds a floating "to top" control
+    - navigation.tabs           # Top-level navigation tabs
+    - navigation.tabs.sticky    # Sticky navigation tabs
+    - navigation.sections       # Group navigation items
+    - navigation.expand         # Expand all sections by default
+    - navigation.top            # Back to top button
+    - navigation.footer         # Previous/next navigation
+    - search.highlight          # Highlight search terms
+    - search.share              # Share search results
+    - content.code.copy         # Copy code button
+    - content.tabs.link         # Link tabs across pages
 
-
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/graph-outline
 
 extra_css:
   - css/mkdocs.css
 
 nav:
   - Home: index.md
+  - Research:
+    - Research Overview: research/index.md
+    - Causal Discovery: research/causal-discovery.md
+    - Bayesian Networks: research/bayesian-networks.md
+    - LLMs in Causal Discovery: research/llm-integration.md
+  - Projects:
+    - Projects Overview: projects/index.md
+    - CausalIQ Discovery: projects/discovery.md
+    - CausalIQ Guide: projects/guide.md
+    - CausalIQ Pipeline: projects/pipeline.md
+    - Zenodo Synchronisation: projects/zenodo.md
+    - Ecosystem Architecture: projects/ecosystem_architecture.md
+  - Publications: papers/index.md
+  - About: 
+    - Dr. Ken Kitson: about/index.md
+    - Development Methodology: about/development-methodology.md
+    - Branding (in progress): about/logos.md
+
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: On this page
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: causaliq
+      repo: causaliq
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  analytics:
+    provider: google
+    property: !ENV [GOOGLE_ANALYTICS_KEY, ""]
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/causaliq
+      name: CausalIQ on GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/causaliq
+      name: CausalIQ on Twitter
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:contact@causaliq.org
+      name: Email CausalIQ
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: |
+  &copy; 2024 CausalIQ Research. Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>

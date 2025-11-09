@@ -11,7 +11,7 @@ These repositories bring together algorithms, experiments, and datasets that sup
 * Integration of human and LLM knowledge into causal discovery
 * Open-source, reproducible pipelines for experiments and evaluation
 
-## 📂 Key repositories
+## 📂 Key projects
 
 * [**discovery**](https://github.com/causaliq/discovery) → core algorithms for structure learning
 * [**zenodo-sync**](https://github.com/causaliq/zenodo-sync) → synchronising research outputs onto Zenodo
@@ -37,9 +37,9 @@ All code and datasets will be released to support open, reproducible research.
 <!-- *This page is the central entry point for my work on causal discovery. If you’re interested in collaboration, feel free to reach out.* -->
 
 
-## 🧬 Modular Framework Structure
+## 🧬 Modular Ecosystem Structure
 
-The **CausalIQ** ecosystem will be composed of modular packages that can be used independently or together:
+The **CausalIQ** ecosystem is composed of modular projects that can be used independently or together:
 
 - **zenodo-sync**: Integration with Zenodo for dataset and result synchronization.
 - **causaliq-pipeline**: Orchestration of causal discovery experiments and LLM integration using Dask and Snakemake.

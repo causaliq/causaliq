@@ -1,0 +1,46 @@
+# 🤖 CausalIQ Pipeline
+
+The CausalIQ Pipeline Framework provides a comprehensive solution for designing, executing, and reproducing causal discovery experiments at scale. Built on modern workflow orchestration tools, it enables researchers to conduct rigorous, reproducible studies while managing complex experimental configurations and large-scale computations.
+
+
+**Quick Links:**
+
+- 📖 Full Documentation - coming soon
+- [💻 Repository](https://github.com/causaliq/causaliq-pipeline)
+- 🚀 Quick Start - coming soon
+
+## Key Features
+
+### 🔄 Workflow Orchestration
+- **Snakemake integration**: Rule-based workflow definition and execution
+- **Dask distributed computing**: Scalable parallel processing
+- **Dependency management**: Automatic handling of data and processing dependencies
+- **Error recovery**: Robust handling of failures and restarts
+
+### 📊 Experiment Management
+- **Configuration management**: YAML-based experiment specifications
+- **Parameter sweeps**: Systematic exploration of algorithm parameters
+- **Version control**: Git-based tracking of experiments and results
+- **Reproducibility**: Deterministic execution with seed management
+
+### 📈 Results Tracking
+- **Automated metrics**: Comprehensive evaluation of learned structures
+- **Comparison frameworks**: Statistical comparison across methods
+- **Visualization**: Interactive plots and publication-ready figures
+- **Report generation**: Automated experimental summaries
+
+
+## Integration with Ecosystem
+
+- 🔍 **CausalIQ Discovery** (causaliq-discovery) is called by this package to perform structure learning.
+- 📊 **CausalIQ Analysis** (causaliq-predict) is called by this package to perform results analysis and generate assets for research papers.
+- 🔮 **CausalIQ Predict** (causaliq-predict) is called by this package to perform causal prediction.
+- 🔄 **Zenodo Synchronisation** (zenodo-sync) is used by this package to download datasets and upload results.
+- 🧪 **CausalIQ Experiments** (causaliq-experiments) are defined in terms of CausalIQ Pipelines allowing the reproduction of experiments, results and
+published paper assets created by the CausalIQ ecosystem.
+
+<br />
+
+---
+
+*The CausalIQ Pipeline framework enables reproducible, scalable causal discovery research by providing comprehensive tools for experiment design, execution, and analysis, supporting the advancement of reliable causal inference methodologies.*

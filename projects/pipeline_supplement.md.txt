@@ -1,0 +1,377 @@
+# CausalIQ Pipeline Framework
+
+**Reproducible experiment orchestration for causal discovery research**
+
+[Repository](https://github.com/causaliq/pipeline) | [Documentation](https://causaliq-pipeline.readthedocs.io) | [Examples](https://github.com/causaliq/pipeline/tree/main/examples)
+
+## Overview
+
+
+
+## Key Features
+
+### 🔄 Workflow Orchestration
+- **Snakemake integration**: Rule-based workflow definition and execution
+- **Dask distributed computing**: Scalable parallel processing
+- **Dependency management**: Automatic handling of data and processing dependencies
+- **Error recovery**: Robust handling of failures and restarts
+
+### 📊 Experiment Management
+- **Configuration management**: YAML-based experiment specifications
+- **Parameter sweeps**: Systematic exploration of algorithm parameters
+- **Version control**: Git-based tracking of experiments and results
+- **Reproducibility**: Deterministic execution with seed management
+
+### 📈 Results Tracking
+- **Automated metrics**: Comprehensive evaluation of learned structures
+- **Comparison frameworks**: Statistical comparison across methods
+- **Visualization**: Interactive plots and publication-ready figures
+- **Report generation**: Automated experimental summaries
+
+## Architecture Overview
+
+### Core Components
+
+#### 1. Experiment Definition
+```yaml
+# experiment.yml
+name: "pc_algorithm_evaluation"
+description: "Systematic evaluation of PC algorithm across datasets"
+
+datasets:
+  - name: "synthetic_linear"
+    generator: "linear_gaussian"
+    parameters:
+      n_variables: [5, 10, 20]
+      n_samples: [100, 500, 1000]
+      edge_density: [0.1, 0.3, 0.5]
+  
+  - name: "real_world"
+    source: "benchmarks/medical_data.csv"
+    preprocessing:
+      - "standardize"
+      - "handle_missing"
+
+algorithms:
+  - name: "pc"
+    implementation: "causaliq_discovery.PC"
+    parameters:
+      alpha: [0.01, 0.05, 0.1]
+      independence_test: ["chi2", "gaussian"]
+  
+  - name: "ges"
+    implementation: "causaliq_discovery.GES"
+    parameters:
+      score_type: ["bic", "aic"]
+      max_parents: [3, 5, 7]
+
+evaluation:
+  metrics:
+    - "structural_hamming_distance"
+    - "precision"
+    - "recall"
+    - "f1_score"
+  bootstrap_samples: 100
+  significance_level: 0.05
+
+output:
+  directory: "results/pc_evaluation"
+  formats: ["csv", "json", "plots"]
+```
+
+#### 2. Workflow Execution
+```python
+from causaliq_pipeline import ExperimentRunner
+
+# Load experiment configuration
+runner = ExperimentRunner("experiment.yml")
+
+# Execute with distributed computing
+results = runner.execute(
+    backend="dask",
+    n_workers=8,
+    memory_limit="4GB"
+)
+
+# Generate comprehensive report
+report = runner.generate_report(results)
+```
+
+#### 3. Snakemake Integration
+```python
+# Snakefile for complex workflows
+rule all:
+    input:
+        "results/final_report.html"
+
+rule generate_data:
+    output:
+        "data/{dataset}_{params}.csv"
+    script:
+        "scripts/generate_synthetic_data.py"
+
+rule learn_structure:
+    input:
+        "data/{dataset}_{params}.csv"
+    output:
+        "results/{algorithm}_{dataset}_{params}_graph.json"
+    script:
+        "scripts/run_algorithm.py"
+
+rule evaluate_results:
+    input:
+        expand("results/{algorithm}_{dataset}_{params}_graph.json",
+               algorithm=algorithms, dataset=datasets, params=param_combinations)
+    output:
+        "results/evaluation_metrics.csv"
+    script:
+        "scripts/evaluate_performance.py"
+
+rule generate_report:
+    input:
+        "results/evaluation_metrics.csv"
+    output:
+        "results/final_report.html"
+    script:
+        "scripts/generate_report.py"
+```
+
+### Advanced Features
+
+#### 1. Distributed Computing
+```python
+from dask.distributed import Client
+from causaliq_pipeline import DistributedExperiment
+
+# Set up distributed cluster
+client = Client("scheduler-address:8786")
+
+# Run experiments across cluster
+experiment = DistributedExperiment("large_scale_experiment.yml")
+results = experiment.execute(client=client)
+
+# Collect and consolidate results
+consolidated = experiment.consolidate_results(results)
+```
+
+#### 2. Bootstrap Analysis
+```python
+# Comprehensive stability analysis
+bootstrap_config = {
+    "n_bootstrap_samples": 1000,
+    "confidence_levels": [0.90, 0.95, 0.99],
+    "stability_metrics": ["edge_probability", "shd_variance"],
+    "parallel_jobs": 16
+}
+
+stability_results = runner.bootstrap_analysis(
+    algorithm="pc",
+    dataset="real_world_data",
+    config=bootstrap_config
+)
+
+# Generate stability report
+stability_report = runner.generate_stability_report(stability_results)
+```
+
+#### 3. Hyperparameter Optimization
+```python
+from causaliq_pipeline import HyperparameterOptimizer
+
+# Define optimization space
+param_space = {
+    "alpha": ("log_uniform", 0.001, 0.1),
+    "max_conditioning_set_size": ("choice", [2, 3, 4, 5]),
+    "independence_test": ("choice", ["chi2", "gaussian", "kci"])
+}
+
+# Optimize algorithm parameters
+optimizer = HyperparameterOptimizer(
+    algorithm="pc",
+    objective="f1_score",
+    param_space=param_space,
+    n_trials=100
+)
+
+best_params = optimizer.optimize(training_data, validation_data)
+```
+
+## Integration with Ecosystem
+
+### CausalIQ Discovery Integration
+```python
+# Seamless algorithm integration
+from causaliq_discovery import PC, GES, FCI
+from causaliq_pipeline import AlgorithmWrapper
+
+# Wrap algorithms for pipeline use
+algorithms = {
+    "pc": AlgorithmWrapper(PC),
+    "ges": AlgorithmWrapper(GES),
+    "fci": AlgorithmWrapper(FCI)
+}
+
+# Use in pipeline experiments
+experiment.register_algorithms(algorithms)
+```
+
+### LLM Enhancement
+```python
+from causaliq_llm import CausalReasoner
+from causaliq_pipeline import LLMEnhancedPipeline
+
+# Integrate LLM reasoning into pipeline
+llm_pipeline = LLMEnhancedPipeline(
+    base_experiment="standard_experiment.yml",
+    llm_reasoner=CausalReasoner(),
+    enhancement_steps=[
+        "generate_domain_priors",
+        "validate_discovered_edges",
+        "explain_results"
+    ]
+)
+
+enhanced_results = llm_pipeline.execute()
+```
+
+### Zenodo Integration
+```python
+from causaliq_pipeline import ZenodoIntegration
+
+# Automatic result archival
+zenodo = ZenodoIntegration(
+    access_token="your_zenodo_token",
+    sandbox=False
+)
+
+# Upload experiment results
+record = zenodo.upload_experiment(
+    experiment_id="pc_evaluation_2024",
+    results_directory="results/",
+    metadata={
+        "title": "PC Algorithm Evaluation Study",
+        "description": "Systematic evaluation of PC algorithm performance",
+        "keywords": ["causal discovery", "pc algorithm", "benchmark"]
+    }
+)
+
+print(f"Results archived at: {record.doi}")
+```
+
+## Example Workflows
+
+### 1. Algorithm Comparison Study
+```python
+# Compare multiple algorithms across datasets
+comparison_study = {
+    "name": "algorithm_comparison_2024",
+    "algorithms": ["pc", "ges", "fci", "lingam"],
+    "datasets": ["gaussian", "discrete", "mixed"],
+    "metrics": ["precision", "recall", "f1", "shd"],
+    "replications": 50
+}
+
+results = runner.run_comparison_study(comparison_study)
+statistical_comparison = runner.statistical_analysis(results)
+```
+
+### 2. Scalability Analysis
+```python
+# Test algorithm scalability
+scalability_config = {
+    "algorithm": "ges",
+    "variable_counts": [10, 20, 50, 100, 200],
+    "sample_sizes": [100, 500, 1000, 5000],
+    "replications": 10,
+    "timeout": "1 hour",
+    "memory_limit": "8GB"
+}
+
+scalability_results = runner.scalability_analysis(scalability_config)
+performance_plots = runner.plot_scalability(scalability_results)
+```
+
+### 3. Real-World Application
+```python
+# Apply to domain-specific problem
+medical_study = {
+    "domain": "medical_research",
+    "dataset": "clinical_trials_data.csv",
+    "preprocessing": ["handle_missing", "standardize", "discretize"],
+    "algorithms": ["pc", "fci"],  # Handle latent confounders
+    "domain_knowledge": "medical_knowledge_base.yml",
+    "validation": "expert_review"
+}
+
+medical_results = runner.run_domain_study(medical_study)
+clinical_interpretation = runner.generate_clinical_report(medical_results)
+```
+
+## Quality Assurance
+
+### Reproducibility Standards
+- **Deterministic execution**: Fixed random seeds and version pinning
+- **Environment isolation**: Containerized execution environments
+- **Complete provenance**: Full tracking of data, code, and parameters
+- **Result verification**: Checksums and validation of outputs
+
+### Testing Framework
+- **Unit tests**: Individual component testing
+- **Integration tests**: End-to-end workflow testing
+- **Performance tests**: Scalability and efficiency validation
+- **Regression tests**: Consistency across software versions
+
+### Documentation Standards
+- **Experiment documentation**: Comprehensive metadata and descriptions
+- **Code documentation**: Inline documentation and API references
+- **User guides**: Step-by-step tutorials and examples
+- **Methodology documentation**: Statistical and algorithmic details
+
+## Research Applications
+
+The pipeline framework has been used in numerous research studies:
+
+- **Methodological comparisons**: Systematic evaluation of causal discovery algorithms
+- **Domain applications**: Medical research, economics, biology, social sciences
+- **Scalability studies**: Performance analysis on large-scale datasets
+- **Stability analysis**: Bootstrap-based reliability assessment
+
+## Getting Started
+
+### Installation
+```bash
+pip install causaliq-pipeline
+```
+
+### Quick Start
+```python
+from causaliq_pipeline import QuickExperiment
+
+# Create simple experiment
+experiment = QuickExperiment(
+    algorithm="pc",
+    dataset="examples/simple_data.csv",
+    alpha=0.05
+)
+
+# Run and get results
+results = experiment.run()
+results.plot_graph()
+results.print_metrics()
+```
+
+### Advanced Usage
+```bash
+# Run complex experiment from configuration
+causaliq-pipeline run experiment.yml --workers 8 --memory 16GB
+
+# Generate report
+causaliq-pipeline report results/ --format html
+
+# Upload to Zenodo
+causaliq-pipeline upload results/ --zenodo-token TOKEN
+```
+
+---
+
+*The CausalIQ Pipeline Framework enables reproducible, scalable causal discovery research by providing comprehensive tools for experiment design, execution, and analysis, supporting the advancement of reliable causal inference methodologies.*

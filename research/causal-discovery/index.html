@@ -12,26 +12,28 @@
         <meta name="author" content="CausalIQ Research">
       
       
-        <link rel="canonical" href="https://causaliq.github.io/causaliq/">
+        <link rel="canonical" href="https://causaliq.github.io/causaliq/research/causal-discovery/">
       
       
+        <link rel="prev" href="../">
       
-        <link rel="next" href="research/">
+      
+        <link rel="next" href="../bayesian-networks/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
-        <title>CausalIQ</title>
+        <title>Causal Discovery - CausalIQ</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="css/mkdocs.css">
+      <link rel="stylesheet" href="../../css/mkdocs.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -88,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-causaliq" class="md-skip">
+        <a href="#understanding-causal-discovery" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +106,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="CausalIQ" class="md-header__button md-logo" aria-label="CausalIQ" data-md-component="logo">
+    <a href="../.." title="CausalIQ" class="md-header__button md-logo" aria-label="CausalIQ" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1"/></svg>
@@ -124,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Causal Discovery
             
           </span>
         </div>
@@ -232,11 +234,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -253,11 +253,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="research/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -277,7 +279,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="projects/" class="md-tabs__link">
+        <a href="../../projects/" class="md-tabs__link">
           
   
   
@@ -295,7 +297,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="papers/" class="md-tabs__link">
+      <a href="../../papers/" class="md-tabs__link">
         
   
   
@@ -316,7 +318,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="about/" class="md-tabs__link">
+        <a href="../../about/" class="md-tabs__link">
           
   
   
@@ -356,7 +358,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="CausalIQ" class="md-nav__button md-logo" aria-label="CausalIQ" data-md-component="logo">
+    <a href="../.." title="CausalIQ" class="md-nav__button md-logo" aria-label="CausalIQ" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5 17c-.14 0-.26 0-.39.04L17.5 13.8c.45-.45.75-1.09.75-1.8a2.5 2.5 0 0 0-2.5-2.5c-.14 0-.25 0-.4.04L13.74 6.3c.47-.46.76-1.09.76-1.8a2.5 2.5 0 0 0-5 0c0 .7.29 1.34.76 1.79L8.65 9.54c-.15-.04-.26-.04-.4-.04a2.5 2.5 0 0 0-2.5 2.5c0 .71.29 1.34.75 1.79l-1.61 3.25C4.76 17 4.64 17 4.5 17a2.5 2.5 0 0 0 0 5A2.5 2.5 0 0 0 7 19.5c0-.7-.29-1.34-.76-1.79l1.62-3.25c.14.04.26.04.39.04s.25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0A2.5 2.5 0 0 0 12 17c-.13 0-.26 0-.39.04L10 13.8c.45-.45.75-1.09.75-1.8 0-.7-.29-1.33-.75-1.79l1.61-3.25c.13.04.26.04.39.04s.26 0 .39-.04L14 10.21a2.5 2.5 0 0 0 1.75 4.29c.13 0 .25 0 .38-.04l1.63 3.25c-.47.45-.76 1.09-.76 1.79a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0-2.5-2.5m-15 3.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m8.5-1c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1M7.25 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1M11 4.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m3.75 7.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m4.75 8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1"/></svg>
@@ -383,6 +385,99 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Research Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -400,7 +495,7 @@
   
   
   <span class="md-ellipsis">
-    Home
+    Causal Discovery
     
   </span>
   
@@ -408,12 +503,12 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Causal Discovery
     
   </span>
   
@@ -438,46 +533,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#research-mission" class="md-nav__link">
+  <a href="#why-causal-discovery-matters" class="md-nav__link">
     <span class="md-ellipsis">
-      Research Mission
+      Why Causal Discovery Matters
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-research-areas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Research Areas
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Research Areas">
+    <nav class="md-nav" aria-label="Why Causal Discovery Matters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#causal-discovery-bayesian-networks" class="md-nav__link">
+  <a href="#beyond-correlation" class="md-nav__link">
     <span class="md-ellipsis">
-      🔗 Causal Discovery &amp; Bayesian Networks
+      Beyond Correlation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ai-enhanced-causal-reasoning" class="md-nav__link">
+  <a href="#the-challenge" class="md-nav__link">
     <span class="md-ellipsis">
-      🤖 AI-Enhanced Causal Reasoning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#methodological-innovation" class="md-nav__link">
-    <span class="md-ellipsis">
-      📊 Methodological Innovation
+      The Challenge
     </span>
   </a>
   
@@ -489,28 +566,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#research-philosophy" class="md-nav__link">
+  <a href="#approaches-to-causal-discovery" class="md-nav__link">
     <span class="md-ellipsis">
-      Research Philosophy
+      Approaches to Causal Discovery
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Research Philosophy">
+    <nav class="md-nav" aria-label="Approaches to Causal Discovery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#open-science-commitment" class="md-nav__link">
+  <a href="#1-constraint-based-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Open Science Commitment
+      1. Constraint-Based Methods
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interdisciplinary-impact" class="md-nav__link">
+  <a href="#2-score-based-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Interdisciplinary Impact
+      2. Score-Based Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-functional-causal-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Functional Causal Models
     </span>
   </a>
   
@@ -522,29 +608,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-involved" class="md-nav__link">
+  <a href="#practical-considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      Get Involved
+      Practical Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Requirements
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#for-llms" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 For LLMs
+      Assumptions
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#get-in-touch" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
     <span class="md-ellipsis">
-      📫 Get in Touch
+      Validation
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modern-developments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Developments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modern Developments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-enhanced-causal-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI-Enhanced Causal Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-researchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Researchers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-practitioners" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Practitioners
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -555,73 +722,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Research
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Research
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="research/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Research Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -631,30 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="research/causal-discovery/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Causal Discovery
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="research/bayesian-networks/" class="md-nav__link">
+      <a href="../bayesian-networks/" class="md-nav__link">
         
   
   
@@ -677,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="research/llm-integration/" class="md-nav__link">
+      <a href="../llm-integration/" class="md-nav__link">
         
   
   
@@ -752,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/" class="md-nav__link">
+      <a href="../../projects/" class="md-nav__link">
         
   
   
@@ -775,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/discovery/" class="md-nav__link">
+      <a href="../../projects/discovery/" class="md-nav__link">
         
   
   
@@ -798,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/guide/" class="md-nav__link">
+      <a href="../../projects/guide/" class="md-nav__link">
         
   
   
@@ -821,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/pipeline/" class="md-nav__link">
+      <a href="../../projects/pipeline/" class="md-nav__link">
         
   
   
@@ -844,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/zenodo/" class="md-nav__link">
+      <a href="../../projects/zenodo/" class="md-nav__link">
         
   
   
@@ -867,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/ecosystem_architecture/" class="md-nav__link">
+      <a href="../../projects/ecosystem_architecture/" class="md-nav__link">
         
   
   
@@ -897,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="papers/" class="md-nav__link">
+      <a href="../../papers/" class="md-nav__link">
         
   
   
@@ -964,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -987,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/development-methodology/" class="md-nav__link">
+      <a href="../../about/development-methodology/" class="md-nav__link">
         
   
   
@@ -1010,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/logos/" class="md-nav__link">
+      <a href="../../about/logos/" class="md-nav__link">
         
   
   
@@ -1062,46 +1139,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#research-mission" class="md-nav__link">
+  <a href="#why-causal-discovery-matters" class="md-nav__link">
     <span class="md-ellipsis">
-      Research Mission
+      Why Causal Discovery Matters
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-research-areas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Research Areas
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Research Areas">
+    <nav class="md-nav" aria-label="Why Causal Discovery Matters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#causal-discovery-bayesian-networks" class="md-nav__link">
+  <a href="#beyond-correlation" class="md-nav__link">
     <span class="md-ellipsis">
-      🔗 Causal Discovery &amp; Bayesian Networks
+      Beyond Correlation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ai-enhanced-causal-reasoning" class="md-nav__link">
+  <a href="#the-challenge" class="md-nav__link">
     <span class="md-ellipsis">
-      🤖 AI-Enhanced Causal Reasoning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#methodological-innovation" class="md-nav__link">
-    <span class="md-ellipsis">
-      📊 Methodological Innovation
+      The Challenge
     </span>
   </a>
   
@@ -1113,28 +1172,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#research-philosophy" class="md-nav__link">
+  <a href="#approaches-to-causal-discovery" class="md-nav__link">
     <span class="md-ellipsis">
-      Research Philosophy
+      Approaches to Causal Discovery
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Research Philosophy">
+    <nav class="md-nav" aria-label="Approaches to Causal Discovery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#open-science-commitment" class="md-nav__link">
+  <a href="#1-constraint-based-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Open Science Commitment
+      1. Constraint-Based Methods
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interdisciplinary-impact" class="md-nav__link">
+  <a href="#2-score-based-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Interdisciplinary Impact
+      2. Score-Based Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-functional-causal-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Functional Causal Models
     </span>
   </a>
   
@@ -1146,29 +1214,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-involved" class="md-nav__link">
+  <a href="#practical-considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      Get Involved
+      Practical Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Requirements
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#for-llms" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 For LLMs
+      Assumptions
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#get-in-touch" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
     <span class="md-ellipsis">
-      📫 Get in Touch
+      Validation
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modern-developments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Developments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modern Developments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-enhanced-causal-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI-Enhanced Causal Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-researchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Researchers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-practitioners" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Practitioners
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1191,42 +1340,112 @@
   
 
 
-<h1 id="welcome-to-causaliq">Welcome to CausalIQ<a class="headerlink" href="#welcome-to-causaliq" title="Permanent link">&para;</a></h1>
-<h2 id="research-mission">Research Mission<a class="headerlink" href="#research-mission" title="Permanent link">&para;</a></h2>
-<p>This research addresses fundamental challenges in causal discovery: <em>How can we discover causal relationships from observational data more accurately and transparently?</em> By combining rigorous statistical methods with AI reasoning capabilities, this project aims to create tools that help researchers across disciplines uncover the causal mechanisms underlying their data.</p>
-<h2 id="core-research-areas">Core Research Areas<a class="headerlink" href="#core-research-areas" title="Permanent link">&para;</a></h2>
-<h3 id="causal-discovery-bayesian-networks">🔗 Causal Discovery &amp; Bayesian Networks<a class="headerlink" href="#causal-discovery-bayesian-networks" title="Permanent link">&para;</a></h3>
-<p>Developing and improving algorithms for learning causal graph structures from observational data, with a focus on score-based methods, constraint-based approaches, and hybrid techniques.</p>
-<h3 id="ai-enhanced-causal-reasoning">🤖 AI-Enhanced Causal Reasoning<a class="headerlink" href="#ai-enhanced-causal-reasoning" title="Permanent link">&para;</a></h3>
-<p>Exploring how Large Language Models can augment traditional statistical methods by incorporating domain knowledge, suggesting causal directions, and providing interpretable explanations.</p>
-<h3 id="methodological-innovation">📊 Methodological Innovation<a class="headerlink" href="#methodological-innovation" title="Permanent link">&para;</a></h3>
-<p>Creating robust, reproducible pipelines for causal discovery experiments, with emphasis on stability analysis, uncertainty quantification, and performance evaluation.</p>
-<hr />
-<h2 id="research-philosophy">Research Philosophy<a class="headerlink" href="#research-philosophy" title="Permanent link">&para;</a></h2>
-<p>We believe that the future of causal discovery lies in the thoughtful integration of statistical rigour with artificial intelligence. By combining the precision of mathematical algorithms with the contextual understanding of language models, we can create more robust, interpretable, and useful tools for understanding, and making reasoned decisions, in our world.</p>
-<h3 id="open-science-commitment">Open Science Commitment<a class="headerlink" href="#open-science-commitment" title="Permanent link">&para;</a></h3>
-<p>All research outputs—code, data, and results—are made freely available to support reproducible research and collaborative advancement of the field.</p>
-<h3 id="interdisciplinary-impact">Interdisciplinary Impact<a class="headerlink" href="#interdisciplinary-impact" title="Permanent link">&para;</a></h3>
-<p>This work aims to benefit researchers across domains: from epidemiologists studying disease causation to economists analyzing policy effects to machine learning researchers building more robust AI systems.</p>
-<hr />
-<h2 id="get-involved">Get Involved<a class="headerlink" href="#get-involved" title="Permanent link">&para;</a></h2>
-<p><strong>Collaboration</strong>: We welcome discussions with researchers working on related problems. Feel free to reach out through GitHub Discussions on any of the project repositories.</p>
-<p><strong>Open Source</strong>: All projects are open source and accept contributions. See the development guidelines for details on how to contribute.</p>
-<p><strong>Academic Partnerships</strong>: We're interested in collaborations with research groups working on causal inference, Bayesian networks, or AI-assisted scientific discovery.</p>
-<hr />
-<p><em>"Understanding causation is fundamental to science, policy, and human reasoning. By building better tools for causal discovery, we can help researchers across disciplines make more reliable inferences about the mechanisms that drive their domains of study."</em></p>
-<h2 id="for-llms">🧠 For LLMs<a class="headerlink" href="#for-llms" title="Permanent link">&para;</a></h2>
-<p>This documentation is designed to:</p>
+<h1 id="understanding-causal-discovery">Understanding Causal Discovery<a class="headerlink" href="#understanding-causal-discovery" title="Permanent link">&para;</a></h1>
+<p>Causal discovery is the process of learning causal relationships from observational data. Unlike traditional statistical analysis that focuses on correlation and prediction, causal discovery aims to uncover the underlying mechanisms that generate the observed data.</p>
+<h2 id="why-causal-discovery-matters">Why Causal Discovery Matters<a class="headerlink" href="#why-causal-discovery-matters" title="Permanent link">&para;</a></h2>
+<h3 id="beyond-correlation">Beyond Correlation<a class="headerlink" href="#beyond-correlation" title="Permanent link">&para;</a></h3>
+<p>While correlation tells us that two variables tend to change together, causation tells us that changing one variable will actually influence the other. This distinction is crucial for:</p>
 <ul>
-<li>Help LLMs understand the overall mission of the CausalIQ Projects.</li>
+<li><strong>Scientific understanding</strong>: Identifying the mechanisms behind natural phenomena</li>
+<li><strong>Policy making</strong>: Predicting the effects of interventions before implementing them</li>
+<li><strong>Medical research</strong>: Understanding how treatments affect patient outcomes</li>
+<li><strong>Business decisions</strong>: Knowing which actions will actually drive desired results</li>
 </ul>
-<hr />
-<h2 id="get-in-touch">📫 Get in Touch<a class="headerlink" href="#get-in-touch" title="Permanent link">&para;</a></h2>
+<h3 id="the-challenge">The Challenge<a class="headerlink" href="#the-challenge" title="Permanent link">&para;</a></h3>
+<p>The fundamental challenge is that <strong>correlation ≠ causation</strong>. Just because two variables are correlated doesn't mean one causes the other. They might both be caused by a third variable (confounding), or the correlation might be purely coincidental.</p>
+<h2 id="approaches-to-causal-discovery">Approaches to Causal Discovery<a class="headerlink" href="#approaches-to-causal-discovery" title="Permanent link">&para;</a></h2>
+<h3 id="1-constraint-based-methods">1. Constraint-Based Methods<a class="headerlink" href="#1-constraint-based-methods" title="Permanent link">&para;</a></h3>
+<p>These methods use conditional independence tests to determine causal structure.</p>
+<p><strong>Key Idea</strong>: If X and Y are independent given some set Z, then there's no direct causal relationship between X and Y.</p>
+<p><strong>Popular Algorithms</strong>:</p>
 <ul>
-<li>GitHub Discussions (on individual repos)</li>
+<li><strong>PC Algorithm</strong>: Starts with a complete graph and removes edges based on independence tests</li>
+<li><strong>FCI</strong>: Handles latent confounders and selection bias</li>
 </ul>
-<!-- - Email: *[your email here, optional]* -->
-<!-- - Website: [causaliq.org](https://causaliq.org) *(if live)*  -->
+<p><strong>Example</strong>: 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Temperature → Ice Cream Sales
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Temperature → Swimming
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Swimming → Drowning Incidents
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Ice Cream Sales ⊥ Drowning | Temperature
+</span></code></pre></div>
+Even though ice cream sales correlate with drowning, they're independent when we condition on temperature.</p>
+<h3 id="2-score-based-methods">2. Score-Based Methods<a class="headerlink" href="#2-score-based-methods" title="Permanent link">&para;</a></h3>
+<p>These methods search for the graph structure that best explains the data according to some scoring criterion.</p>
+<p><strong>Key Idea</strong>: Among all possible causal graphs, choose the one that provides the best trade-off between fit to data and complexity.</p>
+<p><strong>Popular Scores</strong>:</p>
+<ul>
+<li><strong>BIC (Bayesian Information Criterion)</strong>: Balances likelihood of data being generated by
+a particular causal graph with a penalty for the complexity of the graph</li>
+<li><strong>BDeu (Baysian Dirichlet Equivaent Uniform)</strong>: Bayesian score which modifies the likelihood of data being generated by
+a particular causal graph with some prior belief about the causal graph</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Define a score function that measures how well a graph explains the data</li>
+<li>Search through possible graph structures</li>
+<li>Return the highest-scoring graph</li>
+</ol>
+<h3 id="3-functional-causal-models">3. Functional Causal Models<a class="headerlink" href="#3-functional-causal-models" title="Permanent link">&para;</a></h3>
+<p>These methods assume specific functional relationships between variables.</p>
+<p><strong>Key Idea</strong>: Use assumptions about the data-generating process (e.g., linearity, non-Gaussianity) to identify causal direction.</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><strong>ICA-based methods</strong>: Use non-Gaussianity to determine causal direction</li>
+<li><strong>Nonlinear additive noise models</strong>: Exploit asymmetries in noise distributions</li>
+</ul>
+<h2 id="practical-considerations">Practical Considerations<a class="headerlink" href="#practical-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="data-requirements">Data Requirements<a class="headerlink" href="#data-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sample size</strong>: More data generally leads to more reliable causal discovery</li>
+<li><strong>Variable selection</strong>: Including relevant variables while avoiding irrelevant ones</li>
+<li><strong>Data quality</strong>: Missing values and measurement error can affect results</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<p>All causal discovery methods rely on assumptions:</p>
+<ul>
+<li><strong>Faithfulness</strong>: The data distribution reflects the causal structure</li>
+<li><strong>Causal sufficiency</strong>: All common causes are observed (or methods handle latent confounders)</li>
+<li><strong>Stationarity</strong>: The causal structure doesn't change over time</li>
+</ul>
+<h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Cross-validation</strong>: Test stability across different data subsets</li>
+<li><strong>Background knowledge</strong>: Incorporate domain expertise to validate results</li>
+<li><strong>Intervention studies</strong>: When possible, test discovered relationships experimentally</li>
+</ul>
+<h2 id="modern-developments">Modern Developments<a class="headerlink" href="#modern-developments" title="Permanent link">&para;</a></h2>
+<h3 id="ai-enhanced-causal-discovery">AI-Enhanced Causal Discovery<a class="headerlink" href="#ai-enhanced-causal-discovery" title="Permanent link">&para;</a></h3>
+<p>Recent work explores how artificial intelligence can improve causal discovery:</p>
+<ul>
+<li><strong>Domain knowledge integration</strong>: Using LLMs to incorporate expert knowledge</li>
+<li><strong>Causal reasoning</strong>: AI systems that can reason about causation</li>
+<li><strong>Automated interpretation</strong>: Natural language explanations of discovered relationships</li>
+</ul>
+<h3 id="scalability">Scalability<a class="headerlink" href="#scalability" title="Permanent link">&para;</a></h3>
+<p>Modern methods handle larger, more complex datasets:</p>
+<ul>
+<li><strong>Distributed algorithms</strong>: Parallel processing for large datasets</li>
+<li><strong>Approximate methods</strong>: Trading accuracy for computational efficiency</li>
+<li><strong>Online learning</strong>: Updating causal models as new data arrives</li>
+</ul>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="for-researchers">For Researchers<a class="headerlink" href="#for-researchers" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Understand your domain</strong>: What causal relationships are you interested in?</li>
+<li><strong>Choose appropriate methods</strong>: Consider your data type and assumptions</li>
+<li><strong>Validate results</strong>: Use domain knowledge and cross-validation</li>
+<li><strong>Interpret carefully</strong>: Remember the limitations and assumptions</li>
+</ol>
+<h3 id="for-practitioners">For Practitioners<a class="headerlink" href="#for-practitioners" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Start simple</strong>: Begin with well-understood relationships</li>
+<li><strong>Use multiple methods</strong>: Compare results across different algorithms</li>
+<li><strong>Incorporate expertise</strong>: Combine algorithmic results with domain knowledge</li>
+<li><strong>Test when possible</strong>: Validate discovered relationships through experiments</li>
+</ol>
+<hr />
+<p><em>Causal discovery is both an art and a science. While algorithms provide the computational power to analyze complex data, human insight and domain expertise remain essential for interpreting results and ensuring their validity.</em></p>
 
 
 
@@ -1265,15 +1484,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Research Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Research Overview
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="research/" class="md-footer__link md-footer__link--next" aria-label="Next: Research Overview">
+          <a href="../bayesian-networks/" class="md-footer__link md-footer__link--next" aria-label="Next: Bayesian Networks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Research Overview
+                Bayesian Networks
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1343,12 +1578,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

@@ -28,7 +28,8 @@ causaliq-experiments (Published experiments & datasets)
 ├── causaliq-discovery (Statistical algorithms & structure learning)
 ├── causaliq-score (Optimized scoring functions)
 ├── causaliq-analysis (Metrics & statistical analysis)
-├── causaliq-guide (LLM integration & reasoning)
+├── causaliq-guide (LLM integration & reasoning)  ⭐ (Previously causaliq-llm))
+├── causaliq-core (Graphs, file i/o and utilities)  ⭐ NEW
 └── zenodo-sync (Dataset & result synchronization)
 ```
 
@@ -42,6 +43,7 @@ causaliq-experiments (Published experiments & datasets)
 | **causaliq-guide** | LLM integration | Graph generation, causal direction inference |
 | **causaliq-pipeline** | Workflow orchestration | Dask/Snakemake integration, experiment management |
 | **causaliq-experiments** | Research outputs | Published configurations, datasets, results |
+| **causaliq-core** | Shared code | Graph representations and utility functions |
 | **zenodo-sync** | Data management | Automated synchronization with Zenodo |
 
 ## Data Flow Architecture

@@ -185,10 +185,10 @@ stability_matrix = results.stability_across_parameters
 
 ## Integration Points
 
-### With CausalIQ-LLM
+### With CausalIQ Guide
 ```python
 from causaliq_discovery import PC
-from causaliq_llm import CausalReasoner
+from causaliq_guide import CausalReasoner
 
 # Statistical learning
 pc = PC(alpha=0.05)

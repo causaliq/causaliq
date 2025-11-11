@@ -64,7 +64,7 @@ graph TD
 1. **Start with Discovery**: Install `causaliq-discovery` to explore basic causal learning
 2. **Add Analysis**: Use `causaliq-analysis` for visualization and evaluation
 3. **Scale Up**: Implement `causaliq-pipeline` for larger experiments
-4. **Enhance with AI**: Integrate `causaliq-llm` for domain knowledge incorporation
+4. **Enhance with AI**: Integrate `causaliq-guide` for domain knowledge incorporation
 
 ### For Developers
 1. **Read the Architecture**: Understand how projects interact

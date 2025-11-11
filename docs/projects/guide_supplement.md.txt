@@ -2,7 +2,7 @@
 
 **AI-enhanced causal reasoning and interpretation**
 
-[Repository](https://github.com/causaliq/llm-integration) | [Documentation](https://causaliq-llm.readthedocs.io) | [Examples](https://github.com/causaliq/llm-integration/tree/main/examples)
+[Repository](https://github.com/causaliq/causaliq-guide) | [Documentation](https://causaliq-guide.readthedocs.io) | [Examples](https://github.com/causaliq/causaliq-guide/tree/main/examples)
 
 ## Overview
 

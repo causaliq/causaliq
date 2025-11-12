@@ -2,6 +2,30 @@
 
 This guide outlines how Large Language Models (LLMs) should assist with software development across the CausalIQ ecosystem, emphasizing incremental development and clear communication.
 
+## 📋 Single Source of Truth for Project Planning
+
+**CRITICAL**: All development planning and progress tracking is centralised in:
+👉 **[docs/roadmap.md](docs/roadmap.md)** - Complete roadmap with delivery specifications
+
+**LLM Responsibility**: Always reference roadmap.md for current status, next milestones, and feature specifications. Do not duplicate roadmap content in other documents.
+
+## 🎯 Progress Tracking Standards
+
+**CRITICAL**: Progress percentages must be mathematically accurate, not aspirational.
+
+**Calculation Method:**
+- Count completed tasks within each feature area
+- Calculate percentage based on actual implementation status
+- Verify progress calculations before updating any documentation
+
+**Common LLM Errors to Avoid:**
+- ❌ Counting design documents as implementation progress
+- ❌ Optimistic rounding or aspirational percentages  
+- ❌ Claiming high completion when only infrastructure exists
+- ❌ Duplicating progress tracking across multiple documents
+
+**Always verify progress calculations and maintain single source of truth in roadmap.md**
+
 ## 🔄 Incremental Development Approach
 
 ### Core Philosophy
@@ -56,6 +80,70 @@ When requesting coding assistance, provide these documents for optimal results:
 - Include type definitions and key interfaces
 - Provide examples of existing patterns to follow
 
+## 📚 Documentation Architecture Patterns
+
+### Single Source of Truth Principle
+
+**CRITICAL**: Each type of information should have exactly one authoritative location.
+
+**Documentation Structure for CausalIQ Projects:**
+```
+├── README.md                      # Project gateway - brief overview, links to detailed docs
+├── docs/roadmap.md                # Single source for features and progress
+├── docs/technical_architecture.md # System design and development patterns  
+├── docs/example_workflows.md      # Concrete usage examples
+└── docs/design/...                # Contains design notes for specific areas
+```
+
+The [ecosystem-wide development standards](https://github.com/causaliq/causaliq/blob/main/LLM_DEVELOPMENT_GUIDE.md) (this document) is maintained in the causaliq/causaliq umbrella repo.
+
+**Information Ownership:**
+- **README.md**: Project description, quick start, documentation index
+- **roadmap.md**: All feature specifications and progress tracking
+- **technical_architecture.md**: System design, architectural decisions, and project-specific development patterns
+- **[LLM_DEVELOPMENT_GUIDE_ENHANCED.md](https://github.com/causaliq/causaliq/blob/main/LLM_DEVELOPMENT_GUIDE.md)**: Ecosystem-wide standards (this document)
+
+### Documentation Consolidation Patterns
+
+**Common Documentation Duplication Problems:**
+- ❌ Multiple "feature lists" across README, planning docs, and guides
+- ❌ Development standards scattered across project-specific guides
+- ❌ Progress tracking in multiple inconsistent locations
+- ❌ Architecture decisions repeated across multiple documents
+
+**Consolidation Strategy:**
+1. **Audit existing documentation** for duplication and inconsistency
+2. **Identify single sources of truth** for each information type
+3. **Move content to proper locations** based on information architecture
+4. **Update all references** to point to consolidated sources
+5. **Remove redundant documents** that add maintenance overhead
+
+**Example: causaliq-pipeline Documentation Consolidation (November 2025)**
+- Removed `docs/llm_communication_guide.md` (90% duplication with this guide)
+- Removed `docs/development_practices.md` (development patterns moved to technical architecture)
+- Consolidated all progress tracking into `docs/roadmap.md`
+- Updated README.md to reference detailed docs rather than duplicating content
+
+**Benefits Achieved:**
+- ✅ Eliminated maintenance overhead from duplicate content
+- ✅ Single sources of truth for each information type
+- ✅ Cleaner, more focused documentation structure
+- ✅ Proper information architecture with clear ownership
+
+### LLM Communication About Documentation
+
+**When working on documentation:**
+- Always ask "Does this information exist elsewhere?"
+- Prefer linking to authoritative sources over duplication
+- Update the single source of truth, not copies
+- Remove redundant content when consolidating
+
+**Documentation Maintenance Requirements:**
+- Update roadmap.md when completing features
+- Add architectural decisions to technical_architecture.md
+- Keep README.md brief and gateway-focused
+- Reference this guide for ecosystem standards, not project-specific copies
+
 ## 🎯 Development Principles
 
 ### Core Values
@@ -63,6 +151,52 @@ When requesting coding assistance, provide these documents for optimal results:
 - **Transparency**: Clear explanations for all suggestions
 - **Quality**: Maintain high standards while respecting incremental approach
 - **Learning**: Help developers understand patterns and decisions
+
+## 🏗️ Environment Management
+
+### CausalIQ Standard Environment Setup
+**CRITICAL**: Never use `pip install` directly. Always use project setup scripts.
+
+**For package development:**
+```powershell
+# Use provided environment setup script
+.\scripts\setup-env.ps1
+
+# Verify environment with CI checks
+.\scripts\check_ci.ps1
+```
+
+**For LLM assistance:**
+- Inform LLM about environment management: "Use scripts/setup-env.ps1 for dependencies, not pip install"
+- Always run CI checks after dependency changes
+- Include environment setup in implementation explanations
+
+### Terminal Session and Virtual Environment Management
+**CRITICAL**: Virtual environments must be maintained within the same terminal session.
+
+**Common LLM Error Pattern:**
+```powershell
+# ❌ WRONG: Each command starts a new terminal session
+Terminal 1: .\scripts\activate.ps1 311
+Terminal 2: python -m mkdocs serve    # Fails - no venv activated
+```
+
+**Correct LLM Approach:**
+```powershell
+# ✅ CORRECT: Run activation and commands in same session
+.\scripts\activate.ps1 311; python -m mkdocs serve --dev-addr=127.0.0.1:8000
+```
+
+**LLM Best Practices:**
+- **Sequential commands**: Use semicolon (`;`) to run activation + command in one call
+- **Session awareness**: Remember that `run_in_terminal` starts fresh sessions
+- **Environment verification**: Check for `(py311)` prompt prefix before running Python tools
+- **Documentation tools**: MkDocs, pytest, and other tools require activated venv
+
+**Environment-Dependent Tools:**
+- `mkdocs serve` - Requires venv for mkdocstrings-python handler
+- `pytest` with coverage - Uses venv-installed packages
+- `black`, `isort`, `flake8`, `mypy` - Should use venv versions for consistency
 
 ## 📋 Essential Quality Standards
 
@@ -74,6 +208,9 @@ When requesting coding assistance, provide these documents for optimal results:
 - [ ] **Incremental**: Changes broken into logical steps
 - [ ] **British English**: Use British spelling in all documentation
 - [ ] **MkDocs formatting**: Include blank lines before bullet point lists
+- [ ] **API Documentation**: Satisfactory documentation available before commit
+- [ ] **Design Documentation**: Significant decisions documented in technical_architecture.md
+- [ ] **Progress Tracking**: Update roadmap.md with completed tasks before commit
 
 ### Example: Good Incremental Development
 ```python
@@ -147,13 +284,18 @@ def test_bic_score_returns_float():
     pass
 ```
 
+**Test Classification Rules:**
+- **Unit tests**: Pure logic, no filesystem/external dependencies
+- **Functional tests**: Filesystem access, local resources (use `tests/data/functional/`)
+- **Integration tests**: Remote services, network dependencies
+
 ## 🛠️ Code Quality Standards
 
 ### CI Validation Tools
 Generated code must pass these automated checks:
 
 **Black** (code formatting):
-- 79 character line limit (not 88)
+- **79 character line limit** (not 88) - CRITICAL CausalIQ standard
 - Double quotes for strings
 - Trailing commas in multi-line structures
 
@@ -173,6 +315,21 @@ Generated code must pass these automated checks:
 - Descriptive variable names
 - British English spelling in comments and strings
 
+### Line Length Management
+**CRITICAL**: Follow 79-character limit from the start, not retrospectively:
+```python
+# ✅ Good: Written to 79-char limit
+def process_configuration_data(
+    workflow_config: Dict[str, Any],
+    validation_schema: Dict[str, Any]
+) -> ProcessedConfig:
+    """Process workflow configuration with validation."""
+    pass
+
+# ❌ Bad: Long lines requiring later reformatting
+def process_configuration_data(workflow_config: Dict[str, Any], validation_schema: Dict[str, Any]) -> ProcessedConfig:
+```
+
 ### Documentation Standards
 
 **Language and Formatting Requirements**:
@@ -181,6 +338,20 @@ Generated code must pass these automated checks:
 - **MkDocs compatibility**: Always include blank line before bullet point lists
 - **Google-style docstrings**: Complete with examples and type information
 - **Markdown formatting**: Ensure proper rendering in documentation website
+
+**API Documentation Requirements**:
+
+- **Pre-commit documentation**: Ensure satisfactory API documentation is available before each commit
+- **Design documentation**: Significant design decisions must be documented in `technical_architecture.md` or separate design notes
+- **Public API exposure**: All user-facing classes and functions properly documented
+
+**Roadmap Maintenance Requirements**:
+
+- **Task completion updates**: Mark tasks as completed (✅) in roadmap.md when implementation is done
+- **Progress recalculation**: Update overall progress percentages using accurate mathematical calculation
+- **Status transitions**: Change feature areas from ⏸️ to 🚧 when starting, 🚧 to ✅ when complete
+- **Milestone identification**: Update 🎯 next milestone indicators as priorities shift
+- **Commit synchronisation**: Roadmap updates should be included in the same commit as the feature implementation
 
 **Example Documentation**:
 ```python
@@ -253,8 +424,6 @@ def learn_structure(
     return result
 ```
 
----
-
 ## 📖 Reference Examples
 
 ### Complete Function Example
@@ -294,6 +463,38 @@ def test_bic_score_valid_dag():
     assert isinstance(score, float)
     assert np.isfinite(score)
 ```
+
+## ⚠️ Common Standards Violations to Avoid
+
+### Testing Violations
+- ❌ Using test classes when individual functions suffice
+- ❌ Putting filesystem tests in unit tests (belongs in functional)
+- ❌ Missing permanent test files in `tests/data/functional/`
+- ❌ Missing one-line test comments for VS Code outline
+
+### Code Quality Violations
+- ❌ Writing long lines and fixing retrospectively (write to 79 chars)
+- ❌ Missing type hints or incomplete docstrings
+- ❌ Using American spelling in comments/strings
+- ❌ Incomplete API documentation before commit
+
+### Environment Violations
+- ❌ Using `pip install` directly instead of `scripts/setup-env.ps1`
+- ❌ Not running CI checks before claiming completion
+- ❌ Missing dependency declarations in project files
+- ❌ **Starting new terminal sessions without venv activation**
+- ❌ **Running Python tools (mkdocs, pytest) without proper environment**
+- ❌ **Forgetting semicolon syntax for sequential commands in PowerShell**
+
+### Documentation Violations
+- ❌ Missing design documentation for significant decisions
+- ❌ Incomplete API documentation before commit
+- ❌ Missing blank lines before bullet points in MkDocs
+- ❌ Failing to update roadmap.md when completing tasks
+- ❌ Inaccurate progress calculations in roadmap.md
+- ❌ Creating duplicate documentation instead of referencing single sources of truth
+- ❌ Maintaining redundant project-specific guides that duplicate ecosystem standards
+- ❌ Scattering feature lists and progress tracking across multiple documents
 
 ---
 

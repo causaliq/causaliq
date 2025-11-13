@@ -502,4 +502,4 @@ def test_bic_score_valid_dag():
 
 ---
 
-**Document Location**: This guide is maintained in the umbrella `causaliq/causaliq` repository and should be referenced when working on any CausalIQ project (causaliq-discovery, causaliq-guide, causaliq-pipeline, etc.).
+**Document Location**: This guide is maintained in the umbrella `causaliq/causaliq` repository and should be referenced when working on any CausalIQ project (causaliq-discovery, causaliq-knowledge, causaliq-pipeline, etc.).

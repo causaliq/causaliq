@@ -15,7 +15,7 @@ Automated tools for synchronizing research datasets, experiment configurations, 
 
 ## 🚀 Coming Soon
 
-#### 🧠 [CausalIQ Guide](guide.md)
+#### 🧠 [CausalIQ Knowledge](knowledge.md)
 Novel approaches for integrating Large Language Models and human knowledge with statistical causal discovery, enabling domain knowledge incorporation and natural language explanation of results.
 
 #### 🎯 CausalIQ Score
@@ -36,7 +36,7 @@ Curated collection of experimental setups, benchmark datasets, and published res
 ```mermaid
 graph TD
     DIS[🔍 CausalIQ Discovery]
-    GUI[🧠 CausalIQ Guide]
+    KNO[🧠 CausalIQ Knowledge]
     PIP[🤖 CausalIQ Pipeline]
     ANA[📊 CausalIQ Analysis] 
     EXP[🧪 CausalIQ Experiments]
@@ -50,9 +50,9 @@ graph TD
     PIP --> ANA
     PIP --> ZEN
     PIP --> PRE
-    PRE --> GUI
-    DIS --> GUI
-    ANA --> GUI
+    PRE --> KNO
+    DIS --> KNO
+    ANA --> KNO
     DIS --> SCO
     
 
@@ -64,7 +64,7 @@ graph TD
 1. **Start with Discovery**: Install `causaliq-discovery` to explore basic causal learning
 2. **Add Analysis**: Use `causaliq-analysis` for visualization and evaluation
 3. **Scale Up**: Implement `causaliq-pipeline` for larger experiments
-4. **Enhance with AI**: Integrate `causaliq-guide` for domain knowledge incorporation
+4. **Enhance with AI**: Integrate `causaliq-knowledge` for domain knowledge incorporation
 
 ### For Developers
 1. **Read the Architecture**: Understand how projects interact

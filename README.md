@@ -47,7 +47,7 @@ The **CausalIQ** ecosystem is composed of modular projects that can be used inde
 - **causaliq-experiments**: Published experiment configurations, datasets, and results.
 - **causaliq-score**: Optimized scoring functions for evaluating graph structures.
 - **causaliq-analysis**: Tools for statistical analysis and metrics of learnt graphs.
-- **causaliq-guide**: Integration of large language models, human expertise etc. to assist with graph generation, causal direction inference, and interpretation.
+- **causaliq-knowledge**: Integration of large language models, human expertise etc. to assist with graph generation, causal direction inference, and interpretation.
 
 ## 🔄 Human + LLM Collaboration
 

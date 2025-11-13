@@ -28,7 +28,7 @@ causaliq-experiments (Published experiments & datasets)
 ├── causaliq-discovery (Statistical algorithms & structure learning)
 ├── causaliq-score (Optimized scoring functions)
 ├── causaliq-analysis (Metrics & statistical analysis)
-├── causaliq-guide (LLM integration & reasoning)  ⭐ (Previously causaliq-llm))
+├── causaliq-knowledge (LLM integration & reasoning)  ⭐ (Previously causaliq-llm))
 ├── causaliq-core (Graphs, file i/o and utilities)  ⭐ NEW
 └── zenodo-sync (Dataset & result synchronization)
 ```
@@ -40,7 +40,7 @@ causaliq-experiments (Published experiments & datasets)
 | **causaliq-discovery** | Core statistical algorithms | Bayesian network learning, score-based methods |
 | **causaliq-score** | Graph scoring functions | Optimized BIC, AIC, BDeu implementations |
 | **causaliq-analysis** | Result analysis | Metrics, stability analysis, graph comparison |
-| **causaliq-guide** | LLM integration | Graph generation, causal direction inference |
+| **causaliq-knowledge** | LLM integration | Graph generation, causal direction inference |
 | **causaliq-pipeline** | Workflow orchestration | Dask/Snakemake integration, experiment management |
 | **causaliq-experiments** | Research outputs | Published configurations, datasets, results |
 | **causaliq-core** | Shared code | Graph representations and utility functions |

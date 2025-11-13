@@ -185,7 +185,7 @@ stability_matrix = results.stability_across_parameters
 
 ## Integration Points
 
-### With CausalIQ Guide
+### With CausalIQ Knowledge
 ```python
 from causaliq_discovery import PC
 from causaliq_guide import CausalReasoner

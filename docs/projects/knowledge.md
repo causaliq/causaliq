@@ -1,4 +1,4 @@
-# 🧠 CausalIQ Guide Project
+# 🧠 CausalIQ Knowledge Project
 
 The CausalIQ project represents a novel approach to causal discovery by combining the traditional statistical structure learning algorithms with the contextual understanding and reasoning capabilities of Large Language Models. This integration enables more interpretable, domain-aware, and human-friendly causal discovery workflows.
 

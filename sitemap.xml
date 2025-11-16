@@ -2,62 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://causaliq.github.io/causaliq/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/about/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/about/development-methodology/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/about/logos/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/papers/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/projects/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/projects/discovery/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/projects/ecosystem_architecture/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
-         <loc>https://causaliq.github.io/causaliq/projects/guide/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <loc>https://causaliq.github.io/causaliq/projects/knowledge/</loc>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
-         <loc>https://causaliq.github.io/causaliq/projects/pipeline/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <loc>https://causaliq.github.io/causaliq/projects/workflow/</loc>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/projects/zenodo/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/research/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/research/bayesian-networks/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/research/causal-discovery/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
     <url>
          <loc>https://causaliq.github.io/causaliq/research/llm-integration/</loc>
-         <lastmod>2025-11-09</lastmod>
+         <lastmod>2025-11-16</lastmod>
     </url>
 </urlset>

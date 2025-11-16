@@ -648,12 +648,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/" class="md-nav__link">
+      <a href="../knowledge/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    CausalIQ Guide
+    CausalIQ Knowledge
     
   </span>
   
@@ -671,12 +671,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../pipeline/" class="md-nav__link">
+      <a href="../workflow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    CausalIQ Pipeline
+    CausalIQ Workflow
     
   </span>
   
@@ -1660,13 +1660,14 @@
 <p>Statistical causal discovery algorithms are enhanced by LLM reasoning for interpretation, direction inference, and domain knowledge integration.</p>
 <h2 id="ecosystem-components">Ecosystem Components<a class="headerlink" href="#ecosystem-components" title="Permanent link">&para;</a></h2>
 <h3 id="core-projects">Core Projects<a class="headerlink" href="#core-projects" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>causaliq-experiments (Published experiments &amp; datasets)
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── causaliq-pipeline (Orchestration &amp; workflow management)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>causaliq-papers (Datasets, experiments and results for papers)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── causaliq-workflow (Orchestration &amp; workflow management)
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── causaliq-discovery (Statistical algorithms &amp; structure learning)
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── causaliq-score (Optimized scoring functions)
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── causaliq-analysis (Metrics &amp; statistical analysis)
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── causaliq-guide (LLM integration &amp; reasoning)
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└── zenodo-sync (Dataset &amp; result synchronization)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── causaliq-knowledge (LLM integration &amp; reasoning)  ⭐ (Previously causaliq-llm))
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── causaliq-core (Graphs, file i/o and utilities)  ⭐ NEW
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── zenodo-sync (Dataset &amp; result synchronization)
 </span></code></pre></div>
 <h3 id="project-responsibilities">Project Responsibilities<a class="headerlink" href="#project-responsibilities" title="Permanent link">&para;</a></h3>
 <table>
@@ -1694,19 +1695,24 @@
 <td>Metrics, stability analysis, graph comparison</td>
 </tr>
 <tr>
-<td><strong>causaliq-guide</strong></td>
+<td><strong>causaliq-knowledge</strong></td>
 <td>LLM integration</td>
 <td>Graph generation, causal direction inference</td>
 </tr>
 <tr>
-<td><strong>causaliq-pipeline</strong></td>
+<td><strong>causaliq-workflow</strong></td>
 <td>Workflow orchestration</td>
-<td>Dask/Snakemake integration, experiment management</td>
+<td>CI workflow inspired, DASK task management</td>
 </tr>
 <tr>
-<td><strong>causaliq-experiments</strong></td>
+<td><strong>causaliq-papers</strong></td>
 <td>Research outputs</td>
 <td>Published configurations, datasets, results</td>
+</tr>
+<tr>
+<td><strong>causaliq-core</strong></td>
+<td>Shared code</td>
+<td>Graph representations and utility functions</td>
 </tr>
 <tr>
 <td><strong>zenodo-sync</strong></td>
@@ -1762,7 +1768,7 @@
 <ul>
 <li><strong>Inter-project</strong>: REST APIs and message queues</li>
 <li><strong>LLM integration</strong>: OpenAI-compatible interfaces</li>
-<li><strong>Pipeline</strong>: Dask distributed computing</li>
+<li><strong>Workflow</strong>: Dask distributed computing</li>
 <li><strong>Storage</strong>: Cloud-native object storage</li>
 </ul>
 <h3 id="shared-data-structures">Shared Data Structures<a class="headerlink" href="#shared-data-structures" title="Permanent link">&para;</a></h3>

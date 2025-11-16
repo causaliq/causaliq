@@ -12,13 +12,13 @@
         <meta name="author" content="CausalIQ Research">
       
       
-        <link rel="canonical" href="https://causaliq.github.io/causaliq/projects/guide/">
+        <link rel="canonical" href="https://causaliq.github.io/causaliq/projects/workflow/">
       
       
-        <link rel="prev" href="../discovery/">
+        <link rel="prev" href="../knowledge/">
       
       
-        <link rel="next" href="../pipeline/">
+        <link rel="next" href="../zenodo/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>CausalIQ Guide - CausalIQ</title>
+        <title>CausalIQ Workflow - CausalIQ</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#causaliq-guide-project" class="md-skip">
+        <a href="#causaliq-workflow" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CausalIQ Guide
+              CausalIQ Workflow
             
           </span>
         </div>
@@ -645,6 +645,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CausalIQ Knowledge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -662,7 +685,7 @@
   
   
   <span class="md-ellipsis">
-    CausalIQ Guide
+    CausalIQ Workflow
     
   </span>
   
@@ -675,7 +698,7 @@
   
   
   <span class="md-ellipsis">
-    CausalIQ Guide
+    CausalIQ Workflow
     
   </span>
   
@@ -700,37 +723,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#possible-key-innovations" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Possible Key Innovations
+      Key Features
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Possible Key Innovations">
+    <nav class="md-nav" aria-label="Key Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#domain-knowledge-integration" class="md-nav__link">
+  <a href="#workflow-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Domain Knowledge Integration
+      🔄 Workflow Orchestration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interactive-discovery" class="md-nav__link">
+  <a href="#experiment-management" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Interactive Discovery
+      📊 Experiment Management
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#automated-explanation" class="md-nav__link">
+  <a href="#results-tracking" class="md-nav__link">
     <span class="md-ellipsis">
-      📝 Automated Explanation
+      📈 Results Tracking
     </span>
   </a>
   
@@ -754,29 +777,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    CausalIQ Pipeline
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1007,37 +1007,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#possible-key-innovations" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Possible Key Innovations
+      Key Features
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Possible Key Innovations">
+    <nav class="md-nav" aria-label="Key Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#domain-knowledge-integration" class="md-nav__link">
+  <a href="#workflow-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Domain Knowledge Integration
+      🔄 Workflow Orchestration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interactive-discovery" class="md-nav__link">
+  <a href="#experiment-management" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Interactive Discovery
+      📊 Experiment Management
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#automated-explanation" class="md-nav__link">
+  <a href="#results-tracking" class="md-nav__link">
     <span class="md-ellipsis">
-      📝 Automated Explanation
+      📈 Results Tracking
     </span>
   </a>
   
@@ -1076,43 +1076,48 @@
   
 
 
-<h1 id="causaliq-guide-project">🧠 CausalIQ Guide Project<a class="headerlink" href="#causaliq-guide-project" title="Permanent link">&para;</a></h1>
-<p>The CausalIQ project represents a novel approach to causal discovery by combining the traditional statistical structure learning algorithms with the contextual understanding and reasoning capabilities of Large Language Models. This integration enables more interpretable, domain-aware, and human-friendly causal discovery workflows.</p>
+<h1 id="causaliq-workflow">🤖 CausalIQ Workflow<a class="headerlink" href="#causaliq-workflow" title="Permanent link">&para;</a></h1>
+<p>The CausalIQ Workflow framework provides a comprehensive solution for designing, executing, and reproducing causal discovery experiments at scale. Built on modern workflow orchestration tools, it enables researchers to conduct rigorous, reproducible studies while managing complex experimental configurations and large-scale computations.</p>
 <p><strong>Quick Links:</strong></p>
 <ul>
-<li>📖 Full Documentation - coming soon</li>
-<li>💻 Repository - coming soon</li>
+<li><a href="https://causaliq.github.io/causaliq-workflow/">📖 Full Documentation</a></li>
+<li><a href="https://github.com/causaliq/causaliq-workflow">💻 Repository</a></li>
 <li>🚀 Quick Start - coming soon</li>
 </ul>
-<h2 id="possible-key-innovations">Possible Key Innovations<a class="headerlink" href="#possible-key-innovations" title="Permanent link">&para;</a></h2>
-<h3 id="domain-knowledge-integration">🧠 Domain Knowledge Integration<a class="headerlink" href="#domain-knowledge-integration" title="Permanent link">&para;</a></h3>
+<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h3 id="workflow-orchestration">🔄 Workflow Orchestration<a class="headerlink" href="#workflow-orchestration" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Natural language constraints</strong>: Specify domain knowledge in plain English</li>
-<li><strong>Expert knowledge incorporation</strong>: Convert expert understanding into algorithmic constraints</li>
-<li><strong>Contextual graph interpretation</strong>: Understanding variable meanings and relationships</li>
+<li><strong>Continuous Integration (CI) testing</strong>: Workflow specification syntax</li>
+<li><strong>Dask distributed computing</strong>: Scalable parallel processing</li>
+<li><strong>Dependency management</strong>: Automatic handling of data and processing dependencies</li>
+<li><strong>Error recovery</strong>: Robust handling of failures and restarts</li>
 </ul>
-<h3 id="interactive-discovery">🔄 Interactive Discovery<a class="headerlink" href="#interactive-discovery" title="Permanent link">&para;</a></h3>
+<h3 id="experiment-management">📊 Experiment Management<a class="headerlink" href="#experiment-management" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Conversational interfaces</strong>: Query causal relationships in natural language</li>
-<li><strong>Hypothesis testing</strong>: Test specific causal hypotheses through dialogue</li>
-<li><strong>Iterative refinement</strong>: Collaboratively improve causal models through interaction</li>
+<li><strong>Configuration management</strong>: YAML-based experiment specifications</li>
+<li><strong>Parameter sweeps</strong>: Systematic exploration of algorithm parameters</li>
+<li><strong>Version control</strong>: Git-based tracking of experiments and results</li>
+<li><strong>Reproducibility</strong>: Deterministic execution with seed management</li>
 </ul>
-<h3 id="automated-explanation">📝 Automated Explanation<a class="headerlink" href="#automated-explanation" title="Permanent link">&para;</a></h3>
+<h3 id="results-tracking">📈 Results Tracking<a class="headerlink" href="#results-tracking" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Relationship explanations</strong>: Natural language descriptions of discovered causal links</li>
-<li><strong>Uncertainty communication</strong>: Clear explanation of confidence levels and limitations</li>
-<li><strong>Report generation</strong>: Automated research summaries and methodology descriptions</li>
+<li><strong>Automated metrics</strong>: Comprehensive evaluation of learned structures</li>
+<li><strong>Comparison frameworks</strong>: Statistical comparison across methods</li>
+<li><strong>Visualization</strong>: Interactive plots and publication-ready figures</li>
+<li><strong>Report generation</strong>: Automated experimental summaries</li>
 </ul>
 <h2 id="integration-with-ecosystem">Integration with Ecosystem<a class="headerlink" href="#integration-with-ecosystem" title="Permanent link">&para;</a></h2>
 <ul>
-<li>🔍 <strong>CausalIQ Discovery</strong> (causaliq-pipeline) makes use of this package to learn more 
-accurate graphs.</li>
-<li>🧪 <strong>CausalIQ Analysis</strong> (causaliq-analysis) uses this package to explain the learning process, intelligently combine end explain results.</li>
-<li>🔮 <strong>CausalIq Predict</strong> (causaliq-predict) uses this package to explain predictions made by learnt models.</li>
+<li>🔍 <strong>CausalIQ Discovery</strong> (causaliq-discovery) is called by this package to perform structure learning.</li>
+<li>📊 <strong>CausalIQ Analysis</strong> (causaliq-predict) is called by this package to perform results analysis and generate assets for research papers.</li>
+<li>🔮 <strong>CausalIQ Predict</strong> (causaliq-predict) is called by this package to perform causal prediction.</li>
+<li>🔄 <strong>Zenodo Synchronisation</strong> (zenodo-sync) is used by this package to download datasets and upload results.</li>
+<li>🧪 <strong>CausalIQ Papers</strong> (causaliq-papers) are defined in terms of CausalIQ Workflows allowing the reproduction of experiments, results and
+published paper assets created by the CausalIQ ecosystem.</li>
 </ul>
-<p><br/></p>
+<p><br /></p>
 <hr />
-<p><em>The LLM Integration project represents a significant step toward more intelligent, interpretable, and human-collaborative approaches to causal discovery, bridging the gap between statistical rigor and domain expertise.</em></p>
+<p><em>The CausalIQ Workflow framework enables reproducible, scalable causal discovery research by providing comprehensive tools for experiment design, execution, and analysis, supporting the advancement of reliable causal inference methodologies.</em></p>
 
 
 
@@ -1152,7 +1157,7 @@ accurate graphs.</li>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../discovery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CausalIQ Discovery">
+          <a href="../knowledge/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CausalIQ Knowledge">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1162,20 +1167,20 @@ accurate graphs.</li>
                 Previous
               </span>
               <div class="md-ellipsis">
-                CausalIQ Discovery
+                CausalIQ Knowledge
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pipeline/" class="md-footer__link md-footer__link--next" aria-label="Next: CausalIQ Pipeline">
+          <a href="../zenodo/" class="md-footer__link md-footer__link--next" aria-label="Next: Zenodo Synchronisation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CausalIQ Pipeline
+                Zenodo Synchronisation
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -14,7 +14,7 @@ Developing and improving algorithms for learning causal graph structures from ob
 Exploring how Large Language Models can augment traditional statistical methods by incorporating domain knowledge, suggesting causal directions, and providing interpretable explanations.
 
 ### 📊 Methodological Innovation
-Creating robust, reproducible pipelines for causal discovery experiments, with emphasis on stability analysis, uncertainty quantification, and performance evaluation.
+Creating robust, reproducible workflows for causal discovery experiments, with emphasis on stability analysis, uncertainty quantification, and performance evaluation.
 
 
 ---

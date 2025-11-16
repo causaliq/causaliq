@@ -27,7 +27,7 @@ The CausalIQ project represents a novel approach to causal discovery by combinin
 
 ## Integration with Ecosystem
 
-- 🔍 **CausalIQ Discovery** (causaliq-pipeline) makes use of this package to learn more 
+- 🔍 **CausalIQ Discovery** (causaliq-workflow) makes use of this package to learn more 
 accurate graphs.
 - 🧪 **CausalIQ Analysis** (causaliq-analysis) uses this package to explain the learning process, intelligently combine end explain results.
 - 🔮 **CausalIq Predict** (causaliq-predict) uses this package to explain predictions made by learnt models.

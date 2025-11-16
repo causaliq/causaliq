@@ -22,8 +22,8 @@ A lightweight CLI and Python library to synchronise local research data, results
 
 ## Integration with Ecosystem
 
-- 🤖 **CausalIQ Pipeline** (causaliq-pipeline) makes use of this package (zenodo-sync) to download datasets and intermediate results required for experimental pipelines, and to upload new results and analysis to Zenodo.
-- 🧪 **CausalIQ Experiments** (causaliq-experiments) are defined in terms of CausalIQ Pipelines allowing the reproduction of experiments, results and
+- 🤖 **CausalIQ Workflow** (causaliq-workflow) makes use of this package (zenodo-sync) to download datasets and intermediate results required for experimental workflows, and to upload new results and analysis to Zenodo.
+- 🧪 **CausalIQ Papers** (causaliq-papers) are defined in terms of CausalIQ Workflows allowing the reproduction of experiments, results and
 published paper assets created by the CausalIQ ecosystem.
 
 ## Standalone Use

@@ -19,7 +19,7 @@ is a focus on simple, stable and competitive algorithms.
 ## Integration with Ecosystem
 
 - 🎯 **CausalIQ Score** (causaliq-score) is used by this package to determine the score of graphs.
-- 🤖 **CausalIQ Pipeline** uses this package in structure learning workflows.
+- 🤖 **CausalIQ Workflow** uses this package in structure learning workflows.
 
 ## Standalone Use
 

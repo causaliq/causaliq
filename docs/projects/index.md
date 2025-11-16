@@ -7,7 +7,7 @@ The CausalIQ ecosystem consists of several interconnected projects, each focusin
 #### 🔍 [CausalIQ Discovery](discovery.md)
 Provides state-of-the-art algorithms for learning    causal graph structures from observational data
 
-#### 🤖 [CausalIQ Pipeline](pipeline.md)
+#### 🤖 [CausalIQ Workflow](workflow.md)
 Comprehensive framework for designing, executing, and reproducing causal discovery experiments at scale, with built-in support for distributed computing and result tracking.
 
 #### 🔄 [Zenodo Synchronisation](zenodo.md)
@@ -27,7 +27,7 @@ Tools for analyzing and visualizing learned causal graphs, including structural 
 #### 🔮 CausalIQ Predict  
 Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
 
-#### 🧪 CausalIQ Experiments
+#### 🧪 CausalIQ Papers
 Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
 
 
@@ -37,19 +37,19 @@ Curated collection of experimental setups, benchmark datasets, and published res
 graph TD
     DIS[🔍 CausalIQ Discovery]
     KNO[🧠 CausalIQ Knowledge]
-    PIP[🤖 CausalIQ Pipeline]
+    WOR[🤖 CausalIQ Workflow]
     ANA[📊 CausalIQ Analysis] 
-    EXP[🧪 CausalIQ Experiments]
+    PAP[🧪 CausalIQ Papers]
     SCO[🎯 CausalIQ Score]
     PRE[🔮 CausalIQ Predict]
     ZEN[🔄 Zenodo Sync]
 
-    EXP --> ZEN
-    EXP --> PIP
-    PIP --> DIS
-    PIP --> ANA
-    PIP --> ZEN
-    PIP --> PRE
+    PAP --> ZEN
+    PAP --> WOR
+    WOR --> DIS
+    WOR --> ANA
+    WOR --> ZEN
+    WOR --> PRE
     PRE --> KNO
     DIS --> KNO
     ANA --> KNO
@@ -63,7 +63,7 @@ graph TD
 ### For Researchers
 1. **Start with Discovery**: Install `causaliq-discovery` to explore basic causal learning
 2. **Add Analysis**: Use `causaliq-analysis` for visualization and evaluation
-3. **Scale Up**: Implement `causaliq-pipeline` for larger experiments
+3. **Scale Up**: Implement `causaliq-workflow` for larger experiments
 4. **Enhance with AI**: Integrate `causaliq-knowledge` for domain knowledge incorporation
 
 ### For Developers

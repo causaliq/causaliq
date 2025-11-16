@@ -23,8 +23,8 @@ Statistical causal discovery algorithms are enhanced by LLM reasoning for interp
 ### Core Projects
 
 ```
-causaliq-experiments (Published experiments & datasets)
-├── causaliq-pipeline (Orchestration & workflow management)
+causaliq-papers (Datasets, experiments and results for papers)
+├── causaliq-workflow (Orchestration & workflow management)
 ├── causaliq-discovery (Statistical algorithms & structure learning)
 ├── causaliq-score (Optimized scoring functions)
 ├── causaliq-analysis (Metrics & statistical analysis)
@@ -41,8 +41,8 @@ causaliq-experiments (Published experiments & datasets)
 | **causaliq-score** | Graph scoring functions | Optimized BIC, AIC, BDeu implementations |
 | **causaliq-analysis** | Result analysis | Metrics, stability analysis, graph comparison |
 | **causaliq-knowledge** | LLM integration | Graph generation, causal direction inference |
-| **causaliq-pipeline** | Workflow orchestration | Dask/Snakemake integration, experiment management |
-| **causaliq-experiments** | Research outputs | Published configurations, datasets, results |
+| **causaliq-workflow** | Workflow orchestration | CI workflow inspired, DASK task management |
+| **causaliq-papers** | Research outputs | Published configurations, datasets, results |
 | **causaliq-core** | Shared code | Graph representations and utility functions |
 | **zenodo-sync** | Data management | Automated synchronization with Zenodo |
 
@@ -88,7 +88,7 @@ causaliq-experiments (Published experiments & datasets)
 ### Communication Protocols
 - **Inter-project**: REST APIs and message queues
 - **LLM integration**: OpenAI-compatible interfaces
-- **Pipeline**: Dask distributed computing
+- **Workflow**: Dask distributed computing
 - **Storage**: Cloud-native object storage
 
 ### Shared Data Structures

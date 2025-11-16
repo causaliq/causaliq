@@ -80,6 +80,21 @@ When requesting coding assistance, provide these documents for optimal results:
 - Include type definitions and key interfaces
 - Provide examples of existing patterns to follow
 
+It is useful to re-emphasise some key points when asking the LLM to help
+with coding. For example, this was useful to refresh the context for Claude 
+Sonnet 4:
+
+```text
+Please implement xxxx following the principles in 
+https://github.com/causaliq/causaliq/blob/main/LLM_DEVELOPMENT_GUIDE.md, ESPECIALLY:
+- commits should be small - round 50-100 lines of code ideally
+- pre-emptively code to pass black, isort, flake8, mypy and pytest (with 100% coverage) PARTICULARLY MAX LINE LENGTH 79
+- remember to activate the default venv using scripts/activate
+- consult architecture and design notes
+- if new dependencies are required, update pyproject.toml and run scripts/setup-env, 
+NEVER use "pip install"
+```
+
 ## 📚 Documentation Architecture Patterns
 
 ### Single Source of Truth Principle
@@ -118,7 +133,7 @@ The [ecosystem-wide development standards](https://github.com/causaliq/causaliq/
 4. **Update all references** to point to consolidated sources
 5. **Remove redundant documents** that add maintenance overhead
 
-**Example: causaliq-pipeline Documentation Consolidation (November 2025)**
+**Example: causaliq-workflow Documentation Consolidation (November 2025)**
 - Removed `docs/llm_communication_guide.md` (90% duplication with this guide)
 - Removed `docs/development_practices.md` (development patterns moved to technical architecture)
 - Consolidated all progress tracking into `docs/roadmap.md`
@@ -502,4 +517,4 @@ def test_bic_score_valid_dag():
 
 ---
 
-**Document Location**: This guide is maintained in the umbrella `causaliq/causaliq` repository and should be referenced when working on any CausalIQ project (causaliq-discovery, causaliq-knowledge, causaliq-pipeline, etc.).
+**Document Location**: This guide is maintained in the umbrella `causaliq/causaliq` repository and should be referenced when working on any CausalIQ project (causaliq-discovery, causaliq-knowledge, causaliq-workflow, etc.).

@@ -9,7 +9,7 @@ These repositories bring together algorithms, experiments, and datasets that sup
 * Statistical score-based causal discovery algorithms.
 * Variable ordering and stability in learned graphs
 * Integration of human and LLM knowledge into causal discovery
-* Open-source, reproducible pipelines for experiments and evaluation
+* Open-source, reproducible workflows for experiments and evaluation
 
 ## 📂 Key projects
 
@@ -42,9 +42,9 @@ All code and datasets will be released to support open, reproducible research.
 The **CausalIQ** ecosystem is composed of modular projects that can be used independently or together:
 
 - **zenodo-sync**: Integration with Zenodo for dataset and result synchronization.
-- **causaliq-pipeline**: Orchestration of causal discovery experiments and LLM integration using Dask and Snakemake.
+- **causaliq-workflow**: Orchestration of causal discovery experiments and LLM integration using CI-inspired workflows and Dask.
 - **causaliq-discovery**: Core statistical algorithms for Bayesian network structure learning.
-- **causaliq-experiments**: Published experiment configurations, datasets, and results.
+- **causaliq-papers**: Experiment configurations, datasets, and results for published papers.
 - **causaliq-score**: Optimized scoring functions for evaluating graph structures.
 - **causaliq-analysis**: Tools for statistical analysis and metrics of learnt graphs.
 - **causaliq-knowledge**: Integration of large language models, human expertise etc. to assist with graph generation, causal direction inference, and interpretation.

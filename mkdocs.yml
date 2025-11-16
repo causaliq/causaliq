@@ -59,7 +59,7 @@ nav:
     - Projects Overview: projects/index.md
     - CausalIQ Discovery: projects/discovery.md
     - CausalIQ Knowledge: projects/knowledge.md
-    - CausalIQ Pipeline: projects/pipeline.md
+    - CausalIQ Workflow: projects/workflow.md
     - Zenodo Synchronisation: projects/zenodo.md
     - Ecosystem Architecture: projects/ecosystem_architecture.md
   - Publications: papers/index.md

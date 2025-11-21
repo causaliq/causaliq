@@ -4,9 +4,6 @@ The CausalIQ ecosystem consists of several interconnected projects, each focusin
 
 ##  🛠️ Current Projects
 
-#### 🔍 [CausalIQ Discovery](discovery.md)
-Provides state-of-the-art algorithms for learning    causal graph structures from observational data
-
 #### 🤖 [CausalIQ Workflow](workflow.md)
 Comprehensive framework for designing, executing, and reproducing causal discovery experiments at scale, with built-in support for distributed computing and result tracking.
 
@@ -15,20 +12,23 @@ Automated tools for synchronizing research datasets, experiment configurations, 
 
 ## 🚀 Coming Soon
 
-#### 🧠 [CausalIQ Knowledge](knowledge.md)
+#### 📊 CausalIQ Analysis [starting December 2025]
+Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
+
+#### 🧪 CausalIQ Papers [starting December 2025]
+Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
+
+#### 🧠 [CausalIQ Knowledge](knowledge.md) [starting January 2026]
 Novel approaches for integrating Large Language Models and human knowledge with statistical causal discovery, enabling domain knowledge incorporation and natural language explanation of results.
+
+#### 🔍 [CausalIQ Discovery](discovery.md)
+Provides state-of-the-art algorithms for learning causal graph structures from observational data
 
 #### 🎯 CausalIQ Score
 High-performance implementations of scoring functions (BIC, BDeu) used in score-based causal discovery, with optimizations for large variable sets and GPU execution.
 
-#### 📊 CausalIQ Analysis  
-Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
-
 #### 🔮 CausalIQ Predict  
 Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
-
-#### 🧪 CausalIQ Papers
-Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
 
 
 ## Project Ecosystem

@@ -6,10 +6,10 @@ is a focus on simple, stable and competitive algorithms.
 **Quick Links:**
 
 - 📖 Full Documentation - coming soon
-- [💻 Repository](https://github.com/causaliq/causaliq-discovery)
-- [🚀 Quick Start](https://github.com/causaliq/causaliq-discovery/blob/main/README.md)
+- 💻 Repository - coming soon
+- 🚀 Quick Start - coming soon
 
-## ✅ Current Features
+## 🚀 Proposed Features
 
 - score-based **HC** and **Tabu** algorithms
 - Support for **discrete and continuous** data types

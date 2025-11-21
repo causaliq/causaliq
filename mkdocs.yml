@@ -57,6 +57,7 @@ nav:
     - LLMs in Causal Discovery: research/llm-integration.md
   - Projects:
     - Projects Overview: projects/index.md
+    - Ecosystem Roadmap: projects/ecosystem_roadmap.md
     - CausalIQ Discovery: projects/discovery.md
     - CausalIQ Knowledge: projects/knowledge.md
     - CausalIQ Workflow: projects/workflow.md

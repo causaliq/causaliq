@@ -18,7 +18,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../discovery/">
+        <link rel="next" href="../data/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -696,18 +696,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#november-2025-reproducible-development-monolith-migration-and-workflow-started" class="md-nav__link">
+  <a href="#december-2025-monolith-migration-graph-averaging" class="md-nav__link">
     <span class="md-ellipsis">
-      November 2025 - Reproducible Development, Monolith Migration and Workflow started
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#december-2025-graph-metrics-and-averaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      December 2025 - Graph Metrics and Averaging
+      December 2025 - Monolith Migration &amp; Graph Averaging
     </span>
   </a>
   
@@ -782,6 +773,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CausalIQ Data
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1100,18 +1114,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#november-2025-reproducible-development-monolith-migration-and-workflow-started" class="md-nav__link">
+  <a href="#december-2025-monolith-migration-graph-averaging" class="md-nav__link">
     <span class="md-ellipsis">
-      November 2025 - Reproducible Development, Monolith Migration and Workflow started
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#december-2025-graph-metrics-and-averaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      December 2025 - Graph Metrics and Averaging
+      December 2025 - Monolith Migration &amp; Graph Averaging
     </span>
   </a>
   
@@ -1203,7 +1208,7 @@
 
 <h1 id="causaliq-ecosystem-development-roadmap">CausalIQ Ecosystem - Development Roadmap<a class="headerlink" href="#causaliq-ecosystem-development-roadmap" title="Permanent link">&para;</a></h1>
 <p><em>At-a-glance view of development releases across the CausalIQ ecosystem</em></p>
-<p>Last updated: November 21, 2025</p>
+<p>Last updated: December 04, 2025</p>
 <h2 id="current-ecosystem-status">🌟 Current Ecosystem Status<a class="headerlink" href="#current-ecosystem-status" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1228,6 +1233,12 @@
 <td><a href="https://causaliq.github.io/causaliq-workflow/roadmap/">here</a></td>
 </tr>
 <tr>
+<td><strong>causaliq-core</strong></td>
+<td>0.2 Graphs</td>
+<td>Utility functions and graph classes (SDG, PDAG, DAG)</td>
+<td>tbd</td>
+</tr>
+<tr>
 <td><strong>zenodo-sync</strong></td>
 <td>0.1 Foundation</td>
 <td>Follows CausalIQ standards</td>
@@ -1250,7 +1261,7 @@
 <li>end-2026: Full reproducibility of key published papers with assets on Zenodo</li>
 </ul>
 <h2 id="ecosystem-development-timeline">📊 Ecosystem Development Timeline<a class="headerlink" href="#ecosystem-development-timeline" title="Permanent link">&para;</a></h2>
-<h3 id="november-2025-reproducible-development-monolith-migration-and-workflow-started">November 2025 - Reproducible Development, Monolith Migration and Workflow started<a class="headerlink" href="#november-2025-reproducible-development-monolith-migration-and-workflow-started" title="Permanent link">&para;</a></h3>
+<h3 id="december-2025-monolith-migration-graph-averaging">December 2025 - Monolith Migration &amp; Graph Averaging<a class="headerlink" href="#december-2025-monolith-migration-graph-averaging" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1262,99 +1273,44 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>causaliq</strong></td>
-<td>0.1 Foundation</td>
-<td>✅ Complete</td>
-<td>Architecture and development standards defined</td>
-</tr>
-<tr>
-<td><strong>causal-core</strong></td>
-<td>0.1 Foundation</td>
+<td><strong>causaliq-data</strong></td>
+<td>0.1 Foundation Data</td>
 <td>📝 Planned</td>
-<td>Common path, enum, random, math functions from monolith</td>
+<td>Data, NumPy and Pandas classes and BNFit interface</td>
 </tr>
 <tr>
-<td><strong>causal-core</strong></td>
-<td>0.2 Graphs</td>
+<td><strong>causaliq-core</strong></td>
+<td>0.3 Bayesian Networks</td>
 <td>📝 Planned</td>
-<td>General, PDAG and DAGs from monolith</td>
+<td>BNs and i/o, using BNFit interface</td>
 </tr>
 <tr>
-<td><strong>causaliq-workflow</strong></td>
-<td>0.2 Basic CLI</td>
-<td>✅ Complete</td>
-<td>Command-line interface, Action registry, Workflow execution</td>
-</tr>
-<tr>
-<td><strong>causaliq-workflow</strong></td>
-<td>0.3 Enhanced Workflow</td>
-<td>📝 Planned</td>
-<td>Conservative execution and dry-run capability</td>
-</tr>
-<tr>
-<td><strong>zenodo-sync</strong></td>
-<td>0.1 Foundation</td>
-<td>✅ Complete</td>
-<td>Follows CausalIQ standards, Deposit constructor</td>
-</tr>
-<tr>
-<td><strong>causaliq-repo-template</strong></td>
-<td>1.0 Foundation</td>
-<td>✅ Complete</td>
-<td>MkDocs, Project structure &amp; CI Testing Template</td>
-</tr>
-</tbody>
-</table>
-<p>Code migrated from legacy monolithic repo will be modifiied to meet CausalIQ quality standards.</p>
-<h3 id="december-2025-graph-metrics-and-averaging">December 2025 - Graph Metrics and Averaging<a class="headerlink" href="#december-2025-graph-metrics-and-averaging" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Project</th>
-<th>Release</th>
-<th>Status</th>
-<th>Key Deliverables</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>causal-analysis</strong></td>
+<td><strong>causaliq-analysis</strong></td>
 <td>0.1 Foundation</td>
 <td>✨ Envisaged</td>
 <td>Action interface supported</td>
 </tr>
 <tr>
-<td><strong>causal-analysis</strong></td>
+<td><strong>causaliq-analysis</strong></td>
 <td>0.2 Structural Metrics</td>
 <td>✨ Envisaged</td>
 <td>Structural graph metrics from monolith</td>
 </tr>
 <tr>
-<td><strong>causal-analysis</strong></td>
+<td><strong>causaliq-analysis</strong></td>
 <td>0.3 Graph Averaging</td>
 <td>✨ Envisaged</td>
 <td>Probabilistic graph averaging</td>
 </tr>
 <tr>
-<td><strong>causal-core</strong></td>
-<td>0.3 Input/Output</td>
+<td><strong>causaliq-data</strong></td>
+<td>0.2 Scores</td>
 <td>📝 Planned</td>
-<td>Graph file formats including GraphML</td>
-</tr>
-<tr>
-<td><strong>causal-papers</strong></td>
-<td>0.1 Import graph</td>
-<td>✨ Envisaged</td>
-<td>Import graphs from monolithic repo</td>
-</tr>
-<tr>
-<td><strong>causaliq-workflow</strong></td>
-<td>0.4 Progress and Summary</td>
-<td>✨ Envisaged</td>
-<td>Real-time progress tracking and execution summary</td>
+<td>Score functions migrated with plugin architecture</td>
 </tr>
 </tbody>
 </table>
+<p>Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.</p>
 <p>CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows</p>
 <h3 id="january-2026-llm-causal-knowledge-i">January 2026 - LLM Causal Knowledge I<a class="headerlink" href="#january-2026-llm-causal-knowledge-i" title="Permanent link">&para;</a></h3>
 <table>
@@ -1399,6 +1355,18 @@
 </tr>
 <tr>
 <td><strong>causaliq-workflow</strong></td>
+<td>0.3 Enhanced Workflow</td>
+<td>🔄 Background</td>
+<td>Conservative execution and dry-run capability</td>
+</tr>
+<tr>
+<td><strong>causaliq-workflow</strong></td>
+<td>0.4 Progress and Summary</td>
+<td>🔄 Background</td>
+<td>Real-time progress tracking and execution summary</td>
+</tr>
+<tr>
+<td><strong>causaliq-workflow</strong></td>
 <td>0.5 Advanced Features</td>
 <td>✨ Envisaged</td>
 <td>Metadata, compare mode, timeouts, estimated completion</td>
@@ -1427,6 +1395,12 @@
 <td>0.5 Advanced Queries</td>
 <td>✨ Envisaged</td>
 <td>Based on January Experience</td>
+</tr>
+<tr>
+<td><strong>causaliq-papers</strong></td>
+<td>0.1 Import graph</td>
+<td>✨ Envisaged</td>
+<td>Import graphs from monolithic repo</td>
 </tr>
 </tbody>
 </table>
@@ -1510,13 +1484,13 @@
         
         
           
-          <a href="../discovery/" class="md-footer__link md-footer__link--next" aria-label="Next: CausalIQ Discovery">
+          <a href="../data/" class="md-footer__link md-footer__link--next" aria-label="Next: CausalIQ Data">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CausalIQ Discovery
+                CausalIQ Data
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1533,7 +1507,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      &copy; 2024 CausalIQ Research. Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+      &copy; 2025 CausalIQ Research.
 
     </div>
   

@@ -1,6 +1,6 @@
 # 🧠 CausalIQ Knowledge Project
 
-The CausalIQ project represents a novel approach to causal discovery by combining the traditional statistical structure learning algorithms with the contextual understanding and reasoning capabilities of Large Language Models. This integration enables more interpretable, domain-aware, and human-friendly causal discovery workflows.
+The CausalIQ Knowledge project represents a novel approach to causal discovery by combining the traditional statistical structure learning algorithms with the contextual understanding and reasoning capabilities of Large Language Models. This integration enables more interpretable, domain-aware, and human-friendly causal discovery workflows.
 
 **Quick Links:**
 
@@ -25,12 +25,12 @@ The CausalIQ project represents a novel approach to causal discovery by combinin
 - **Uncertainty communication**: Clear explanation of confidence levels and limitations
 - **Report generation**: Automated research summaries and methodology descriptions
 
-## Integration with Ecosystem
+## Upcoming Integration with Ecosystem
 
-- 🔍 **CausalIQ Discovery** (causaliq-workflow) makes use of this package to learn more 
+- 🔍 **CausalIQ Discovery** makes use of this package to learn more 
 accurate graphs.
-- 🧪 **CausalIQ Analysis** (causaliq-analysis) uses this package to explain the learning process, intelligently combine end explain results.
-- 🔮 **CausalIq Predict** (causaliq-predict) uses this package to explain predictions made by learnt models.
+- 🧪 **CausalIQ Analysis** uses this package to explain the learning process, intelligently combine end explain results.
+- 🔮 **CausalIq Predict** uses this package to explain predictions made by learnt models.
 
 <br/>
 

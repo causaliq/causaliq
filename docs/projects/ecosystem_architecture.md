@@ -26,10 +26,10 @@ Statistical causal discovery algorithms are enhanced by LLM reasoning for interp
 causaliq-papers (Datasets, experiments and results for papers)
 ├── causaliq-workflow (Orchestration & workflow management)
 ├── causaliq-discovery (Statistical algorithms & structure learning)
-├── causaliq-score (Optimized scoring functions)
+├── causaliq-data (Optimized data caching, score functions and independence tests)
 ├── causaliq-analysis (Metrics & statistical analysis)
-├── causaliq-knowledge (LLM integration & reasoning)  ⭐ (Previously causaliq-llm))
-├── causaliq-core (Graphs, file i/o and utilities)  ⭐ NEW
+├── causaliq-knowledge (LLM integration & reasoning)
+├── causaliq-core (Graphs, Bayesian Networks and utilities)
 └── zenodo-sync (Dataset & result synchronization)
 ```
 
@@ -38,7 +38,7 @@ causaliq-papers (Datasets, experiments and results for papers)
 | Project | Purpose | Key Features |
 |---------|---------|--------------|
 | **causaliq-discovery** | Core statistical algorithms | Bayesian network learning, score-based methods |
-| **causaliq-score** | Graph scoring functions | Optimized BIC, AIC, BDeu implementations |
+| **causaliq-data** | Data related functions | Data caching, scoring and indepedence tests |
 | **causaliq-analysis** | Result analysis | Metrics, stability analysis, graph comparison |
 | **causaliq-knowledge** | LLM integration | Graph generation, causal direction inference |
 | **causaliq-workflow** | Workflow orchestration | CI workflow inspired, DASK task management |

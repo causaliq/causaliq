@@ -58,6 +58,7 @@ nav:
   - Projects:
     - Projects Overview: projects/index.md
     - Ecosystem Roadmap: projects/ecosystem_roadmap.md
+    - CausalIQ Data: projects/data.md
     - CausalIQ Discovery: projects/discovery.md
     - CausalIQ Knowledge: projects/knowledge.md
     - CausalIQ Workflow: projects/workflow.md
@@ -137,4 +138,4 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 copyright: |
-  &copy; 2024 CausalIQ Research. Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
+  &copy; 2025 CausalIQ Research.

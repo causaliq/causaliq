@@ -80,6 +80,19 @@ When requesting coding assistance, provide these documents for optimal results:
 - Include type definitions and key interfaces
 - Provide examples of existing patterns to follow
 
+The following a possible introduction when starting a new context:
+
+```text
+I am a postdoctoral researcher into causal discovery and I am in the process of 
+migrating my current monolithic code base into a new CausalIQ ecosystem of 
+packages (vision: https://causaliq.org/projects/, 
+architecture: https://causaliq.org/projects/ecosystem_architecture/) 
+for intelligent causal discovery, following these development 
+guidelines: https://github.com/causaliq/causaliq/blob/main/LLM_DEVELOPMENT_GUIDE.md.
+I would like your help with this migration.
+```
+
+
 It is useful to re-emphasise some key points when asking the LLM to help
 with coding. For example, this was useful to refresh the context for Claude 
 Sonnet 4:

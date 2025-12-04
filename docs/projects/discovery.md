@@ -18,12 +18,13 @@ is a focus on simple, stable and competitive algorithms.
 
 ## Integration with Ecosystem
 
-- 🎯 **CausalIQ Score** (causaliq-score) is used by this package to determine the score of graphs.
+- 🎯 **CausalIQ Data** (causaliq-data is used by this package to determine the score of graphs.
 - 🤖 **CausalIQ Workflow** uses this package in structure learning workflows.
 
 ## Standalone Use
 
-Users may use this package standalone in one-off structure learning experiments or as part of their own workflows.
+Users may use this package standalone in one-off structure learning experiments, as part of their own workflows, or
+as steps within [CausalIQ Workflows](workflow.md)
 
 <br/>
 

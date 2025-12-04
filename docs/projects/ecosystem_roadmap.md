@@ -2,7 +2,7 @@
 
 *At-a-glance view of development releases across the CausalIQ ecosystem*
 
-Last updated: November 21, 2025
+Last updated: December 04, 2025
 
 ## 🌟 Current Ecosystem Status
 
@@ -10,6 +10,7 @@ Last updated: November 21, 2025
 |---------|-----------------|----------------------|------------------|
 | **causaliq** (Main)        | 0.1 Architecture | Architecture and development standards defined | n/a |
 | **causaliq-workflow**      | 0.2 Basic CLI | Basic CLI with real-time execution feedback | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
+| **causaliq-core** | 0.2 Graphs | Utility functions and graph classes (SDG, PDAG, DAG) | tbd |
 | **zenodo-sync**            | 0.1 Foundation | Follows CausalIQ standards | tbd | 
 | **causaliq-repo-template** | 1.0 Foundation |Defines standardised project docs, structure and CI testing | n/a |
 
@@ -24,30 +25,19 @@ All other projects not yet started.
 
 ## 📊 Ecosystem Development Timeline
 
-### November 2025 - Reproducible Development, Monolith Migration and Workflow started
+### December 2025 - Monolith Migration & Graph Averaging
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
-| **causaliq** | 0.1 Foundation | ✅ Complete | Architecture and development standards defined |
-| **causal-core** | 0.1 Foundation | 📝 Planned | Common path, enum, random, math functions from monolith |
-| **causal-core** | 0.2 Graphs | 📝 Planned | General, PDAG and DAGs from monolith ||
-| **causaliq-workflow** | 0.2 Basic CLI | ✅ Complete | Command-line interface, Action registry, Workflow execution |
-| **causaliq-workflow** | 0.3 Enhanced Workflow | 📝 Planned | Conservative execution and dry-run capability |
-| **zenodo-sync** | 0.1 Foundation | ✅ Complete | Follows CausalIQ standards, Deposit constructor |
-| **causaliq-repo-template** | 1.0 Foundation | ✅ Complete | MkDocs, Project structure & CI Testing Template |
+| **causaliq-data** | 0.1 Foundation Data | 📝 Planned | Data, NumPy and Pandas classes and BNFit interface |
+| **causaliq-core** | 0.3 Bayesian Networks | 📝 Planned | BNs and i/o, using BNFit interface |
+| **causaliq-analysis** | 0.1 Foundation | ✨ Envisaged | Action interface supported |
+| **causaliq-analysis** | 0.2 Structural Metrics | ✨ Envisaged | Structural graph metrics from monolith |
+| **causaliq-analysis** | 0.3 Graph Averaging | ✨ Envisaged | Probabilistic graph averaging |
+| **causaliq-data** | 0.2 Scores | 📝 Planned | Score functions migrated with plugin architecture |
 
-Code migrated from legacy monolithic repo will be modifiied to meet CausalIQ quality standards.
 
-### December 2025 - Graph Metrics and Averaging 
-
-| Project | Release | Status | Key Deliverables |
-|---------|---------|--------|------------------|
-| **causal-analysis** | 0.1 Foundation | ✨ Envisaged | Action interface supported |
-| **causal-analysis** | 0.2 Structural Metrics | ✨ Envisaged | Structural graph metrics from monolith |
-| **causal-analysis** | 0.3 Graph Averaging | ✨ Envisaged | Probabilistic graph averaging |
-| **causal-core** | 0.3 Input/Output | 📝 Planned | Graph file formats including GraphML |
-| **causal-papers** | 0.1 Import graph | ✨ Envisaged | Import graphs from monolithic repo |
-| **causaliq-workflow** | 0.4 Progress and Summary | ✨ Envisaged | Real-time progress tracking and execution summary |
+Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
 
 CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows
 
@@ -60,6 +50,8 @@ CausalIQ packages (excluding core) will implement the CausalIQ Action interface 
 | **causal-knowledge** | 0.2 LLM APIs | ✨ Envisaged | Some LLMs integrated |
 | **causal-knowledge** | 0.3 Simple Edge Queries | ✨ Envisaged | Simple Edge Queries - existence/orientation |
 | **causal-knowledge** | 0.4 Query Database | ✨ Envisaged | Query, context, response stored |
+| **causaliq-workflow** | 0.3 Enhanced Workflow | 🔄 Background | Conservative execution and dry-run capability |
+| **causaliq-workflow** | 0.4 Progress and Summary | 🔄 Background  | Real-time progress tracking and execution summary |
 | **causaliq-workflow** | 0.5 Advanced Features | ✨ Envisaged | Metadata, compare mode, timeouts, estimated completion |
 
 
@@ -69,6 +61,8 @@ CausalIQ packages (excluding core) will implement the CausalIQ Action interface 
 |---------|---------|--------|------------------|
 | **causal-analysis** | 0.4 LLM Analysis | ✨ Envisaged | Based on January Experience |
 | **causal-knowledge** | 0.5 Advanced Queries | ✨ Envisaged | Based on January Experience |
+| **causaliq-papers** | 0.1 Import graph | ✨ Envisaged | Import graphs from monolithic repo |
+
 
 ## 🚀 Future Vision Post February 2026
 

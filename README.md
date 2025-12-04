@@ -1,7 +1,7 @@
 # 👋 Welcome to CausalIQ
 
 I’m an **independent researcher** and **research visitor** at Queen Mary University of London working on **causal discovery** and **Bayesian network structure learning**.
-These repositories bring together algorithms, experiments, and datasets that support research into more accurate and transparent methods for causal discovery that integrate statistical algorithms with Large Language Models (LLMs).
+The CausalIQ ecosystem brings together algorithms, experiments, and datasets that support research into more accurate and transparent methods for causal discovery that integrate statistical algorithms with Large Language Models (LLMs).
 
 ## 🔍 Research focus
 
@@ -11,10 +11,20 @@ These repositories bring together algorithms, experiments, and datasets that sup
 * Integration of human and LLM knowledge into causal discovery
 * Open-source, reproducible workflows for experiments and evaluation
 
-## 📂 Key projects
+## 📂 Constituent Projects
 
-* [**discovery**](https://github.com/causaliq/discovery) → core algorithms for structure learning
-* [**zenodo-sync**](https://github.com/causaliq/zenodo-sync) → synchronising research outputs onto Zenodo
+Currently underway:
+
+* [**CausalIQ Data**](https://github.com/causaliq/causaliq-data) → optimised data handling, statistical testing, and scoring infrastructure for causal discovery and Bayesian network operations.
+* [**CausalIQ Workflow**](https://github.com/causaliq/causaliq-workflow) → orchestration of causal discovery and inference, and analysis with LLM integration.
+* [**Zenodo Sync**](https://github.com/causaliq/zenodo-sync) → synchronise local research data and results with Zenodo for reproducible science. CLI and API to upload, publish and download assets.
+
+Coming soon:
+
+* **CausalIQ Discovery** provides algorithms for learning causal graph structures from observational data. There is a focus on simple, stable and competitive algorithms.
+* **CausalIQ Knowledge** combines the traditional statistical structure learning algorithms with the contextual understanding and reasoning capabilities of Large Language Models. This integration enables more interpretable, domain-aware, and human-friendly causal discovery workflows.
+* **CausalIQ Analysis** provides tools to evaluate structure learning experiments and generate publication-ready charts and tables.
+* **CausalIQ Papers** uses the other projects to reproduce all experiments and results in published CausalIQ papers.
 
 
 ## 🌍 Project identity
@@ -29,8 +39,8 @@ All code and datasets will be released to support open, reproducible research.
 ## 📫 Get in touch
 
 * GitHub Discussions (on individual repos)
-<!-- * Email: *[your email here, optional]* -->
-<!-- * Website: [causaliq.org](https://causaliq.org) *(if live)*  -->
+* Email: info@causaliq.org
+* Website: [causaliq.org](https://causaliq.org)
 
 ---
 
@@ -39,15 +49,27 @@ All code and datasets will be released to support open, reproducible research.
 
 ## 🧬 Modular Ecosystem Structure
 
-The **CausalIQ** ecosystem is composed of modular projects that can be used independently or together:
+The **CausalIQ** ecosystem will be provided as a set of Python packages (each with its own associated GitHub repo) which can be used independently or together as desired.
 
-- **zenodo-sync**: Integration with Zenodo for dataset and result synchronization.
-- **causaliq-workflow**: Orchestration of causal discovery experiments and LLM integration using CI-inspired workflows and Dask.
-- **causaliq-discovery**: Core statistical algorithms for Bayesian network structure learning.
-- **causaliq-papers**: Experiment configurations, datasets, and results for published papers.
-- **causaliq-score**: Optimized scoring functions for evaluating graph structures.
-- **causaliq-analysis**: Tools for statistical analysis and metrics of learnt graphs.
-- **causaliq-knowledge**: Integration of large language models, human expertise etc. to assist with graph generation, causal direction inference, and interpretation.
+Under development:
+
+- [**causaliq**](https://github.com/causaliq/causaliq) - public website providing entry point to the CausalIQ ecossystem.
+- [**causaliq-workflow**](https://github.com/causaliq/causaliq-workflow) - supports Continuous Integration testing style workflows, but not yet integrated with any other CausalIQ packages.
+- [**causaliq-data**](https://github.com/causaliq/causaliq-data) - development just beginning
+- [**causaliq-core**](https://github.com/causaliq/causaliq-core) - common software used by other CausalIQ packages. Currently includes classes for graphs as well as utility methods.
+- [**zenodo-sync**](https://github.com/causaliq/zenodo-sync) - Zenodo upload being developed
+
+Starting soon:
+
+- **causaliq-discovery** - Core statistical algorithms for Bayesian network structure learning.
+- **causaliq-papers** - Experiment configurations, datasets, and results for published papers.
+- **causaliq-analysis** - Tools for statistical analysis and metrics of learnt graphs.
+- **causaliq-knowledge** - Integration of large language models, human expertise etc. to assist with graph generation, causal direction inference, and interpretation.
+
+Legacy code:
+
+- [**discovery**](https://github.com/causaliq/discovery) - a monolithic legacy codebase underlying the currently published work which is being migrated into the individual CausalIQ packages.
+
 
 ## 🔄 Human + LLM Collaboration
 

@@ -10,6 +10,9 @@ Comprehensive framework for designing, executing, and reproducing causal discove
 #### 🔄 [Zenodo Synchronisation](zenodo.md)
 Automated tools for synchronizing research datasets, experiment configurations, and results with Zenodo for scientific transparency and reproducibility and storage of large files.
 
+#### 🔢 [CausalIQ Data](data.md)
+High-performance implementations of data-related functions, including caching of data, in-memory randomisation and sub-sampling of data, as well as scoring functions (e.g. BIC, BDeu) and independence tests based on the data.
+
 ## 🚀 Coming Soon
 
 #### 📊 CausalIQ Analysis [starting December 2025]
@@ -24,8 +27,6 @@ Novel approaches for integrating Large Language Models and human knowledge with 
 #### 🔍 [CausalIQ Discovery](discovery.md)
 Provides state-of-the-art algorithms for learning causal graph structures from observational data
 
-#### 🎯 CausalIQ Score
-High-performance implementations of scoring functions (BIC, BDeu) used in score-based causal discovery, with optimizations for large variable sets and GPU execution.
 
 #### 🔮 CausalIQ Predict  
 Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
@@ -40,7 +41,7 @@ graph TD
     WOR[🤖 CausalIQ Workflow]
     ANA[📊 CausalIQ Analysis] 
     PAP[🧪 CausalIQ Papers]
-    SCO[🎯 CausalIQ Score]
+    DAT[🔢 CausalIQ Data]
     PRE[🔮 CausalIQ Predict]
     ZEN[🔄 Zenodo Sync]
 
@@ -53,7 +54,8 @@ graph TD
     PRE --> KNO
     DIS --> KNO
     ANA --> KNO
-    DIS --> SCO
+    DIS --> DAT
+    ANA --> DAT
     
 
 ```

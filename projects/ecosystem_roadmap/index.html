@@ -18,7 +18,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../data/">
+        <link rel="next" href="../analysis/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -696,18 +696,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#december-2025-monolith-migration-graph-averaging" class="md-nav__link">
+  <a href="#january-2026-graph-averaging-and-llm-causal-knowledge" class="md-nav__link">
     <span class="md-ellipsis">
-      December 2025 - Monolith Migration &amp; Graph Averaging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#january-2026-llm-causal-knowledge-i" class="md-nav__link">
-    <span class="md-ellipsis">
-      January 2026 - LLM Causal Knowledge I
+      January 2026 - Graph averaging and LLM Causal Knowledge
     </span>
   </a>
   
@@ -773,6 +764,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CausalIQ Analysis
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1114,18 +1128,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#december-2025-monolith-migration-graph-averaging" class="md-nav__link">
+  <a href="#january-2026-graph-averaging-and-llm-causal-knowledge" class="md-nav__link">
     <span class="md-ellipsis">
-      December 2025 - Monolith Migration &amp; Graph Averaging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#january-2026-llm-causal-knowledge-i" class="md-nav__link">
-    <span class="md-ellipsis">
-      January 2026 - LLM Causal Knowledge I
+      January 2026 - Graph averaging and LLM Causal Knowledge
     </span>
   </a>
   
@@ -1208,7 +1213,7 @@
 
 <h1 id="causaliq-ecosystem-development-roadmap">CausalIQ Ecosystem - Development Roadmap<a class="headerlink" href="#causaliq-ecosystem-development-roadmap" title="Permanent link">&para;</a></h1>
 <p><em>At-a-glance view of development releases across the CausalIQ ecosystem</em></p>
-<p>Last updated: December 04, 2025</p>
+<p>Last updated: December 30, 2025</p>
 <h2 id="current-ecosystem-status">🌟 Current Ecosystem Status<a class="headerlink" href="#current-ecosystem-status" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1227,28 +1232,40 @@
 <td>n/a</td>
 </tr>
 <tr>
-<td><strong>causaliq-workflow</strong></td>
-<td>0.2 Basic CLI</td>
-<td>Basic CLI with real-time execution feedback</td>
-<td><a href="https://causaliq.github.io/causaliq-workflow/roadmap/">here</a></td>
+<td><strong>causaliq-analysis</strong></td>
+<td>0.2 Legacy trace</td>
+<td>Structural graph metrics and legacy learning traces</td>
+<td><a href="https://causaliq.github.io/causaliq-analysis/roadmap/">here</a></td>
 </tr>
 <tr>
 <td><strong>causaliq-core</strong></td>
-<td>0.2 Graphs</td>
-<td>Utility functions and graph classes (SDG, PDAG, DAG)</td>
-<td>tbd</td>
+<td>0.3 Bayesian Networks</td>
+<td>Utility functions, graph classes (SDG, PDAG, DAG) and Bayesian Networks</td>
+<td><a href="https://causaliq.github.io/causaliq-core/roadmap/">here</a></td>
 </tr>
 <tr>
-<td><strong>zenodo-sync</strong></td>
-<td>0.1 Foundation</td>
-<td>Follows CausalIQ standards</td>
-<td>tbd</td>
+<td><strong>causaliq-data</strong></td>
+<td>0.3 Independence Tests</td>
+<td>Data handling, score functions and independence tests</td>
+<td><a href="https://causaliq.github.io/causaliq-data/roadmap/">here</a></td>
 </tr>
 <tr>
 <td><strong>causaliq-repo-template</strong></td>
 <td>1.0 Foundation</td>
 <td>Defines standardised project docs, structure and CI testing</td>
 <td>n/a</td>
+</tr>
+<tr>
+<td><strong>causaliq-workflow</strong></td>
+<td>0.2 Basic CLI</td>
+<td>Basic CLI with real-time execution feedback</td>
+<td><a href="https://causaliq.github.io/causaliq-workflow/roadmap/">here</a></td>
+</tr>
+<tr>
+<td><strong>zenodo-sync</strong></td>
+<td>0.1 Foundation</td>
+<td>Follows CausalIQ standards</td>
+<td>tbd</td>
 </tr>
 </tbody>
 </table>
@@ -1261,7 +1278,7 @@
 <li>end-2026: Full reproducibility of key published papers with assets on Zenodo</li>
 </ul>
 <h2 id="ecosystem-development-timeline">📊 Ecosystem Development Timeline<a class="headerlink" href="#ecosystem-development-timeline" title="Permanent link">&para;</a></h2>
-<h3 id="december-2025-monolith-migration-graph-averaging">December 2025 - Monolith Migration &amp; Graph Averaging<a class="headerlink" href="#december-2025-monolith-migration-graph-averaging" title="Permanent link">&para;</a></h3>
+<h3 id="january-2026-graph-averaging-and-llm-causal-knowledge">January 2026 - Graph averaging and LLM Causal Knowledge<a class="headerlink" href="#january-2026-graph-averaging-and-llm-causal-knowledge" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1272,57 +1289,12 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>causaliq-data</strong></td>
-<td>0.1 Foundation Data</td>
-<td>📝 Planned</td>
-<td>Data, NumPy and Pandas classes and BNFit interface</td>
-</tr>
-<tr>
-<td><strong>causaliq-core</strong></td>
-<td>0.3 Bayesian Networks</td>
-<td>📝 Planned</td>
-<td>BNs and i/o, using BNFit interface</td>
-</tr>
-<tr>
-<td><strong>causaliq-analysis</strong></td>
-<td>0.1 Foundation</td>
-<td>✨ Envisaged</td>
-<td>Action interface supported</td>
-</tr>
-<tr>
-<td><strong>causaliq-analysis</strong></td>
-<td>0.2 Structural Metrics</td>
-<td>✨ Envisaged</td>
-<td>Structural graph metrics from monolith</td>
-</tr>
 <tr>
 <td><strong>causaliq-analysis</strong></td>
 <td>0.3 Graph Averaging</td>
-<td>✨ Envisaged</td>
+<td>📊 Planned</td>
 <td>Probabilistic graph averaging</td>
 </tr>
-<tr>
-<td><strong>causaliq-data</strong></td>
-<td>0.2 Scores</td>
-<td>📝 Planned</td>
-<td>Score functions migrated with plugin architecture</td>
-</tr>
-</tbody>
-</table>
-<p>Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.</p>
-<p>CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows</p>
-<h3 id="january-2026-llm-causal-knowledge-i">January 2026 - LLM Causal Knowledge I<a class="headerlink" href="#january-2026-llm-causal-knowledge-i" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Project</th>
-<th>Release</th>
-<th>Status</th>
-<th>Key Deliverables</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><strong>causal-analysis</strong></td>
 <td>0.4 Averaging Analysis</td>
@@ -1332,13 +1304,13 @@
 <tr>
 <td><strong>causal-knowledge</strong></td>
 <td>0.1 Foundation</td>
-<td>✨ Envisaged</td>
+<td>📊 Planned</td>
 <td>Requirements and technical architecture</td>
 </tr>
 <tr>
 <td><strong>causal-knowledge</strong></td>
 <td>0.2 LLM APIs</td>
-<td>✨ Envisaged</td>
+<td>📊 Planned</td>
 <td>Some LLMs integrated</td>
 </tr>
 <tr>
@@ -1373,6 +1345,8 @@
 </tr>
 </tbody>
 </table>
+<p>Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.</p>
+<p>CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows</p>
 <h3 id="february-2026-llm-causal-knowledge-ii">February 2026 - LLM Causal Knowledge II<a class="headerlink" href="#february-2026-llm-causal-knowledge-ii" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1484,13 +1458,13 @@
         
         
           
-          <a href="../data/" class="md-footer__link md-footer__link--next" aria-label="Next: CausalIQ Data">
+          <a href="../analysis/" class="md-footer__link md-footer__link--next" aria-label="Next: CausalIQ Analysis">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                CausalIQ Data
+                CausalIQ Analysis
               </div>
             </div>
             <div class="md-footer__button md-icon">

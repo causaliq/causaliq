@@ -4,21 +4,21 @@ The CausalIQ ecosystem consists of several interconnected projects, each focusin
 
 ##  🛠️ Current Projects
 
+#### 📊 [CausalIQ Analysis](analysis.md)
+Tools for analysing and visualising learned causal graphs, including structural metrics, stability assessment, significance tests, and publication-ready tables and charts.
+
+#### 🔢 [CausalIQ Data](data.md)
+High-performance implementations of data-related functions, including caching of data, in-memory randomisation and sub-sampling of data, as well as scoring functions (e.g. BIC, BDeu) and independence tests based on the data.
+
 #### 🤖 [CausalIQ Workflow](workflow.md)
 Comprehensive framework for designing, executing, and reproducing causal discovery experiments at scale, with built-in support for distributed computing and result tracking.
 
 #### 🔄 [Zenodo Synchronisation](zenodo.md)
 Automated tools for synchronizing research datasets, experiment configurations, and results with Zenodo for scientific transparency and reproducibility and storage of large files.
 
-#### 🔢 [CausalIQ Data](data.md)
-High-performance implementations of data-related functions, including caching of data, in-memory randomisation and sub-sampling of data, as well as scoring functions (e.g. BIC, BDeu) and independence tests based on the data.
-
 ## 🚀 Coming Soon
 
-#### 📊 CausalIQ Analysis [starting December 2025]
-Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
-
-#### 🧪 CausalIQ Papers [starting December 2025]
+#### 🧪 CausalIQ Papers
 Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
 
 #### 🧠 [CausalIQ Knowledge](knowledge.md) [starting January 2026]
@@ -26,7 +26,6 @@ Novel approaches for integrating Large Language Models and human knowledge with 
 
 #### 🔍 [CausalIQ Discovery](discovery.md)
 Provides state-of-the-art algorithms for learning causal graph structures from observational data
-
 
 #### 🔮 CausalIQ Predict  
 Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.

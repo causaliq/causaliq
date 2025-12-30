@@ -58,6 +58,7 @@ nav:
   - Projects:
     - Projects Overview: projects/index.md
     - Ecosystem Roadmap: projects/ecosystem_roadmap.md
+    - CausalIQ Analysis: projects/analysis.md
     - CausalIQ Data: projects/data.md
     - CausalIQ Discovery: projects/discovery.md
     - CausalIQ Knowledge: projects/knowledge.md

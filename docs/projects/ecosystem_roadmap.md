@@ -2,17 +2,19 @@
 
 *At-a-glance view of development releases across the CausalIQ ecosystem*
 
-Last updated: December 04, 2025
+Last updated: December 30, 2025
 
 ## 🌟 Current Ecosystem Status
 
 | Project | Current Release | Project capabilities | Detailed Roadmap |
 |---------|-----------------|----------------------|------------------|
 | **causaliq** (Main)        | 0.1 Architecture | Architecture and development standards defined | n/a |
-| **causaliq-workflow**      | 0.2 Basic CLI | Basic CLI with real-time execution feedback | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
-| **causaliq-core** | 0.2 Graphs | Utility functions and graph classes (SDG, PDAG, DAG) | tbd |
-| **zenodo-sync**            | 0.1 Foundation | Follows CausalIQ standards | tbd | 
+| **causaliq-analysis** | 0.2 Legacy trace | Structural graph metrics and legacy learning traces | [here](https://causaliq.github.io/causaliq-analysis/roadmap/)
+| **causaliq-core** | 0.3 Bayesian Networks | Utility functions, graph classes (SDG, PDAG, DAG) and Bayesian Networks | [here](https://causaliq.github.io/causaliq-core/roadmap/) |
+| **causaliq-data** | 0.3 Independence Tests | Data handling, score functions and independence tests | [here](https://causaliq.github.io/causaliq-data/roadmap/)
 | **causaliq-repo-template** | 1.0 Foundation |Defines standardised project docs, structure and CI testing | n/a |
+| **causaliq-workflow**      | 0.2 Basic CLI | Basic CLI with real-time execution feedback | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
+| **zenodo-sync**            | 0.1 Foundation | Follows CausalIQ standards | tbd | 
 
 All other projects not yet started.
 
@@ -25,35 +27,23 @@ All other projects not yet started.
 
 ## 📊 Ecosystem Development Timeline
 
-### December 2025 - Monolith Migration & Graph Averaging
+### January 2026 - Graph averaging and LLM Causal Knowledge
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
-| **causaliq-data** | 0.1 Foundation Data | 📝 Planned | Data, NumPy and Pandas classes and BNFit interface |
-| **causaliq-core** | 0.3 Bayesian Networks | 📝 Planned | BNs and i/o, using BNFit interface |
-| **causaliq-analysis** | 0.1 Foundation | ✨ Envisaged | Action interface supported |
-| **causaliq-analysis** | 0.2 Structural Metrics | ✨ Envisaged | Structural graph metrics from monolith |
-| **causaliq-analysis** | 0.3 Graph Averaging | ✨ Envisaged | Probabilistic graph averaging |
-| **causaliq-data** | 0.2 Scores | 📝 Planned | Score functions migrated with plugin architecture |
-
-
-Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
-
-CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows
-
-### January 2026 - LLM Causal Knowledge I
-
-| Project | Release | Status | Key Deliverables |
-|---------|---------|--------|------------------|
+| **causaliq-analysis** | 0.3 Graph Averaging | 📊 Planned | Probabilistic graph averaging |
 | **causal-analysis** | 0.4 Averaging Analysis | ✨ Envisaged | Basic analysis of graph averaging |
-| **causal-knowledge** | 0.1 Foundation | ✨ Envisaged | Requirements and technical architecture |
-| **causal-knowledge** | 0.2 LLM APIs | ✨ Envisaged | Some LLMs integrated |
+| **causal-knowledge** | 0.1 Foundation | 📊 Planned | Requirements and technical architecture |
+| **causal-knowledge** | 0.2 LLM APIs | 📊 Planned | Some LLMs integrated |
 | **causal-knowledge** | 0.3 Simple Edge Queries | ✨ Envisaged | Simple Edge Queries - existence/orientation |
 | **causal-knowledge** | 0.4 Query Database | ✨ Envisaged | Query, context, response stored |
 | **causaliq-workflow** | 0.3 Enhanced Workflow | 🔄 Background | Conservative execution and dry-run capability |
 | **causaliq-workflow** | 0.4 Progress and Summary | 🔄 Background  | Real-time progress tracking and execution summary |
 | **causaliq-workflow** | 0.5 Advanced Features | ✨ Envisaged | Metadata, compare mode, timeouts, estimated completion |
 
+Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
+
+CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows
 
 ### February 2026 - LLM Causal Knowledge II
 

@@ -10,6 +10,9 @@ Tools for analysing and visualising learned causal graphs, including structural 
 #### 🔢 [CausalIQ Data](data.md)
 High-performance implementations of data-related functions, including caching of data, in-memory randomisation and sub-sampling of data, as well as scoring functions (e.g. BIC, BDeu) and independence tests based on the data.
 
+#### 🧠 [CausalIQ Knowledge](knowledge.md)
+Novel approaches for integrating Large Language Models and human knowledge with statistical causal discovery, enabling domain knowledge incorporation and natural language explanation of results.
+
 #### 🤖 [CausalIQ Workflow](workflow.md)
 Comprehensive framework for designing, executing, and reproducing causal discovery experiments at scale, with built-in support for distributed computing and result tracking.
 
@@ -21,14 +24,11 @@ Automated tools for synchronizing research datasets, experiment configurations, 
 #### 🧪 CausalIQ Papers
 Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
 
-#### 🧠 [CausalIQ Knowledge](knowledge.md) [starting January 2026]
-Novel approaches for integrating Large Language Models and human knowledge with statistical causal discovery, enabling domain knowledge incorporation and natural language explanation of results.
-
 #### 🔍 [CausalIQ Discovery](discovery.md)
 Provides state-of-the-art algorithms for learning causal graph structures from observational data
 
 #### 🔮 CausalIQ Predict  
-Tools for analyzing and visualizing learned causal graphs, including structural metrics, stability assessment, and publication-ready visualizations.
+Tools for causal inference - that is, using causal models to model interventions and make predictions
 
 
 ## Project Ecosystem

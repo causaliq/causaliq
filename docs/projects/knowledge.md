@@ -4,26 +4,38 @@ The CausalIQ Knowledge project represents a novel approach to causal discovery b
 
 **Quick Links:**
 
-- 📖 Full Documentation - coming soon
-- 💻 Repository - coming soon
+- [📖 Full Documentation](https://causaliq.github.io/causaliq-knowledge/)
+- [💻 Repository](https://github.com/causaliq/causaliq-knowledge)
 - 🚀 Quick Start - coming soon
 
 ## Possible Key Innovations
 
-### 🧠 Domain Knowledge Integration
+### 🧠 LLMs support Causal Discovery and Inference
+- initially LLM will work with **graph averaging** to resolve uncertain edges (use entropy to decide edges with uncertain existence or direction)
+- integration into **structure learning** algorithms to provide knowledge for "uncertain" areas of the graph
+- LLMs analyse learning process and errors to **suggest improved algorithms**
+- LLMs used to preprocess **text and visual data** so they can be used as inputs to structure learning
+
+### 🤝 Human Engagement
 - **Natural language constraints**: Specify domain knowledge in plain English
-- **Expert knowledge incorporation**: Convert expert understanding into algorithmic constraints
-- **Contextual graph interpretation**: Understanding variable meanings and relationships
+- **Expert knowledge incorporation** by converting expert understanding into algorithmic constraints
+- LLMs convert **natural language questions** to causal queries
+- **Interactive causal discovery** where structure learning or LLMs identify areas of causal uncertainty and can test causal hypotheses through dialogue
 
-### 🔄 Interactive Discovery
-- **Conversational interfaces**: Query causal relationships in natural language
-- **Hypothesis testing**: Test specific causal hypotheses through dialogue
-- **Iterative refinement**: Collaboratively improve causal models through interaction
+### 🪟 Transparency and interpretability
+- LLMs **interpret structure learning process** and outputs, including their uncertainties
+- LLMs **interpret causal inference** results including uncertainties
+- **Contextual graph interpretation** to explain variable meanings and relationships
+- **Uncertainty communication** with clear explanation of confidence levels and limitations
+- **Report generation including automated research summaries and methodology descriptions
 
-### 📝 Automated Explanation
-- **Relationship explanations**: Natural language descriptions of discovered causal links
-- **Uncertainty communication**: Clear explanation of confidence levels and limitations
-- **Report generation**: Automated research summaries and methodology descriptions
+### 🔒 Stability and reproducibility
+- **cache queries and responses** so that experiments are stable and repeatable even if LLMs themselves are not
+- **stable randomisation** of e.g. data sub-sampling
+
+### 💰 Efficient use of LLM resources (important as an independent researcher)
+- **cache queries and results** so that knowledge can be re-used
+- evaluation and development of **simple context-adapted LLMs**
 
 ## Upcoming Integration with Ecosystem
 
@@ -36,4 +48,4 @@ accurate graphs.
 
 ---
 
-*The LLM Integration project represents a significant step toward more intelligent, interpretable, and human-collaborative approaches to causal discovery, bridging the gap between statistical rigor and domain expertise.*
+*The LLM Knowledge project represents a significant step toward more intelligent, interpretable, and human-collaborative approaches to causal discovery, bridging the gap between statistical rigour and domain expertise.*

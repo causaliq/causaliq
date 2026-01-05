@@ -2,7 +2,7 @@
 
 *At-a-glance view of development releases across the CausalIQ ecosystem*
 
-Last updated: December 30, 2025
+Last updated: January 05, 2026
 
 ## 🌟 Current Ecosystem Status
 
@@ -16,7 +16,7 @@ Last updated: December 30, 2025
 | **causaliq-workflow**      | 0.2 Basic CLI | Basic CLI with real-time execution feedback | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
 | **zenodo-sync**            | 0.1 Foundation | Follows CausalIQ standards | tbd | 
 
-All other projects not yet started.
+All other projects not yet released.
 
 **Milestones:**
 
@@ -27,34 +27,51 @@ All other projects not yet started.
 
 ## 📊 Ecosystem Development Timeline
 
-### January 2026 - Graph averaging and LLM Causal Knowledge
+### January 2026 - Graph averaging and LLM Knowledge
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
 | **causaliq-analysis** | 0.3 Graph Averaging | 📊 Planned | Probabilistic graph averaging |
-| **causal-analysis** | 0.4 Averaging Analysis | ✨ Envisaged | Basic analysis of graph averaging |
-| **causal-knowledge** | 0.1 Foundation | 📊 Planned | Requirements and technical architecture |
-| **causal-knowledge** | 0.2 LLM APIs | 📊 Planned | Some LLMs integrated |
-| **causal-knowledge** | 0.3 Simple Edge Queries | ✨ Envisaged | Simple Edge Queries - existence/orientation |
-| **causal-knowledge** | 0.4 Query Database | ✨ Envisaged | Query, context, response stored |
-| **causaliq-workflow** | 0.3 Enhanced Workflow | 🔄 Background | Conservative execution and dry-run capability |
-| **causaliq-workflow** | 0.4 Progress and Summary | 🔄 Background  | Real-time progress tracking and execution summary |
-| **causaliq-workflow** | 0.5 Advanced Features | ✨ Envisaged | Metadata, compare mode, timeouts, estimated completion |
+| **causaliq-knowledge** | 0.1 Foundation LLM | 📊 Planned | Simple LLM queries to 1 or 2 LLMs about edge |
+| **causaliq-knowledge** | 0.2 Additional LLMs | 📊 Planned | More LLMs integrated |
+| **causaliq-knowledge** | 0.3 LLM Caching | 📊 Planned | Query and response caching |
+| **discovery** | n/a | ✨ Envisaged | Learned graphs as required |
 
 Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
 
 CausalIQ packages (excluding core) will implement the CausalIQ Action interface and therefore can be included in CausalIQ Workflows
 
-### February 2026 - LLM Causal Knowledge II
+### February 2026 - LLM Context and Averaging Evaluation
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
-| **causal-analysis** | 0.4 LLM Analysis | ✨ Envisaged | Based on January Experience |
-| **causal-knowledge** | 0.5 Advanced Queries | ✨ Envisaged | Based on January Experience |
+| **causaliq-analysis** | 0.4 Averaging Analysis | ✨ Envisaged | Basic analysis of graph averaging |
+| **causaliq-analysis** | 0.5 Non-reference Evaluation | ✨ Envisaged | Evaluation that does not require reference graphs |
+| **causaliq-knowledge** | 0.4 LLM Context | ✨ Envisaged | Variable, domain and literature context |
+| **causal-predict** | 0.1 Foundation Inference | ✨ Envisaged | Basic PyAgrum Inference |
+| **discovery** | n/a | ✨ Envisaged | Learned graphs as required |
+
+### March 2026 - Graph Averaging Analysis
+
+| Project | Release | Status | Key Deliverables |
+|---------|---------|--------|------------------|
+| **causaliq-analysis** | 0.6 Analysis Plots | ✨ Envisaged | Based on January Experience |
+| **causaliq-workflow** | 0.3 Enhanced Workflow | 🔄 Background | Conservative execution and dry-run capability |
+| **causaliq-workflow** | 0.4 Progress and Summary | 🔄 Background  | Real-time progress tracking and execution summary |
+| **causaliq-workflow** | 0.5 Advanced Features | ✨ Envisaged | Metadata, compare mode, timeouts, estimated completion |
+
+### Q2 2026 - Graph Averaging Production
+
+| Project | Release | Status | Key Deliverables |
+|---------|---------|--------|------------------|
+| **causaliq-knowledge** | 0.5 Advanced Queries | ✨ Envisaged | Based on January Experience |
 | **causaliq-papers** | 0.1 Import graph | ✨ Envisaged | Import graphs from monolithic repo |
 
 
-## 🚀 Future Vision Post February 2026
+### H2 2026 - Complete Legacy Support
+
+
+## 🚀 Future Vision Post 2026
 
 ### Research Platform Features
 - **LLM Integration:** Model averaging, hypothesis generation with causal reasoning

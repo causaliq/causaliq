@@ -17,6 +17,11 @@ on:
         description: 'Name of the Python package (for coverage)'
         required: true
         type: string
+      extra-index-url:
+        description: 'Additional PyPI index URL (e.g., https://test.pypi.org/simple/)'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   test:
@@ -38,7 +43,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e ".[dev]"
+        if [ -n "${{ inputs.extra-index-url }}" ]; then
+          pip install --extra-index-url ${{ inputs.extra-index-url }} -e ".[dev]"
+        else
+          pip install -e ".[dev]"
+        fi
+      shell: bash
 
     - name: Run code formatting check
       run: |

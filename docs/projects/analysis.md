@@ -28,7 +28,7 @@ The CausalIQ Analysis project provides Tools for analysing and visualising learn
 
 - 🔍 **CausalIQ Discovery** generates causal graphs which this package evaluates and visualises.
 - 🤖 **CausalIQ Workflow** can access all features of this package (through the Action interface) so that analysis and visualisation are incorporated into CausalIQ workflows.
-- 🧪 **CausalIQ Papers** uses the analysis, table and chart features of this package to generate published paper assets.
+- 🧪 **CausalIQ Research** uses the analysis, table and chart features of this package to generate published paper assets.
 
 
 

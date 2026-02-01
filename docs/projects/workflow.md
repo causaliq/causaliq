@@ -37,7 +37,7 @@ The CausalIQ Workflow framework provides a comprehensive solution for designing,
 - 🔮 **CausalIQ Predict** (causaliq-predict) is called by this package to perform causal prediction.
 - 🔄 **Zenodo Synchronisation** (zenodo-sync) is used by this package to download datasets and upload results.
 - 🧠 **CausalIQ Knowledge** (causaliq-knowledge) can be integrated into causal discovery, analysis and inference workflows to produce more accurate, transparent and interpretable results.
-- 🧪 **CausalIQ Papers** (causaliq-papers) are defined in terms of CausalIQ Workflows allowing the reproduction of experiments, results and
+- 🧪 **CausalIQ Research** (causaliq-research) are defined in terms of CausalIQ Workflows allowing the reproduction of experiments, results and
 published paper assets created by the CausalIQ ecosystem.
 
 <br />

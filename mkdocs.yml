@@ -62,6 +62,7 @@ nav:
     - CausalIQ Data: projects/data.md
     - CausalIQ Discovery: projects/discovery.md
     - CausalIQ Knowledge: projects/knowledge.md
+    - CausalIQ Research: projects/research.md
     - CausalIQ Workflow: projects/workflow.md
     - Zenodo Synchronisation: projects/zenodo.md
     - Ecosystem Architecture: projects/ecosystem_architecture.md

@@ -23,12 +23,13 @@ Statistical causal discovery algorithms are enhanced by LLM reasoning for interp
 ### Core Projects
 
 ```
-causaliq-papers (Datasets, experiments and results for papers)
+causaliq-research (Datasets, experiments and results for papers)
 ├── causaliq-workflow (Orchestration & workflow management)
 ├── causaliq-discovery (Statistical algorithms & structure learning)
 ├── causaliq-data (Optimized data caching, score functions and independence tests)
 ├── causaliq-analysis (Metrics & statistical analysis)
 ├── causaliq-knowledge (LLM integration & reasoning)
+├── causaliq-predict (Using causal models for prediction)
 ├── causaliq-core (Graphs, Bayesian Networks and utilities)
 └── zenodo-sync (Dataset & result synchronization)
 ```
@@ -37,12 +38,13 @@ causaliq-papers (Datasets, experiments and results for papers)
 
 | Project | Purpose | Key Features |
 |---------|---------|--------------|
-| **causaliq-discovery** | Core statistical algorithms | Bayesian network learning, score-based methods |
+| **causaliq-discovery** | Core statistical algorithms | Statististical algorithms to learn causal models |
 | **causaliq-data** | Data related functions | Data caching, scoring and indepedence tests |
 | **causaliq-analysis** | Result analysis | Metrics, stability analysis, graph comparison |
 | **causaliq-knowledge** | LLM integration | Graph generation, causal direction inference |
 | **causaliq-workflow** | Workflow orchestration | CI workflow inspired, DASK task management |
-| **causaliq-papers** | Research outputs | Published configurations, datasets, results |
+| **causaliq-research** | Research outputs | Published configurations, datasets, results |
+| **causaliq-predict**  | Causal prediction | Using causal models to predict and answer counterfactuals |
 | **causaliq-core** | Shared code | Graph representations and utility functions |
 | **zenodo-sync** | Data management | Automated synchronization with Zenodo |
 

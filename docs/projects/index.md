@@ -13,6 +13,9 @@ High-performance implementations of data-related functions, including caching of
 #### 🧠 [CausalIQ Knowledge](knowledge.md)
 Novel approaches for integrating Large Language Models and human knowledge with statistical causal discovery, enabling domain knowledge incorporation and natural language explanation of results.
 
+#### 🧪 [CausalIQ Research](research.md)
+Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
+
 #### 🤖 [CausalIQ Workflow](workflow.md)
 Comprehensive framework for designing, executing, and reproducing causal discovery experiments at scale, with built-in support for distributed computing and result tracking.
 
@@ -20,9 +23,6 @@ Comprehensive framework for designing, executing, and reproducing causal discove
 Automated tools for synchronizing research datasets, experiment configurations, and results with Zenodo for scientific transparency and reproducibility and storage of large files.
 
 ## 🚀 Coming Soon
-
-#### 🧪 CausalIQ Papers
-Curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison.
 
 #### 🔍 [CausalIQ Discovery](discovery.md)
 Provides state-of-the-art algorithms for learning causal graph structures from observational data
@@ -39,13 +39,13 @@ graph TD
     KNO[🧠 CausalIQ Knowledge]
     WOR[🤖 CausalIQ Workflow]
     ANA[📊 CausalIQ Analysis] 
-    PAP[🧪 CausalIQ Papers]
+    REA[🧪 CausalIQ Research]
     DAT[🔢 CausalIQ Data]
     PRE[🔮 CausalIQ Predict]
     ZEN[🔄 Zenodo Sync]
 
-    PAP --> ZEN
-    PAP --> WOR
+    REA --> ZEN
+    REA --> WOR
     WOR --> DIS
     WOR --> ANA
     WOR --> ZEN

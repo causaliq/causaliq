@@ -2,7 +2,7 @@
 
 *At-a-glance view of development releases across the CausalIQ ecosystem*
 
-Last updated: February 01, 2026
+Last updated: February 20, 2026
 
 ## 🌟 Current Ecosystem Status
 
@@ -10,11 +10,11 @@ Last updated: February 01, 2026
 |---------|-----------------|----------------------|------------------|
 | **causaliq** (umbrella)        | 0.1 Architecture | Ecosystem architecture and development standards defined | n/a |
 | **causaliq-analysis** | 0.2 Legacy trace | Structural graph metrics and legacy learning traces | [here](https://causaliq.github.io/causaliq-analysis/roadmap/)
-| **causaliq-core** | 0.3 Bayesian Networks | Utility functions, graph classes (SDG, PDAG, DAG) and Bayesian Networks | [here](https://causaliq.github.io/causaliq-core/roadmap/) |
+| **causaliq-core** | 0.4 Caching Infrastructure | Utility functions, graph classes (SDG, PDAG, DAG), Bayesian Networks and cache infrastructure | [here](https://causaliq.github.io/causaliq-core/roadmap/) |
 | **causaliq-data** | 0.3 Independence Tests | Data handling, score functions and independence tests | [here](https://causaliq.github.io/causaliq-data/roadmap/)
-| **causaliq-knowledge** | 0.3 LLM Caching | LLM query and response caching | [here](https://causaliq.github.io/causaliq-knowledge/roadmap/) |
+| **causaliq-knowledge** | 0.5 Workflow Integration | LLM graph generation and workflow integration | [here](https://causaliq.github.io/causaliq-knowledge/roadmap/) |
 | **causaliq-repo-template** | 1.0 Foundation | Repo template for new CausalIQ projects | n/a |
-| **causaliq-workflow**      | 0.1 Workflow Foundations | Basic workflow framework | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
+| **causaliq-workflow**      | 0.2 Knowledge Workflows | LLM graph generation in workflows | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
 | **zenodo-sync**            | 0.1 Foundation | Follows CausalIQ standards | tbd | 
 
 All other projects not yet released.
@@ -32,13 +32,10 @@ All other projects not yet released.
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
-| **causaliq-analysis** | 0.3 Graph Averaging | 📊 Planned | Probabilistic graph averaging |
-| **causaliq-analysis** | 0.4 Averaging Analysis | ✨ Envisaged | Basic analysis of graph averaging |
-| **causaliq-core** | 0.4 Caching and GraphML | 📊 Planned | Generic caching and GraphML support |
-| **causaliq-research** | 0.1 Foundation Models | 🚧 Underway | Models to support PGM paper |
-| **causaliq-workflow** | 0.2 Knowledge Workflows | 📊 Planned | LLM graph generation workflow |
-| **causaliq-workflow** | 0.3 Result Caching | 📊 Planned | Graph generation results cached |
-| **causaliq-workflow** | 0.4 Analysis Workflows | 📊 Planned | Graph evaluation and averaging workflows |
+| **causaliq-analysis** | 0.3 Graph Averaging | 📊 Planned | Probabilistic graph averaging and graph evaluation |
+| **causaliq-knowledge** | 0.6 Graph Averaging |  📊 Planned  | LLM-assisted graph averaging in workflows  |
+| **causaliq-research** | 0.1 Foundation Models | 🚧 Underway | Models and workflows to support PGM paper |
+| **causaliq-workflow** | 0.3 Analysis Workflows | 📊 Planned | Graph evaluation and averaging workflows |
 
 Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
 
@@ -49,8 +46,9 @@ CausalIQ packages will implement the CausalIQAction interface and therefore can 
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
+| **causaliq-analysis** | 0.4 Averaging Analysis | ✨ Envisaged | Basic analysis of graph averaging |
 | **causaliq-analysis** | 0.5 Non-reference Evaluation | ✨ Envisaged | Evaluation that does not require reference graphs |
-| **causaliq-knowledge** | 0.4 LLM Context | ✨ Envisaged | Variable, domain and literature context |
+
 
 
 ### April 2026 - Graph Averaging Analysis

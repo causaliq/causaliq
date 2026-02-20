@@ -140,6 +140,72 @@ graph = {
 - **Data pipelines**: ETL/ELT integration
 - **Monitoring**: Observability and logging
 
+## Caching Architecture
+
+CausalIQ uses a unified caching strategy to avoid redundant computation,
+reduce costs, and ensure reproducibility of results over time.
+
+### Design Goals
+
+| Goal | Description |
+|------|-------------|
+| **Avoid re-computation** | Expensive operations (LLM queries, structure learning) are cached |
+| **Reproducibility** | Cached results can be replicated years later despite LLM evolution |
+| **Compact storage** | SQLite with tokenised encoding minimises filesystem footprint |
+| **Fast lookup** | Quick existence checks support conservative workflow execution |
+| **Open formats** | Import/export to JSON, GraphML, CSV for archival and sharing |
+| **Flexibility** | Single cache can hold multiple entry types without schema changes |
+
+### Cache Types
+
+| Cache | Purpose | Typical Size |
+|-------|---------|--------------|
+| **LLM Cache** | Store LLM request/response pairs to reduce API costs | 10K-100K entries |
+| **Workflow Cache** | Store workflow step results (graphs, metrics, traces) | 1K-10K entries |
+
+Note: "Workflow Cache" refers specifically to caches storing workflow results,
+as distinct from LLM Caches which store API request/response pairs.
+
+### Common Infrastructure
+
+All caches share common infrastructure in `causaliq-core`:
+
+- **TokenCache**: SQLite-backed storage with shared token dictionary
+- **EntryEncoder**: Abstract interface for type-specific encoding
+- **JsonEncoder**: Tokenised JSON compression (50-70% compression)
+
+Type-specific encoders (e.g., `LLMEntryEncoder`, `GraphEntryEncoder`) extend
+the base infrastructure for domain-specific data structures.
+
+### Cache Entry Structure
+
+Each cache entry consists of:
+
+- **Hash key + sequence**: `(hash, seq)` composite key handles rare hash collisions
+- **Original key JSON**: Stored for collision detection and verification
+- **Data blobs**: One or more type-specific encoded objects (graph, trace, etc.)
+- **Metadata blob**: JSON with provenance, metrics, and type-specific attributes
+
+### Hash Collision Handling
+
+Cache keys use truncated SHA-256 hashes (64-bit). While collisions are rare,
+all caches handle them safely:
+
+- `seq` column allows multiple entries with same hash
+- `key_json` stores original key for exact matching
+- On insert: match existing key → update; hash collision → use next `seq`
+- On lookup: scan entries with matching hash, return exact key match
+
+### Import/Export
+
+Caches support round-trip conversion to open formats:
+
+- **Export**: Convert cache entries to directories of JSON, GraphML, CSV files
+- **Import**: Populate caches from open format files (e.g., test fixtures)
+
+This bridges the tension between efficient internal storage and standards-based
+archival formats suitable for Zenodo publication.
+
 ## Quality Assurance
 
 ### Testing Strategy

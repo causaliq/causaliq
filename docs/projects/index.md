@@ -4,6 +4,9 @@ The CausalIQ ecosystem consists of several interconnected projects, each focusin
 
 ##  🛠️ Current Projects
 
+#### ⚙️ [CausalIQ Core](core.md)
+Shared infrastructure providing graph classes (DAG, PDAG, SDG), Bayesian Network support, token-based caching with compression, and the action provider framework used across all CausalIQ packages.
+
 #### 📊 [CausalIQ Analysis](analysis.md)
 Tools for analysing and visualising learned causal graphs, including structural metrics, stability assessment, significance tests, and publication-ready tables and charts.
 
@@ -35,6 +38,7 @@ Tools for causal inference - that is, using causal models to model interventions
 
 ```mermaid
 graph TD
+    COR[⚙️ CausalIQ Core]
     DIS[🔍 CausalIQ Discovery]
     KNO[🧠 CausalIQ Knowledge]
     WOR[🤖 CausalIQ Workflow]
@@ -50,11 +54,16 @@ graph TD
     WOR --> ANA
     WOR --> ZEN
     WOR --> PRE
+    WOR --> COR
     PRE --> KNO
     DIS --> KNO
+    DIS --> COR
     ANA --> KNO
+    ANA --> COR
     DIS --> DAT
     ANA --> DAT
+    KNO --> COR
+    DAT --> COR
     
 
 ```

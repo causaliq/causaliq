@@ -1,44 +1,47 @@
 # 🤖 CausalIQ Workflow
 
-The CausalIQ Workflow framework provides a comprehensive solution for designing, executing, and reproducing causal discovery experiments at scale. Built on modern workflow orchestration tools, it enables researchers to conduct rigorous, reproducible studies while managing complex experimental configurations and large-scale computations.
+The CausalIQ Workflow framework provides a comprehensive solution for designing, executing, and reproducing causal discovery experiments at scale. Using a GitHub Actions-inspired YAML syntax, it enables researchers to conduct rigorous, reproducible studies while managing complex experimental configurations.
 
+**Current Version**: v0.5.0
 
 **Quick Links:**
 
 - [📖 Full Documentation](https://causaliq.github.io/causaliq-workflow/)
 - [💻 Repository](https://github.com/causaliq/causaliq-workflow)
-- 🚀 Quick Start - coming soon
 
 ## Key Features
 
 ### 🔄 Workflow Orchestration
-- **Continuous Integration (CI) testing**: Workflow specification syntax
-- **Dask distributed computing**: Scalable parallel processing
-- **Dependency management**: Automatic handling of data and processing dependencies
-- **Error recovery**: Robust handling of failures and restarts
+GitHub Actions-inspired YAML workflows with matrix expansion for systematic parameter sweeps, multi-step sequential execution, and template variable validation.
 
-### 📊 Experiment Management
-- **Configuration management**: YAML-based experiment specifications
-- **Parameter sweeps**: Systematic exploration of algorithm parameters
-- **Version control**: Git-based tracking of experiments and results
-- **Reproducibility**: Deterministic execution with seed management
+### ⚡ Action Framework
+Three formalised action patterns — CREATE, UPDATE, and AGGREGATE — with conservative execution that automatically skips completed work. Use `--mode=force` to bypass skip checks.
 
-### 📈 Results Tracking
-- **Automated metrics**: Comprehensive evaluation of learned structures
-- **Comparison frameworks**: Statistical comparison across methods
-- **Visualization**: Interactive plots and publication-ready figures
-- **Report generation**: Automated experimental summaries
+### 🔍 Filter Expressions
+Logical expressions evaluated against flattened entry metadata, with template variable resolution, `random()` sampling, and relaxed numeric suffix matching (k, M, G, T).
 
+### 💾 Workflow Caching
+SQLite-based result storage with SHA-256 matrix keys, null wildcards for flexible matching, and CLI commands for cache export/import.
+
+### 🔌 Plug-in Actions
+Auto-discovery system for registering action providers from any CausalIQ package, with type-safe `ActionInput`/`ActionResult` interfaces built on causaliq-core.
+
+## Future Directions
+
+- **Step output chaining**: Step output references and cache restoration for resumable workflows
+- **Dry and comparison runs**: Runtime estimation and processing summaries
+- **Discovery integration**: Structure learning algorithms as workflow actions
+- **CI testing**: Workflow specification syntax validation
+- **Distributed computing**: Scalable parallel processing
 
 ## Integration with Ecosystem
 
 - 🔍 **CausalIQ Discovery** (causaliq-discovery) is called by this package to perform structure learning.
 - 📊 **CausalIQ Analysis** (causaliq-analysis) is called by this package to perform results analysis and generate assets for research papers.
+- 🧠 **CausalIQ Knowledge** (causaliq-knowledge) provides LLM graph generation as a workflow action with cache integration.
 - 🔮 **CausalIQ WhatIf** (causaliq-whatif) is called by this package to perform causal prediction.
 - 🔄 **Zenodo Synchronisation** (zenodo-sync) is used by this package to download datasets and upload results.
-- 🧠 **CausalIQ Knowledge** (causaliq-knowledge) can be integrated into causal discovery, analysis and inference workflows to produce more accurate, transparent and interpretable results.
-- 🧪 **CausalIQ Research** (causaliq-research) are defined in terms of CausalIQ Workflows allowing the reproduction of experiments, results and
-published paper assets created by the CausalIQ ecosystem.
+- 🧪 **CausalIQ Research** (causaliq-research) experiments are defined as CausalIQ Workflows, allowing full reproduction of experiments, results, and published paper assets.
 
 <br />
 

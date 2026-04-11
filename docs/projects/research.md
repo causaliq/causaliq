@@ -2,28 +2,44 @@
 
 CausalIQ Research is a curated collection of experimental setups, benchmark datasets, and published results that enable reproducible research and method comparison in the field of causal discovery and inference.
 
+> **Early Development** — This package has initial project scaffolding (CLI, docs, CI) but no completed feature releases yet. Release v0.1.0 (Graph Averaging) is in development.
+
 **Quick Links:**
 
 - [📖 Full Documentation](https://causaliq.github.io/causaliq-research/)
 - [💻 Repository](https://github.com/causaliq/causaliq-research)
-- 🚀 Quick Start - coming soon
+
+## Repository Structure
+
+The repository is organised around research concepts rather than file types:
+
+```
+causaliq-research/
+├── src/              # Minimal code (CLI, utilities)
+├── models/           # Bayesian model specifications — by model
+│   └── asia/
+│   └── sachs/
+├── experiments/      # Workflows + results — by experiment series
+│   └── llm-benchmark-2026/
+│       ├── workflow.yaml
+│       └── results.db
+├── papers/           # Generated assets — by paper
+│   └── llm-priors-2026/
+│       ├── tables/
+│       └── figures/
+└── scratch/          # Gitignored working directory
+```
 
 ## Key Features
 
 ### 🔄 Reproducibility
-- **Complete workflows**: from datasets to results to analysis to assets in published papers
-- **Exact replication**: Platform-agnostic deterministic replication of results including of randomisation and information obtained from LLMs
+Complete workflows from datasets through results to published paper assets, with platform-agnostic deterministic replication including stable randomisation and cached LLM responses.
 
 ### 🔍 Transparency
-- **Open source software**: all software is open source, fully documented and tested on GitHub.
-- **Open standard data formats**: results and experiment metadata available in open standard formats e.g. JSON, GraphML, YAML which can therefore be processed by other software
-- **Zenodo storage**: all assets used in the complete workflow are publicly available on Zenodo
+All software is open source on GitHub, results use open standard formats (JSON, GraphML, YAML), and assets will be publicly available on Zenodo.
 
 ### 🤖 Automation
-- **Ease of use**: a single command can be used to replicate all the experiments and results for a given published paper.
-- **Fine-grained control**: alternatively, researchers can opt to look at, or replicate, individual elements of the workflow, for example, run a specific algorithm, or generate an individual chart
-- **Dry-run capability**: allows users to see time and resources required to replicate a whole paper or individual asset.
-- **Efficiency**: steps within workflows are run in parallel where possible, and users can opt to download results instead of regenerating them.
+A single command replicates all experiments for a published paper, with fine-grained control over individual steps, dry-run capability, and parallel execution.
 
 
 ## Integration with Ecosystem
@@ -32,8 +48,7 @@ CausalIQ Research is a curated collection of experimental setups, benchmark data
 - 🔮 **CausalIQ WhatIf** (causaliq-whatif) is called by this package to perform causal prediction.
 - 🔄 **Zenodo Synchronisation** (zenodo-sync) is used by this package to download datasets and upload results.
 - 🧠 **CausalIQ Knowledge** (causaliq-knowledge) can be integrated into causal discovery, analysis and inference workflows to produce more accurate, transparent and interpretable results.
-- 🧪 **CausalIQ Workflow** (causaliq-workflow) orchestrates the steps required for the reproduction of experiments, results and
-published paper assets created by the CausalIQ ecosystem.
+- 🤖 **CausalIQ Workflow** (causaliq-workflow) orchestrates the steps required for the reproduction of experiments, results, and published paper assets.
 
 <br />
 

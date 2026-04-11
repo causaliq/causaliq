@@ -42,7 +42,7 @@ The CausalIQ Knowledge project represents a novel approach to causal discovery b
 - 🔍 **CausalIQ Discovery** makes use of this package to learn more 
 accurate graphs.
 - 🧪 **CausalIQ Analysis** uses this package to explain the learning process, intelligently combine end explain results.
-- 🔮 **CausalIq Predict** uses this package to explain predictions made by learnt models.
+- 🔮 **CausalIQ WhatIf** uses this package to explain predictions made by learnt models.
 
 <br/>
 

@@ -2,69 +2,55 @@
 
 *At-a-glance view of development releases across the CausalIQ ecosystem*
 
-Last updated: February 20, 2026
+Last updated: April 11, 2026
 
-## 🌟 Current Ecosystem Status
+## 🌟 Current Ecosystem Status on PyPI
 
 | Project | Current Release | Project capabilities | Detailed Roadmap |
 |---------|-----------------|----------------------|------------------|
-| **causaliq** (umbrella)        | 0.1 Architecture | Ecosystem architecture and development standards defined | n/a |
-| **causaliq-analysis** | 0.2 Legacy trace | Structural graph metrics and legacy learning traces | [here](https://causaliq.github.io/causaliq-analysis/roadmap/)
-| **causaliq-core** | 0.4 Caching Infrastructure | Utility functions, graph classes (SDG, PDAG, DAG), Bayesian Networks and cache infrastructure | [here](https://causaliq.github.io/causaliq-core/roadmap/) |
-| **causaliq-data** | 0.3 Independence Tests | Data handling, score functions and independence tests | [here](https://causaliq.github.io/causaliq-data/roadmap/)
-| **causaliq-knowledge** | 0.5 Workflow Integration | LLM graph generation and workflow integration | [here](https://causaliq.github.io/causaliq-knowledge/roadmap/) |
-| **causaliq-repo-template** | 1.0 Foundation | Repo template for new CausalIQ projects | n/a |
-| **causaliq-workflow**      | 0.2 Knowledge Workflows | LLM graph generation in workflows | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
-| **zenodo-sync**            | 0.1 Foundation | Follows CausalIQ standards | tbd | 
+| **causaliq** (umbrella)        | 0.1.0 | Ecosystem architecture and development standards defined | n/a |
+| **causaliq-analysis** | 0.4.0  | Structural graph merging, metric evaluation and summarisation, and legacy learning traces | [here](https://causaliq.github.io/causaliq-analysis/roadmap/)
+| **causaliq-core** | 0.7.0 | Utility functions, graph classes (SDG, PDAG, DAG, PDG), optimal DAG, Bayesian Networks, cache infrastructure and randomised filters | [here](https://causaliq.github.io/causaliq-core/roadmap/) |
+| **causaliq-data** | 0.3.0 | Data handling, score functions and independence tests | [here](https://causaliq.github.io/causaliq-data/roadmap/)
+| **causaliq-knowledge** | 0.6.0 | PDG generation and workflow integration | [here](https://causaliq.github.io/causaliq-knowledge/roadmap/) |
+| **causaliq-repo-template** | 1.0.0 | Repo template for new CausalIQ projects | n/a |
+| **causaliq-workflow**      | 0.5.0 | Workflow patterns, multi-step workflows, caches and conservative execution | [here](https://causaliq.github.io/causaliq-workflow/roadmap/) |
+| **zenodo-sync**            | 0.1.0 | Follows CausalIQ standards | tbd | 
 
 All other projects not yet released.
 
 **Milestones:**
 
-- end-March 2026: CausalIQ LLM-assisted model-averaging experiments & results for conference paper
 - end-April 2026: Charts and Tables for CausalIQ LLM-assisted model-averaging paper
 - end-September 2026: Experiments and results for another paper
 - end-2026: Full reproducibility of key published papers with assets on Zenodo
 
 ## 📊 Ecosystem Development Timeline
 
-### February 2026 - Graph averaging and LLM Knowledge
+### April 2026 - Graph evaluation and summarisation
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
-| **causaliq-analysis** | 0.3 Graph Averaging | 📊 Planned | Probabilistic graph averaging and graph evaluation |
-| **causaliq-knowledge** | 0.6 Graph Averaging |  📊 Planned  | LLM-assisted graph averaging in workflows  |
-| **causaliq-research** | 0.1 Foundation Models | 🚧 Underway | Models and workflows to support PGM paper |
-| **causaliq-workflow** | 0.3 Analysis Workflows | 📊 Planned | Graph evaluation and averaging workflows |
+| **causaliq-analysis** | 0.4.0 |  🚧 Underway | Evaluation and Summarisation: structural evaluation of graphs and result summarisation |
+| **causaliq-analysis** | 0.5.0 |  📊 Planned | Publication Assets: table and chart generation for the PGM submission |
+| **causaliq-research** | 0.1.0 | 🚧 Underway | PGM Workflows: Models and workflows to support PGM paper |
+
 
 Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
 
 CausalIQ packages will implement the CausalIQAction interface and therefore can be included in CausalIQ Workflows
 
 
-### March 2026 - LLM Context and Averaging Evaluation
+### May 2026 and beyond
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
-| **causaliq-analysis** | 0.4 Averaging Analysis | ✨ Envisaged | Basic analysis of graph averaging |
-| **causaliq-analysis** | 0.5 Non-reference Evaluation | ✨ Envisaged | Evaluation that does not require reference graphs |
-
-
-
-### April 2026 - Graph Averaging Analysis
-
-| Project | Release | Status | Key Deliverables |
-|---------|---------|--------|------------------|
-| **causaliq-analysis** | 0.6 Analysis Plots | ✨ Envisaged | Based on January Experience |
-| **causaliq-discovery** | 0.1 Discovery Foundations | ✨ Envisaged | Migration of HC/Tabu-Stable |
-| **causal-predict** | 0.1 Foundation Inference | ✨ Envisaged | Basic PyAgrum Inference |
-| **causaliq-workflow** | 0.5 Enhanced Workflow | 🔄 Background | Comparison and dry-run capability |
-
-### Q2 2026 - Graph Averaging Production
-
-| Project | Release | Status | Key Deliverables |
-|---------|---------|--------|------------------|
-| **causaliq-knowledge** | 0.5 Advanced Queries | ✨ Envisaged | Based on January Experience |
+| **causaliq-analysis** | Non-reference Evaluation | ✨ Envisaged | Evaluation that does not require reference graphs |
+| **causaliq-analysis** | Statistical Significance | ✨ Envisaged | Based on January Experience |
+| **causaliq-discovery** | Discovery Foundations | ✨ Envisaged | Migration of HC/Tabu-Stable |
+| **causaliq-whatif** | Foundation Inference | ✨ Envisaged | Basic PyAgrum Inference |
+| **causaliq-workflow** | Comparison capability | ✨ Envisaged | Comparison capability |
+| **causaliq-knowledge** | Advanced Queries | ✨ Envisaged | Based on January Experience |
 
 
 ### H2 2026 - Complete Legacy Support

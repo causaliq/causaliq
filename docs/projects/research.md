@@ -28,8 +28,8 @@ CausalIQ Research is a curated collection of experimental setups, benchmark data
 
 ## Integration with Ecosystem
 - 🔍 **CausalIQ Discovery** (causaliq-discovery) is called by this package to perform statistical structure learning.
-- 📊 **CausalIQ Analysis** (causaliq-predict) is called by this package to perform results analysis and generate assets for research papers.
-- 🔮 **CausalIQ Predict** (causaliq-predict) is called by this package to perform causal prediction.
+- 📊 **CausalIQ Analysis** (causaliq-analysis) is called by this package to perform results analysis and generate assets for research papers.
+- 🔮 **CausalIQ WhatIf** (causaliq-whatif) is called by this package to perform causal prediction.
 - 🔄 **Zenodo Synchronisation** (zenodo-sync) is used by this package to download datasets and upload results.
 - 🧠 **CausalIQ Knowledge** (causaliq-knowledge) can be integrated into causal discovery, analysis and inference workflows to produce more accurate, transparent and interpretable results.
 - 🧪 **CausalIQ Workflow** (causaliq-workflow) orchestrates the steps required for the reproduction of experiments, results and

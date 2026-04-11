@@ -30,7 +30,7 @@ Automated tools for synchronizing research datasets, experiment configurations, 
 #### 🔍 [CausalIQ Discovery](discovery.md)
 Provides state-of-the-art algorithms for learning causal graph structures from observational data
 
-#### 🔮 CausalIQ Predict  
+#### 🔮 CausalIQ WhatIf  
 Tools for causal inference - that is, using causal models to model interventions and make predictions
 
 
@@ -45,7 +45,7 @@ graph TD
     ANA[📊 CausalIQ Analysis] 
     REA[🧪 CausalIQ Research]
     DAT[🔢 CausalIQ Data]
-    PRE[🔮 CausalIQ Predict]
+    PRE[🔮 CausalIQ WhatIf]
     ZEN[🔄 Zenodo Sync]
 
     REA --> ZEN

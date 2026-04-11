@@ -29,7 +29,7 @@ causaliq-research (Datasets, experiments and results for papers)
 ├── causaliq-data (Optimized data caching, score functions and independence tests)
 ├── causaliq-analysis (Metrics & statistical analysis)
 ├── causaliq-knowledge (LLM integration & reasoning)
-├── causaliq-predict (Using causal models for prediction)
+├── causaliq-whatif (Using causal models for prediction)
 ├── causaliq-core (Graphs, Bayesian Networks and utilities)
 └── zenodo-sync (Dataset & result synchronization)
 ```
@@ -44,7 +44,7 @@ causaliq-research (Datasets, experiments and results for papers)
 | **causaliq-knowledge** | LLM integration | Graph generation, causal direction inference |
 | **causaliq-workflow** | Workflow orchestration | CI workflow inspired, DASK task management |
 | **causaliq-research** | Research outputs | Published configurations, datasets, results |
-| **causaliq-predict**  | Causal prediction | Using causal models to predict and answer counterfactuals |
+| **causaliq-whatif**  | Causal prediction | Using causal models to predict and answer counterfactuals |
 | **causaliq-core** | Shared code | Graph representations and utility functions |
 | **zenodo-sync** | Data management | Automated synchronization with Zenodo |
 

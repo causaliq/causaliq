@@ -25,7 +25,7 @@ Currently underway:
 Coming soon:
 
 * **CausalIQ Discovery** → provides algorithms for learning causal graph structures from observational data. There is a focus on simple, stable and competitive algorithms.
-* **CausalIQ Predict** → provides algorithms which use causal models to make predictions and answer counterfactuals.
+* **CausalIQ WhatIf** → provides algorithms which use causal models to make predictions and answer counterfactuals.
 
 
 

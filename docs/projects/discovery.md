@@ -1,13 +1,12 @@
 # 🔍 CausalIQ Discovery
 
-CausalIQ Discovery provides algorithms for learning causal graph structures from observational data. There
-is a focus on simple, stable and competitive algorithms.
+CausalIQ Discovery provides advanced algorithms for learning causal structures from data and human & LLM-derived knowledge.
 
 **Quick Links:**
 
-- 📖 Full Documentation - coming soon
-- 💻 Repository - coming soon
-- 🚀 Quick Start - coming soon
+ - [📖 Full Documentation](https://causaliq.github.io/causaliq-discovery/)
+ - [💻 Repository](https://github.com/causaliq/causaliq-discovery)
+ - 🚀 Quick Start - coming soon
 
 ## 🚀 Proposed Features
 
@@ -18,7 +17,8 @@ is a focus on simple, stable and competitive algorithms.
 
 ## Integration with Ecosystem
 
-- 🎯 **CausalIQ Data** (causaliq-data is used by this package to determine the score of graphs.
+- 🎯 **CausalIQ Data** is used by this package to determine the score of graphs.
+- 🧠 **CausalIQ Knowledge** is used by this package to supply human and LLM-derived knowledge.
 - 🤖 **CausalIQ Workflow** uses this package in structure learning workflows.
 
 ## Standalone Use

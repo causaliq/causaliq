@@ -2,6 +2,7 @@
 
 I’m an **independent researcher** and **research visitor** at Queen Mary University of London working on **causal discovery** and **Bayesian network structure learning**.
 The CausalIQ ecosystem brings together algorithms, experiments, and datasets that support research into more accurate and transparent methods for causal discovery that integrate statistical algorithms with Large Language Models (LLMs).
+All the results and analyses in CausalIQ academic papers can be reproduced using thr CausalIQ Ecosystem.
 
 ## 🔍 Research focus
 
@@ -17,14 +18,13 @@ Currently underway:
 
 * [**CausalIQ Analysis**](https://github.com/causaliq/causaliq-analysis) → provides tools to evaluate structure learning experiments and generate publication-ready charts and tables.
 * [**CausalIQ Data**](https://github.com/causaliq/causaliq-data) → optimised data handling, statistical testing, and scoring infrastructure for causal discovery and Bayesian network operations.
+* **CausalIQ Discovery** → provides algorithms for learning causal graph structures from observational data. There is a focus on simple, stable and competitive algorithms.
 * [**CausalIQ Knowledge**](https://github.com/causaliq/causaliq-data) → combines the traditional statistical structure learning algorithms with the contextual understanding and reasoning capabilities of Large Language Models. This integration enables more interpretable, domain-aware, and human-friendly causal discovery workflows.
-* [**CausalIQ Research**](https://github.com/causaliq/causaliq-research) → uses the other projects to reproduce all experiments and results in published CausalIQ papers.
 * [**CausalIQ Workflow**](https://github.com/causaliq/causaliq-workflow) → orchestration of causal discovery and inference, and analysis with LLM integration.
 * [**Zenodo Sync**](https://github.com/causaliq/zenodo-sync) → synchronise local research data and results with Zenodo for reproducible science. CLI and API to upload, publish and download assets.
 
 Coming soon:
 
-* **CausalIQ Discovery** → provides algorithms for learning causal graph structures from observational data. There is a focus on simple, stable and competitive algorithms.
 * **CausalIQ WhatIf** → provides algorithms which use causal models to make predictions and answer counterfactuals.
 
 

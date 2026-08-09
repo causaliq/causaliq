@@ -63,7 +63,6 @@ nav:
     - CausalIQ Data: projects/data.md
     - CausalIQ Discovery: projects/discovery.md
     - CausalIQ Knowledge: projects/knowledge.md
-    - CausalIQ Research: projects/research.md
     - CausalIQ Workflow: projects/workflow.md
     - Zenodo Synchronisation: projects/zenodo.md
     - Ecosystem Architecture: projects/ecosystem_architecture.md
@@ -137,8 +136,7 @@ extra:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 copyright: |
-  &copy; 2025 CausalIQ Research.
+  &copy; 2026 CausalIQ Research.

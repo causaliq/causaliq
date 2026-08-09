@@ -2,7 +2,7 @@
 
 *At-a-glance view of development releases across the CausalIQ ecosystem*
 
-Last updated: April 11, 2026
+Last updated: August 9, 2026
 
 ## 🌟 Current Ecosystem Status on PyPI
 
@@ -21,19 +21,21 @@ All other projects not yet released.
 
 **Milestones:**
 
-- end-April 2026: Charts and Tables for CausalIQ LLM-assisted model-averaging paper
-- end-September 2026: Experiments and results for another paper
-- end-2026: Full reproducibility of key published papers with assets on Zenodo
+- end-May 2026: workflows and assets for draft CausalIQ LLM-assisted model-averaging paper
+- end-July 2026: workflows and assets for camera-ready CausalIQ LLM-assisted model-averaging paper
+- end-October 2026: Experiments and results for another paper
+- end-March 2027: Full reproducibility of key published papers with assets on Zenodo
 
 ## 📊 Ecosystem Development Timeline
 
-### April 2026 - Graph evaluation and summarisation
+### September 2026 - Graph evaluation and summarisation
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
 | **causaliq-analysis** | 0.4.0 |  🚧 Underway | Evaluation and Summarisation: structural evaluation of graphs and result summarisation |
+| **causaliq-discovery** | 0.1.0 | 🚧 Underway | Support for HC and Tabu-Stable and some bnlearn and Tetrad algorithms |
 | **causaliq-analysis** | 0.5.0 |  📊 Planned | Publication Assets: table and chart generation for the PGM submission |
-| **causaliq-research** | 0.1.0 | 🚧 Underway | PGM Workflows: Models and workflows to support PGM paper |
+
 
 
 Code migrated from legacy monolithic repo will be modified to meet CausalIQ quality standards.
@@ -41,16 +43,15 @@ Code migrated from legacy monolithic repo will be modified to meet CausalIQ qual
 CausalIQ packages will implement the CausalIQAction interface and therefore can be included in CausalIQ Workflows
 
 
-### May 2026 and beyond
+### September 2026 and beyond
 
 | Project | Release | Status | Key Deliverables |
 |---------|---------|--------|------------------|
 | **causaliq-analysis** | Non-reference Evaluation | ✨ Envisaged | Evaluation that does not require reference graphs |
 | **causaliq-analysis** | Statistical Significance | ✨ Envisaged | Based on January Experience |
-| **causaliq-discovery** | Discovery Foundations | ✨ Envisaged | Migration of HC/Tabu-Stable |
 | **causaliq-whatif** | Foundation Inference | ✨ Envisaged | Basic PyAgrum Inference |
 | **causaliq-workflow** | Comparison capability | ✨ Envisaged | Comparison capability |
-| **causaliq-knowledge** | Advanced Queries | ✨ Envisaged | Based on January Experience |
+
 
 
 ### H2 2026 - Complete Legacy Support

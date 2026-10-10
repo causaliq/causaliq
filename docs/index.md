@@ -35,7 +35,7 @@ This work aims to benefit researchers across domains: from epidemiologists study
 
 **Collaboration**: We welcome discussions with researchers working on related problems. Feel free to reach out through GitHub Discussions on any of the project repositories.
 
-**Open Source**: All projects are open source and accept contributions. See the development guidelines for details on how to contribute.
+**Open Source**: All projects are open source and accept contributions. See the [development policies](development_policy/index.md) for the ecosystem-wide engineering standards, and each repository's `CONTRIBUTING.md` for the contribution process.
 
 **Academic Partnerships**: We're interested in collaborations with research groups working on causal inference, Bayesian networks, or AI-assisted scientific discovery.
 
@@ -48,6 +48,7 @@ This work aims to benefit researchers across domains: from epidemiologists study
 This documentation is designed to:
 
 - Help LLMs understand the overall mission of the CausalIQ Projects.
+- Publish the [development policies](development_policy/index.md) that govern how code, tests and documentation are written across the ecosystem.
 
 ---
 

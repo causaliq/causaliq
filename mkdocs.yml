@@ -71,6 +71,13 @@ nav:
     - Dr. Ken Kitson: about/index.md
     - Development Methodology: about/development-methodology.md
     - Branding (in progress): about/logos.md
+  - Development:
+    - Development Policies: development_policy/index.md
+    - Plan Phase: development_policy/00-plan.md
+    - Coding: development_policy/01-code.md
+    - Writing Tests: development_policy/02-test-write.md
+    - Running Tests: development_policy/03-test-run.md
+    - Documentation: development_policy/04-docs.md
 
 
 plugins:

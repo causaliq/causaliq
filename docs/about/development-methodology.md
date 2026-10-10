@@ -18,6 +18,8 @@ The CausalIQ research ecosystem employs Large Language Models (LLMs) as developm
 
 ## Development Standards
 
+The standards that this methodology applies are maintained separately as the single source of truth for the whole ecosystem. This section explains *how* LLM assistance is used; the [development policies](../development_policy/index.md) define *what* every contribution must satisfy.
+
 ### Change Management Principles
 **Incremental Development**: LLM suggestions are constrained to focused, understandable modifications (<50 lines) to maintain developer comprehension and code review effectiveness.
 
@@ -29,18 +31,9 @@ The CausalIQ research ecosystem employs Large Language Models (LLMs) as developm
 - Integration implications across the ecosystem
 
 ### Quality Assurance Framework
-**Automated Validation**: All LLM-generated code passes:
+**Automated Validation**: LLM-generated code must pass the quality gates defined in the [coding policy](../development_policy/01-code.md) - formatting, import ordering, type checking, linting and coverage.
 
-- **Black** formatting with 79-character line limits
-- **isort** import organization following Python conventions
-- **mypy** type checking for complete type safety
-- **flake8** style validation for code clarity
-
-**Testing Methodology**: Systematic test generation across three categories:
-
-- **Unit tests**: Isolated function validation with mocked dependencies
-- **Functional tests**: Integration with local system resources
-- **Integration tests**: End-to-end validation with external services
+**Testing Methodology**: Tests are written and run according to the [test-writing policy](../development_policy/02-test-write.md) and the [test-running policy](../development_policy/03-test-run.md), which define the framework, granularity and directory layout for unit, functional and integration tests.
 
 ## Research Applications
 

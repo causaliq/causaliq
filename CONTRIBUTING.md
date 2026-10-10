@@ -2,9 +2,39 @@
 
 Thank you for your interest in contributing to CausalIQ! We welcome contributions from the community and are excited to see what you'll bring to this project.
 
-This document describes contribution guidelines that apply across all the CausalIQ repos - please then refer to any additional project specific guidelines that might apply.
+This document describes the **contribution process** - repository setup, development workflow, commit conventions and review - that applies across all the CausalIQ repos. Please also refer to any additional project-specific guidelines that might apply.
+
+**Engineering standards are defined once**, in the umbrella [development policies](docs/development_policy/index.md). Please read them before contributing, and do not restate or override them in individual repositories.
 
 **Note**: When following these instructions, replace <package-name> with the name of a specific repo e.g. "causaliq-discovery".
+
+## Engineering Standards
+
+The ecosystem-wide engineering standards live in the umbrella repository and apply to every CausalIQ package. They are written for both human contributors and AI assistants (such as Cline), and follow a "Two Hats" model that keeps feature/fix work strictly separate from refactoring.
+
+| Area | Policy document |
+| ---- | --------------- |
+| Planning and task scoping | [Plan Phase](docs/development_policy/00-plan.md) |
+| Coding standards and limits | [Coding](docs/development_policy/01-code.md) |
+| Writing tests | [Writing Tests](docs/development_policy/02-test-write.md) |
+| Running tests and terminals | [Running Tests](docs/development_policy/03-test-run.md) |
+| Documentation | [Documentation](docs/development_policy/04-docs.md) |
+
+Read the relevant policy before you start, and make sure your change satisfies its requirements. The quality gates are:
+
+- `black` formatting with 79-character lines
+- `isort` import ordering
+- `mypy` type checking on fully typed code
+- `flake8` linting
+- `pytest` with 100% coverage
+
+Run them all with:
+
+```bash
+.\scripts\check_ci.ps1
+```
+
+The script automatically activates the correct Python environment (3.11) and runs each gate.
 
 ## Getting Started
 
@@ -47,9 +77,9 @@ This document describes contribution guidelines that apply across all the Causal
    ```
 
 2. **Make your changes**:
-   - Write code following our style guide
-   - Add tests for new functionality
-   - Update documentation as needed
+   - Write code following the [coding policy](docs/development_policy/01-code.md)
+   - Add tests following the [test-writing policy](docs/development_policy/02-test-write.md)
+   - Update documentation following the [documentation policy](docs/development_policy/04-docs.md)
 
 3. **Run tests and checks**:
    ```bash
@@ -102,7 +132,7 @@ git commit -m "refactor: simplify graph validation logic"
 **Good commit sizes**:
 ```bash
 git commit -m "feat: add basic PC algorithm structure"        # Just the skeleton
-git commit -m "feat: implement independence testing in PC"   # Add one component  
+git commit -m "feat: implement independence testing in PC"   # Add one component
 git commit -m "test: add unit tests for PC algorithm"        # Add corresponding tests
 ```
 
@@ -118,187 +148,20 @@ git commit -m "Update code"                                      # Too vague
    git push origin feature/your-feature-name
    ```
 
-### Code Style and Quality
+### Running Tests
 
-We maintain high code quality standards using these tools:
+Prefer targeted test modules while developing:
 
-- **Black**: Code formatting with 79-character line length
-- **isort**: Import sorting  
-- **flake8**: Linting
-- **mypy**: Type checking
-- **pytest**: Testing with 100% coverage target
-
-#### Python Code Standards
-
-**Formatting**:
-- Black with 79-character line length
-- Google-style docstrings for all public APIs
-- Complete type annotations using modern Python typing
-- UTF-8 encoding for all text files
-
-**Example Code Style**:
-```python
-from typing import Dict, List, Optional, Tuple
-
-import numpy as np
-import pandas as pd
-
-from causaliq_discovery import independence_test
-
-
-def learn_structure(
-    data: pd.DataFrame,
-    algorithm: str = "pc",
-    alpha: float = 0.05,
-    max_conditioning_set_size: Optional[int] = None,
-) -> Tuple[Dict[str, List[str]], float]:
-    """Learn causal graph structure from observational data.
-    
-    Args:
-        data: Observational dataset with variables as columns.
-        algorithm: Structure learning algorithm to use.
-        alpha: Significance level for conditional independence tests.
-        max_conditioning_set_size: Maximum size of conditioning sets.
-        
-    Returns:
-        Tuple of (adjacency dict, confidence score).
-        
-    Raises:
-        ValueError: If algorithm is not supported.
-        
-    Example:
-        >>> data = pd.DataFrame(np.random.randn(100, 3), columns=["A", "B", "C"])
-        >>> graph, score = learn_structure(data, algorithm="pc")
-        >>> len(graph)
-        3
-    """
-    if data.empty:
-        raise ValueError("Empty dataset provided")
-    
-    # Implementation with proper error handling
-    try:
-        result = _execute_algorithm(data, algorithm, alpha)
-        return result, _calculate_confidence(result)
-    except Exception as e:
-        raise ValueError(f"Structure learning failed: {e}")
-```
-
-**Dependencies**:
-- **Core**: NumPy, Pandas, NetworkX for all projects
-- **Testing**: pytest, pytest-cov, hypothesis
-- **Development**: pre-commit, black, isort, flake8, mypy
-
-Run all checks:
 ```bash
-.\scripts\check_ci.ps1
-```
-
-The script automatically:
-- Activates the correct Python environment (3.11)
-- Runs formatting checks with Black and isort
-- Performs linting with flake8
-- Runs type checking with MyPy
-- Executes all tests with coverage reporting
-
-### Testing
-
-We aim for 100% test coverage. When adding new features:
-
-1. **Write tests first** (TDD approach preferred)
-2. **Test edge cases** and error conditions
-3. **Mock external dependencies** 
-4. **Update test fixtures** if needed
-
-#### Testing Standards
-
-**Test Structure Requirements**:
-
-**Use pytest exclusively** - avoid unittest classes and methods
-
-**Prefer individual test functions** over test classes:
-```python
-# tests/unit/test_structure_learning.py
-import pytest
-import pandas as pd
-from unittest.mock import patch
-
-from causaliq_discovery import learn_structure
-
-
-# ✅ Preferred: Individual test functions
-def test_empty_data_raises_error():
-    """Empty datasets should raise ValueError."""
-    with pytest.raises(ValueError, match="Empty dataset"):
-        learn_structure(pd.DataFrame())
-
-def test_algorithm_integration():
-    """Test algorithm integration with mocked dependencies."""
-    with patch('causaliq_discovery._execute_algorithm') as mock_execute:
-        mock_execute.return_value = {"A": ["B"], "B": []}
-        data = pd.DataFrame([[1, 2], [3, 4]], columns=["A", "B"])
-        
-        graph, score = learn_structure(data)
-        
-        assert isinstance(graph, dict)
-        assert isinstance(score, float)
-        mock_execute.assert_called_once()
-
-def test_valid_data_returns_graph():
-    """Test with valid input data."""
-    data = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=["A", "B", "C"])
-    graph, score = learn_structure(data)
-    
-    assert isinstance(graph, dict)
-    assert isinstance(score, float)
-    assert len(graph) == 3
-
-# ❌ Avoid: Classes unless strictly necessary for shared setup
-class TestComplexSetup:  # Only if absolutely needed
-    """Use classes only when complex shared setup is required."""
-    
-    @pytest.fixture(autouse=True)
-    def setup(self):
-        # Complex setup that can't be done with simple fixtures
-        pass
-```
-
-**Test Categories**:
-- **Unit tests**: Test individual functions with mocked dependencies
-- **Functional tests**: Test with local system resources (filesystem, etc.)
-- **Integration tests**: Test with external systems (APIs, databases)
-
-**Test Data Management**:
-- **Use permanent test files** tracked in GitHub (not generated on-the-fly)
-- **File organization**: `tests/data/{category}/{module}/{scenario}.csv`
-- **One-line comments**: Add before each test function for VS Code outline visibility
-
-```python
-# Test BIC score calculation returns correct float type
-def test_bic_score_returns_float():
-    data_path = Path("tests/data/functional/scoring/sample.csv")
-    data = pd.read_csv(data_path)
-    # ... test implementation
-```
-
-**Coverage Requirements**:
-- **Target**: 100% code coverage
-- **Minimum acceptable**: 95% coverage for new contributions
-- **Tools**: pytest-cov for coverage reporting
-
-**Test Categories**:
-- **Unit tests**: Test individual functions with mocked dependencies
-- **Functional tests**: Test with local system resources (filesystem, etc.)
-- **Integration tests**: Test with external systems (APIs, databases)
-
-Run tests:
-```bash
-.\scripts\check_ci.ps1               # Full test suite with coverage
 python -m pytest tests/unit          # Unit tests only
-python -m pytest tests/functional    # Unit tests only
+python -m pytest tests/functional    # Functional tests only
 python -m pytest tests/integration   # Integration tests
 ```
 
-**Note**: Integration tests typically have package-specific prerequisites.
+Use `.\scripts\check_ci.ps1` to run the full suite with coverage before
+submitting. Integration tests typically have package-specific prerequisites.
+See the [test-running policy](docs/development_policy/03-test-run.md) for
+terminal, environment and session guidance.
 
 ### Multi-Version Testing
 
@@ -309,7 +172,7 @@ Since CausalIQ supports Python 3.9-3.12, we encourage testing across versions:
 .\scripts\activate.ps1 39    # Python 3.9
 python -m pytest tests/unit/
 
-.\scripts\activate.ps1 310   # Python 3.10  
+.\scripts\activate.ps1 310   # Python 3.10
 python -m pytest tests/unit/
 
 .\scripts\activate.ps1 311   # Python 3.11 (default)
@@ -332,7 +195,7 @@ When adding new dependencies:
 
 #### Project Configuration
 
-Use this template for `pyproject.toml` configuration:
+New packages should use the following `pyproject.toml` template. Keep the configuration aligned with the [development policies](docs/development_policy/index.md).
 
 ```toml
 [build-system]
@@ -357,6 +220,7 @@ dependencies = [
 dev = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
+    "pytest-mock>=3.0.0",
     "black>=23.0.0",
     "isort>=5.0.0",
     "flake8>=6.0.0",
@@ -384,69 +248,16 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "--strict-markers --cov=src --cov-report=term-missing --cov-fail-under=95"
+addopts = "--strict-markers --cov=src --cov-report=term-missing --cov-fail-under=100"
 ```
 
 ### Documentation
 
-- Update docstrings for new/modified functions using Google-style format
-- Add complete type hints to all function signatures
-- Update README.md if adding new features
-- Update CHANGELOG.md following [Keep a Changelog](https://keepachangelog.com/) format
+Follow the [documentation policy](docs/development_policy/04-docs.md). In addition:
 
-#### Documentation Standards
-
-**Language and Formatting**:
-
-- **Use British English** throughout all documentation (e.g., "optimise" not "optimize", "colour" not "color")
-- **MkDocs formatting**: Always include a blank line before bullet point lists to ensure proper rendering
-
-**Example of proper MkDocs formatting**:
-```markdown
-The algorithm supports several options:
-
-- Statistical validation using independence tests
-- Domain knowledge integration through constraints
-- Bootstrap sampling for confidence intervals
-
-This ensures bullet points render correctly in the documentation.
-```
-
-#### Performance Guidelines
-
-When implementing algorithms, follow these optimization principles:
-
-**Vectorization**:
-```python
-import numpy as np
-from functools import lru_cache
-
-# ✅ Preferred: NumPy vectorized operations
-def compute_correlations(data: pd.DataFrame) -> np.ndarray:
-    """Compute all pairwise correlations efficiently."""
-    return np.corrcoef(data.T)
-
-# ❌ Avoid: Python loops for numerical computations
-def compute_correlations_slow(data: pd.DataFrame) -> np.ndarray:
-    """Inefficient correlation computation."""
-    n_vars = len(data.columns)
-    correlations = np.zeros((n_vars, n_vars))
-    for i in range(n_vars):
-        for j in range(n_vars):
-            correlations[i, j] = data.iloc[:, i].corr(data.iloc[:, j])
-    return correlations
-
-@lru_cache(maxsize=128)
-def expensive_computation(data_hash: str) -> float:
-    """Cache expensive computations to avoid recomputation."""
-    # Implementation here
-    pass
-```
-
-**Profiling Tools**:
-- Use `cProfile` and `line_profiler` for performance analysis
-- Monitor memory usage with `memory_profiler`
-- Consider `joblib` for parallel processing when appropriate
+- Update docstrings for new or modified functions.
+- Update README.md when adding new features.
+- Update CHANGELOG.md following the [Keep a Changelog](https://keepachangelog.com/) format.
 
 ## Project Structure common across all repos
 
@@ -458,7 +269,7 @@ def expensive_computation(data_hash: str) -> float:
 │   ├── ...                   # Package-specific design and usage documentation
 ├── scripts/                  # Development scripts
 │   ├── activate.ps1          # Environment activation
-│   ├── setup-env.ps1         # Environment management  
+│   ├── setup-env.ps1         # Environment management
 │   ├── check_ci.ps1          # Local CI validation
 │   ├── bump_version.py       # Version management
 │   └── build-and-publish.ps1 # Package publishing
@@ -466,8 +277,8 @@ def expensive_computation(data_hash: str) -> float:
 │   ├── __init__.py           # Package initialization
 │   └── ...                   # Other modules are specific to each package
 ├── tests/                    # Test files
-│   ├── unit/                 # Unit tests (only uses packages's own code, possibly with mocks)    
-│   ├── functional/           # Functional tests (internal dependencies such as filesystem or third party packages )
+│   ├── unit/                 # Unit tests (only uses package's own code, possibly with mocks)
+│   ├── functional/           # Functional tests (internal dependencies such as filesystem or third party packages)
 │   └── integration/          # Integration tests (access external systems)
 ├── .pre-commit-config.yaml   # Automated code checks before commits
 ├── CHANGELOG.md              # Log of software changes
@@ -485,7 +296,7 @@ When filing bug reports, please include:
 
 - **Clear description** of the issue
 - **Steps to reproduce** the problem
-- **Expected behavior** vs actual behavior
+- **Expected behaviour** vs actual behaviour
 - **System information** (OS, Python version, package version)
 - **Error messages** and stack traces if applicable
 

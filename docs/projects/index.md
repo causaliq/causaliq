@@ -76,7 +76,7 @@ graph TD
 ### For Developers
 1. **Read the Architecture**: Understand how projects interact
 2. **Choose Your Focus**: Pick a project that matches your interests
-3. **Follow Guidelines**: Use our development standards and practices
+3. **Follow Guidelines**: Apply our shared [development policies](../development_policy/index.md)
 4. **Contribute**: Submit issues, feature requests, or pull requests
 
 

@@ -13,6 +13,16 @@ on:
         required: false
         type: string
         default: '["ubuntu-latest", "windows-latest", "macos-latest"]'
+      legacy-python-versions:
+        description: 'JSON array of Python versions that need a pinned Ubuntu image'
+        required: false
+        type: string
+        default: '["3.9"]'
+      legacy-python-os:
+        description: 'Ubuntu image used for legacy Python versions'
+        required: false
+        type: string
+        default: 'ubuntu-24.04'
       package-name:
         description: 'Name of the Python package (for coverage)'
         required: true
@@ -24,19 +34,60 @@ on:
         default: ''
 
 jobs:
+  # Python 3.9 has no Ubuntu 26.04 build in actions/python-versions.
+  # Keep it on the legacy Ubuntu image while newer versions follow the
+  # requested operating systems (ubuntu-latest maps to newer images).
+  prepare:
+    name: Prepare test matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - name: Build matrix
+        id: matrix
+        shell: bash
+        env:
+          PYTHON_VERSIONS: ${{ inputs.python-versions }}
+          OPERATING_SYSTEMS: ${{ inputs.operating-systems }}
+          LEGACY_PYTHON_VERSIONS: ${{ inputs.legacy-python-versions }}
+          LEGACY_PYTHON_OS: ${{ inputs.legacy-python-os }}
+        run: |
+          matrix=$(python3 - <<'PY'
+          import json, os
+
+          versions = json.loads(os.environ["PYTHON_VERSIONS"])
+          systems = json.loads(os.environ["OPERATING_SYSTEMS"])
+          legacy = set(json.loads(os.environ["LEGACY_PYTHON_VERSIONS"]))
+          legacy_os = os.environ["LEGACY_PYTHON_OS"]
+          has_ubuntu = any(s.startswith("ubuntu-") for s in systems)
+
+          include = []
+          for version in versions:
+              for system in systems:
+                  if version in legacy and system.startswith("ubuntu-"):
+                      continue
+                  include.append({"python-version": version, "os": system})
+              if version in legacy and has_ubuntu:
+                  include.append({"python-version": version, "os": legacy_os})
+
+          print(json.dumps({"include": include}))
+          PY
+          )
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
   test:
+    needs: prepare
     runs-on: ${{ matrix.os }}
     strategy:
-      matrix:
-        python-version: ${{ fromJson(inputs.python-versions) }}
-        os: ${{ fromJson(inputs.operating-systems) }}
+      fail-fast: false
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ matrix.python-version }}
 

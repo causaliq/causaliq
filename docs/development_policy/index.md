@@ -36,6 +36,8 @@ Follow the documents in order, as they mirror the development lifecycle:
    confirmation and the test workflow.
 5. **[Documentation](04-docs.md)** - formatting, British English and
    single-source-of-truth rules.
+6. **[Development Scripts](05-scripts.md)** - the canonical gate, generated
+   package copies, provenance and the long-running command protocol.
 
 ## For LLM and Cline Agents
 

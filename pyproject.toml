@@ -1,0 +1,159 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "causaliq"
+dynamic = ["version"]
+description = "CausalIQ ecosystem development tooling and policies"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    {name = "CausalIQ", email = "info@causaliq.org"},
+]
+maintainers = [
+    {name = "CausalIQ", email = "info@causaliq.org"},
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["causaliq"]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/causaliq/causaliq"
+Documentation = "https://github.com/causaliq/causaliq#readme"
+Repository = "https://github.com/causaliq/causaliq"
+"Bug Tracker" = "https://github.com/causaliq/causaliq/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "causaliq.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.package-data]
+causaliq = ["py.typed"]
+
+[tool.causaliq]
+distribution = "causaliq"
+package = "causaliq"
+python_versions = ["3.9", "3.10", "3.11", "3.12", "3.13"]
+default_python = "3.11"
+dev_extras = ["dev"]
+testpaths = ["tests/unit", "tests/functional", "tests/integration"]
+fast_testpaths = ["tests/unit", "tests/functional"]
+slow_marker = "slow"
+extra_steps = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = [
+    "tests",
+]
+python_files = [
+    "test_*.py",
+    "*_test.py",
+]
+python_classes = [
+    "Test*",
+]
+python_functions = [
+    "test_*",
+]
+markers = [
+    "unit: Unit tests (fast, no external dependencies)",
+    "functional: Functional tests (filesystem or process I/O)",
+    "integration: Integration tests (external services)",
+    "slow: Slow tests that take significant time",
+]
+
+[tool.coverage.run]
+source = ["src/causaliq"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.black]
+line-length = 79
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+  \.direnv
+  | \.eggs
+  | \.git
+  | \.hg
+  | \.ipynb_checkpoints
+  | \.mypy_cache
+  | \.nox
+  | \.pytest_cache
+  | \.ruff_cache
+  | \.svn
+  | \.tox
+  | \.venv
+  | \.vscode
+  | __pypackages__
+  | _build
+  | buck-out
+  | build
+  | venv
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 79
+known_first_party = ["causaliq"]
+
+[tool.mypy]
+# Mypy no longer accepts 3.9 as a target; the code still runs on 3.9.
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true

@@ -33,13 +33,29 @@ paths:
 - **Legacy Code:** Limits apply to new modules and to any function or module
   being restructured. Pre-existing breaches are quarantined — bring the
   functions you touch within the limits rather than rewriting untouched code.
-- **Enforcement:** `python scripts/check_code_rules.py` runs with the other
+- **Enforcement:** `python scripts/check_ci.py --rules` runs with the other
   quality gates and reports nesting depth and statement counts per function
   and statements per module. New and re-structured files must report zero
   breaches.
 - **79-Character Line Limit**: Enforce strictly from initial generation.
 - **Docstrings**: Google-style, British English spelling (*optimise*, *analyse*), blank lines before list items for MkDocs compatibility.
 
+
+## Workflow Cache Compatibility
+
+CausalIQ is pre-release and has no external users. Workflow caches are
+internal, disposable artefacts rather than a public API. There is no
+requirement to read, migrate, or preserve caches written by earlier
+versions of the code.
+
+- If a cache format or metadata schema changes, old caches may be deleted
+  and regenerated.
+- Do not add compatibility branches, dual-format readers, or migration
+  scripts solely to support obsolete cache versions.
+- Backward compatibility may be added only when a task explicitly requires
+  it, and the ongoing maintenance cost must be justified.
+- This rule does not relax compatibility for public Python APIs or exported
+  open-standard files such as GraphML.
 
 ## Naming & Semantics
 - **Public API:** Use explicit, action-oriented `verb_noun` naming (e.g., `compute_backdoor_adjustment`, `parse_json_to_dag`).

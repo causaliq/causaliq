@@ -24,7 +24,7 @@ on:
         type: string
         default: 'ubuntu-24.04'
       package-name:
-        description: 'Name of the Python package (for coverage)'
+        description: 'Package import name; also enables credential-gated integration tests'
         required: true
         type: string
       extra-index-url:
@@ -32,6 +32,13 @@ on:
         required: false
         type: string
         default: ''
+    secrets:
+      ZENODO_SYNC_SANDBOX:
+        description: 'Zenodo sandbox token; enables the slow integration tests'
+        required: false
+      ZENODO_SYNC_EMAIL:
+        description: 'Zenodo account email that owns the sandbox token'
+        required: false
 
 jobs:
   # Python 3.9 has no Ubuntu 26.04 build in actions/python-versions.
@@ -101,59 +108,21 @@ jobs:
         fi
       shell: bash
 
-    - name: Run code formatting check
+    - name: Verify generated scripts
       run: |
-        echo "Running Black formatting check..."
-        black --check src tests
+        echo "Checking generated scripts against the pinned devtools revision..."
+        python scripts/sync.py --check
 
-    - name: Run import sorting check
-      run: |
-        echo "Running isort import sorting check..."
-        isort --check-only src tests
-
-    - name: Run linting
-      run: |
-        echo "Running flake8 linting..."
-        flake8 src tests
-
-    - name: Run type checking
-      run: |
-        echo "Running MyPy type checking..."
-        python -m mypy src/
-
-    - name: Run unit tests with coverage
-      env:
-        PYTHONIOENCODING: utf-8
-      run: |
-        echo "Running unit pytest with coverage..."
-        python -m pytest -s -v tests/unit --cov=src/${{ inputs.package-name }} --cov-append --cov-report=xml
-
-    - name: Run functional tests with coverage
-      env:
-        PYTHONIOENCODING: utf-8
-      run: |
-        echo "Running functional pytest with coverage..."
-        python -m pytest -s -v tests/functional --cov=src/${{ inputs.package-name }} --cov-append --cov-report=xml
-
-    - name: Run integration tests for zenodo_sync (when secrets available)
-      if: ${{ inputs.package-name == 'zenodo_sync' }}
+    - name: Run quality gate
       env:
         PYTHONIOENCODING: utf-8
         ZENODO_SYNC_SANDBOX: ${{ secrets.ZENODO_SYNC_SANDBOX }}
         ZENODO_SYNC_EMAIL: ${{ secrets.ZENODO_SYNC_EMAIL }}
       shell: bash
       run: |
-        if [ -n "$ZENODO_SYNC_SANDBOX" ]; then
-          echo "Running integration tests with Zenodo API..."
-          python -m pytest -s -v tests/integration --cov=src/zenodo_sync --cov-append --cov-report=xml
-        else
-          echo "Skipping integration tests (no Zenodo secrets configured)"
+        args=""
+        if [ "${{ inputs.package-name }}" = "zenodo_sync" ] && [ -n "$ZENODO_SYNC_SANDBOX" ]; then
+          echo "Zenodo credentials present: including slow integration tests"
+          args="--include-slow"
         fi
-
-    - name: Run integration tests for other packages
-      if: ${{ inputs.package-name != 'zenodo_sync' }}
-      env:
-        PYTHONIOENCODING: utf-8
-      shell: bash
-      run: |
-        python -m pytest -s -v tests/integration --cov=src/${{ inputs.package-name }} --cov-append --cov-report=xml
+        python scripts/check_ci.py --ci $args

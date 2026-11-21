@@ -20,3 +20,42 @@
 - Running the full suite is permitted in two cases only: final verification of
   a package-wide refactor, and triage of order-dependent failures. Report the
   result; do not iterate on it.
+
+## Running the gate
+
+The gate is generated from the umbrella repository; see
+[Development Scripts](05-scripts.md) for its provenance and configuration.
+
+```powershell
+.\scripts\check_ci.ps1
+```
+
+The same gate is available on every platform, and is the only form CI uses:
+
+```powershell
+python scripts/check_ci.py
+```
+
+Agents and contributors may run the gate to verify a change, but must not use
+`--fix` on files they are not already editing. The final gate run before a
+commit remains the author's responsibility.
+
+## Running tests and checking results
+
+Completion is defined by an artefact, never by console output. Use the
+mandated launch-and-wait pair:
+
+```powershell
+python scripts/run_checked.py --log .pytest.log --timeout 3600 -- python -m pytest
+python scripts/run_checked.py --wait --log .pytest.log --timeout 3600
+```
+
+- Do not use Start-Sleep polling loops to check whether a command has finished.
+- Do not read a command's output file until it is known to have exited.
+- Read the log once, through `--wait --tail`, rather than repeatedly.
+- For pytest, pass `--junitxml=<path>` when a machine-readable report is
+  needed; the file appearing is itself a completion signal.
+- A timeout kills the process tree and reports exit code 124.
+- Clean up temporary PID, exit and log files when the command has finished.
+
+

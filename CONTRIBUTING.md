@@ -19,6 +19,7 @@ The ecosystem-wide engineering standards live in the umbrella repository and app
 | Writing tests | [Writing Tests](docs/development_policy/02-test-write.md) |
 | Running tests and terminals | [Running Tests](docs/development_policy/03-test-run.md) |
 | Documentation | [Documentation](docs/development_policy/04-docs.md) |
+| Development scripts | [Development Scripts](docs/development_policy/05-scripts.md) |
 
 Read the relevant policy before you start, and make sure your change satisfies its requirements. The quality gates are:
 
@@ -31,10 +32,14 @@ Read the relevant policy before you start, and make sure your change satisfies i
 Run them all with:
 
 ```bash
-.\scripts\check_ci.ps1
+.\scripts\check_ci.ps1      # Windows
+python scripts/check_ci.py  # any OS
 ```
 
-The script automatically activates the correct Python environment (3.11) and runs each gate.
+The gate is generated from the umbrella repository and must not be edited by
+hand; `python scripts/sync.py --check` verifies its provenance. Use
+`--include-slow` to add the slow tests and `--fast` while iterating. The
+PowerShell wrapper forwards every switch to the Python gate.
 
 ## Getting Started
 

@@ -45,7 +45,7 @@ PowerShell wrapper forwards every switch to the Python gate.
 
 ### Prerequisites
 
-- Python 3.9 or higher
+- Python 3.10 or higher
 - Git
 
 ### Development Setup
@@ -68,7 +68,7 @@ PowerShell wrapper forwards every switch to the Python gate.
 
 3. **Activate your development environment**:
    ```bash
-   .\scripts\activate.ps1        # Activates Python 3.11 (default)
+   .\scripts\activate.ps1        # Activates Python 3.12 (default)
    .\scripts\activate.ps1 310    # Or Python 3.10 for testing
    ```
 
@@ -170,20 +170,23 @@ terminal, environment and session guidance.
 
 ### Multi-Version Testing
 
-Since CausalIQ supports Python 3.9-3.12, we encourage testing across versions:
+Since CausalIQ supports Python 3.10-3.14, we encourage testing across versions:
 
 ```bash
 # Test with different Python versions
-.\scripts\activate.ps1 39    # Python 3.9
-python -m pytest tests/unit/
-
 .\scripts\activate.ps1 310   # Python 3.10
 python -m pytest tests/unit/
 
-.\scripts\activate.ps1 311   # Python 3.11 (default)
+.\scripts\activate.ps1 311   # Python 3.11
 python -m pytest tests/unit/
 
-.\scripts\activate.ps1 312   # Python 3.12
+.\scripts\activate.ps1 312   # Python 3.12 (default)
+python -m pytest tests/unit/
+
+.\scripts\activate.ps1 313   # Python 3.13
+python -m pytest tests/unit/
+
+.\scripts\activate.ps1 314   # Python 3.14
 python -m pytest tests/unit/
 ```
 
@@ -214,7 +217,7 @@ description = "Component description"
 authors = [{name = "CausalIQ", email = "contact@causaliq.org"}]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "numpy>=1.21.0",
     "pandas>=1.3.0",
@@ -235,14 +238,14 @@ dev = [
 
 [tool.black]
 line-length = 79
-target-version = ["py39"]
+target-version = ["py310"]
 
 [tool.isort]
 profile = "black"
 line_length = 79
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

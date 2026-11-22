@@ -7,7 +7,7 @@ on:
         description: 'JSON array of Python versions to test'
         required: false
         type: string
-        default: '["3.10", "3.11", "3.12"]'
+        default: '["3.10", "3.11", "3.12", "3.13", "3.14"]'
       operating-systems:
         description: 'JSON array of operating systems to test'
         required: false
@@ -17,7 +17,7 @@ on:
         description: 'JSON array of Python versions that need a pinned Ubuntu image'
         required: false
         type: string
-        default: '["3.9"]'
+        default: '["3.10"]'
       legacy-python-os:
         description: 'Ubuntu image used for legacy Python versions'
         required: false
@@ -41,9 +41,11 @@ on:
         required: false
 
 jobs:
-  # Python 3.9 has no Ubuntu 26.04 build in actions/python-versions.
-  # Keep it on the legacy Ubuntu image while newer versions follow the
-  # requested operating systems (ubuntu-latest maps to newer images).
+  # Python 3.10 is end-of-life and actions/python-versions only builds new
+  # Ubuntu images for versions that are still supported, so 3.10 has no
+  # Ubuntu 26.04 build. Keep it on the pinned Ubuntu image while newer
+  # versions follow the requested operating systems (ubuntu-latest maps to
+  # newer images over time).
   prepare:
     name: Prepare test matrix
     runs-on: ubuntu-latest

@@ -19,15 +19,15 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 keywords = ["causaliq"]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = []
 
 [project.optional-dependencies]
@@ -61,8 +61,8 @@ causaliq = ["py.typed"]
 [tool.causaliq]
 distribution = "causaliq"
 package = "causaliq"
-python_versions = ["3.9", "3.10", "3.11", "3.12", "3.13"]
-default_python = "3.11"
+python_versions = ["3.10", "3.11", "3.12", "3.13", "3.14"]
+default_python = "3.12"
 dev_extras = ["dev"]
 testpaths = ["tests/unit", "tests/functional", "tests/integration"]
 fast_testpaths = ["tests/unit", "tests/functional"]
@@ -111,7 +111,7 @@ exclude_lines = [
 
 [tool.black]
 line-length = 79
-target-version = ['py39']
+target-version = ['py310']
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -143,8 +143,7 @@ line_length = 79
 known_first_party = ["causaliq"]
 
 [tool.mypy]
-# Mypy no longer accepts 3.9 as a target; the code still runs on 3.9.
-python_version = "3.10"
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

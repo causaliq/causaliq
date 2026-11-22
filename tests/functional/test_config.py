@@ -59,7 +59,7 @@ def test_defaults_are_applied(tmp_path: Path) -> None:
     config = load_config(tmp_path)
 
     assert config.distribution == "demo_pkg"
-    assert config.python_versions == ("3.9",)
+    assert config.python_versions == ("3.10",)
     assert config.dev_extras == ("dev",)
     assert config.testpaths == ("tests",)
     assert config.fast_testpaths == ("tests/unit", "tests/functional")
@@ -105,7 +105,7 @@ def test_multiline_arrays_and_comments(tmp_path: Path) -> None:
 [tool.causaliq]
 package = "demo_pkg"
 python_versions = [
-    "3.9",  # oldest supported
+    "3.10",  # oldest supported
     "3.11",
 ]
 """,
@@ -113,7 +113,7 @@ python_versions = [
 
     config = load_config(tmp_path)
 
-    assert config.python_versions == ("3.9", "3.11")
+    assert config.python_versions == ("3.10", "3.11")
 
 
 def test_booleans_and_integers_are_parsed(tmp_path: Path) -> None:

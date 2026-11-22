@@ -90,8 +90,8 @@ Each package declares its data once, in `pyproject.toml`:
 [tool.causaliq]
 distribution = "causaliq-analysis"
 package = "causaliq_analysis"
-python_versions = ["3.9", "3.10", "3.11", "3.12", "3.13"]
-default_python = "3.11"
+python_versions = ["3.10", "3.11", "3.12", "3.13", "3.14"]
+default_python = "3.12"
 dev_extras = ["dev", "test", "docs"]
 testpaths = ["tests/unit", "tests/functional", "tests/integration"]
 fast_testpaths = ["tests/unit", "tests/functional"]

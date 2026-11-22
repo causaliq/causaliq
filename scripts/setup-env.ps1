@@ -1,4 +1,4 @@
-# generated from causaliq@2cd3a04ec510-dirty src/causaliq/devtools/templates.py - do not edit
+# generated from causaliq@c3907437a1dd src/causaliq/devtools/templates.py - do not edit
 # Usage: .\scripts\setup-env.ps1 [-InstallOnly] [-Help]
 param(
     [switch]$InstallOnly,
@@ -6,11 +6,11 @@ param(
 )
 
 $Environments = [ordered]@{
-    "39" = "3.9"
     "310" = "3.10"
     "311" = "3.11"
     "312" = "3.12"
     "313" = "3.13"
+    "314" = "3.14"
 }
 
 if ($Help) {

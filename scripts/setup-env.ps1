@@ -1,4 +1,4 @@
-# generated from causaliq@c3907437a1dd src/causaliq/devtools/templates.py - do not edit
+# generated from causaliq@27a2f560f378 src/causaliq/devtools/templates.py - do not edit
 # Usage: .\scripts\setup-env.ps1 [-InstallOnly] [-Help]
 param(
     [switch]$InstallOnly,

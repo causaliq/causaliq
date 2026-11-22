@@ -1,0 +1,25 @@
+# CausalIQ Governance Rules
+
+Before planning, coding, writing tests or documentation, or running tests in
+this repository, read and strictly follow the policy files in
+`docs/development_policy/`:
+
+- Planning: `docs/development_policy/00-plan.md`
+- Coding: `docs/development_policy/01-code.md`
+- Writing Tests: `docs/development_policy/02-test-write.md`
+- Running: `docs/development_policy/03-test-run.md`
+- Writing Documentation: `docs/development_policy/04-docs.md`
+- Development Scripts: `docs/development_policy/05-scripts.md`
+
+## Primary Guardrail
+
+Never mix Feature/Fix Implementation (Hat 1) with Refactoring (Hat 2) in a
+single task.
+
+## Commits
+
+LLMs NEVER stage, commit or push. All edits are left in the working tree for
+the user to review and commit. See `docs/development_policy/00-plan.md`:
+
+> LLMs **SHOULD NEVER** commit changes: this should remain in the control of
+> the user

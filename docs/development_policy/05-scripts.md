@@ -15,10 +15,16 @@ src/causaliq/devtools/
   run_checked.py   # launch and wait protocol for long commands
   sync.py          # verify or refresh the generated files
   templates.py     # text templates for the generated scripts
+  devenv.py        # umbrella-only: shared development environments
+  devenv_check.py  # umbrella-only: verify the shared environments
+  devenv_env.py    # umbrella-only: paths, interpreters and pip commands
+  devenv_repos.py  # umbrella-only: discover the sibling repositories
 ```
 
 Everything in `devtools` is stdlib-only, so a package can vendor the modules
 and run its gate without installing the umbrella and without network access.
+The `devenv*` modules are the one exception: no package imports them, so they
+are never vendored.
 
 The umbrella repository runs its own package through thin entry points in
 `scripts/`. Packages do not import the umbrella: they receive a vendored copy
@@ -31,6 +37,7 @@ of `devtools` under `scripts/_vendor/causaliq_devtools/`.
 | `scripts/check_ci.py` | entry point for the gate |
 | `scripts/run_checked.py` | entry point for the run/wait protocol |
 | `scripts/sync.py` | entry point for provenance checks and refreshes |
+| `scripts/setup_dev_env.py` | umbrella-only entry point for the shared environments |
 | `scripts/check_ci.ps1` | PowerShell wrapper for `check_ci.py` |
 | `scripts/activate.ps1` | activates one of the package's environments |
 | `scripts/setup-env.ps1` | creates and installs the environments |
@@ -73,14 +80,57 @@ its own package. It generates only its bootstrap scripts:
 python scripts/sync.py --update --source . --bootstrap
 ```
 
-That writes `scripts/activate.ps1`, `scripts/setup-env.ps1` and
-`scripts/check_ci.ps1` with the same provenance header and manifest as a
-package. `scripts/check_ci.py`, `scripts/run_checked.py` and
-`scripts/sync.py` remain thin canonical entry points into
-`causaliq.devtools`.
+That writes `scripts/activate.ps1`, `scripts/setup-env.ps1`,
+`scripts/check_ci.ps1` and `scripts/setup_dev_env.py` with the same provenance
+header and manifest as a package. `scripts/check_ci.py`,
+`scripts/run_checked.py` and `scripts/sync.py` remain thin canonical entry
+points into `causaliq.devtools`; `setup_dev_env.py` is generated because no
+package may receive it.
 
 Run the command again after committing, so the recorded reference names the
 commit rather than `-dirty`.
+
+## Shared development environments
+
+The umbrella owns two environments, `venv/py312` and `venv/py314`, that hold
+every CausalIQ package installed editable in a single resolution. A local
+change is therefore visible from every repository, which is the recommended
+way to work across packages. A repository-local `venv/` created by
+`scripts/setup-env.ps1` remains a convenience for work in one repository and
+for OS- or version-specific debugging.
+
+```powershell
+python scripts/setup_dev_env.py            # create both environments
+python scripts/setup_dev_env.py --check    # verify them
+python scripts/setup_dev_env.py --dry-run  # show the commands only
+```
+
+| Switch | Effect |
+| ------ | ------ |
+| `--python 3.12 ...` | versions to manage, repeatable |
+| `--extras dev,test` | extras to install, intersected with each package |
+| `--repo NAME=PATH` | add or replace a discovered repository |
+| `--install-only` | install into existing environments; a missing one fails loudly |
+| `--recreate` | pass `--clear` to `python -m venv` for the managed environments |
+| `--check` | report each environment, its interpreter and every import |
+| `--dry-run` | print the commands without running them |
+| `--strict` | stop at the first failing version, and require every import to resolve inside its sibling checkout |
+| `--interpreter PATH` | create from this interpreter; requires a single `--python` version |
+
+The versions and extras default to `shared_python_versions` and
+`shared_extras`. Every location is derived from the umbrella checkout and
+`[tool.causaliq]` - `venv/pyNNN` beside `scripts/` - and no environment
+variable is read or set, so the command behaves identically whether or not a
+virtual environment is active. Discovery scans the directory above the
+umbrella for siblings whose `pyproject.toml` declares `[tool.causaliq]`; a
+directory without the section is skipped, as is one whose name ends in
+`-template` (the scaffold repository is not a package).
+
+Two caveats keep this set out of the release evidence. It hides undeclared
+dependencies, because a package can import something only a sibling declares,
+and it can resolve different tool versions from a package's own environment.
+Release evidence is the CI job for each repository plus one throwaway
+environment that installs the uploaded artefact and smoke-imports it.
 
 ## Package configuration
 
@@ -106,6 +156,8 @@ extra_steps = []
 | `python_versions` | interpreters the generated scripts manage |
 | `default_python` | interpreter activated by default |
 | `dev_extras` | extras installed by `setup-env.ps1` |
+| `shared_python_versions` | umbrella-only: versions of the shared environments |
+| `shared_extras` | umbrella-only: extras installed into each shared environment |
 | `testpaths` | directories run by the full gate |
 | `fast_testpaths` | directories run by `--fast` |
 | `slow_marker` | marker excluded unless `--include-slow` is given |

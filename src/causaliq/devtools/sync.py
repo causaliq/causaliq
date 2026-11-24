@@ -24,6 +24,9 @@ SCRIPTS = Path("scripts")
 VENDOR = SCRIPTS / "_vendor" / "causaliq_devtools"
 MANIFEST = SCRIPTS / "generated.json"
 DEVTOOLS = Path("src") / "causaliq" / "devtools"
+# ``devenv*`` is umbrella-only tooling that no package imports, so vendoring
+# it would place unused copies in eleven repositories.
+UMBRELLA_ONLY = "devenv"
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
@@ -52,9 +55,9 @@ def update(
 ) -> int:
     """Write the generated files and manifest for ``target``.
 
-    ``bootstrap`` renders only the environment and wrapper scripts, which is
-    what the umbrella needs: it runs its own package rather than a vendored
-    copy.
+    ``bootstrap`` renders the scripts the umbrella needs - the environment and
+    wrapper scripts plus the shared-environment entry point - and omits the
+    entry points and vendored copy that only a package uses.
     """
     config = load_config(target)
     resolved = ref or source_ref(source)
@@ -93,6 +96,9 @@ def render(
     """Return the generated file contents keyed by relative path."""
     if bootstrap:
         files = _bootstrap_files(config)
+        files["scripts/setup_dev_env.py"] = (
+            templates.setup_dev_env_entry_point()
+        )
     else:
         files = _package_files(config, source)
     return {
@@ -166,6 +172,8 @@ def _vendor_files(source: Path) -> Dict[str, str]:
         raise SystemExit(f"sync: no devtools package under {root}")
     files: Dict[str, str] = {}
     for path in sorted(root.glob("*.py")):
+        if path.stem.startswith(UMBRELLA_ONLY):
+            continue
         relative = (VENDOR / path.name).as_posix()
         files[relative] = path.read_text(encoding="utf-8")
     return files

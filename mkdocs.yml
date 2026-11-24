@@ -78,6 +78,8 @@ nav:
     - Writing Tests: development_policy/02-test-write.md
     - Running Tests: development_policy/03-test-run.md
     - Documentation: development_policy/04-docs.md
+    - Development Scripts: development_policy/05-scripts.md
+    - Current task: current_task.md
 
 
 plugins:

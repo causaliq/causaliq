@@ -36,6 +36,15 @@ The same gate is available on every platform, and is the only form CI uses:
 python scripts/check_ci.py
 ```
 
+A package may also be checked against the umbrella's shared environments
+(see [Development Scripts](05-scripts.md#shared-development-environments)).
+The gate accepts such an interpreter only with `--ci`, because the
+environment does not live inside the repository:
+
+```powershell
+& ..\causaliq\venv\py312\Scripts\python.exe scripts\check_ci.py --ci
+```
+
 Agents and contributors may run the gate to verify a change, but must not use
 `--fix` on files they are not already editing. The final gate run before a
 commit remains the author's responsibility.

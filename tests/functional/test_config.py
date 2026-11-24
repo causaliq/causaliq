@@ -9,8 +9,10 @@ import pytest
 from causaliq.devtools.config import (
     ConfigError,
     build_config,
+    build_shared,
     find_pyproject,
     load_config,
+    load_shared,
     read_section,
 )
 
@@ -222,3 +224,31 @@ def test_optional_string_must_be_a_string(tmp_path: Path) -> None:
 
     with pytest.raises(ConfigError, match="must be a non-empty string"):
         load_config(tmp_path)
+
+
+def test_shared_settings_use_the_code_defaults(tmp_path: Path) -> None:
+    """The shared-environment keys fall back to the documented defaults."""
+    write_project(tmp_path, '\n[tool.causaliq]\npackage = "demo_pkg"\n')
+
+    shared = load_shared(tmp_path)
+
+    assert shared.python_versions == ("3.12", "3.14")
+    assert shared.extras == ("dev", "test")
+
+
+def test_shared_settings_are_read_from_the_section(tmp_path: Path) -> None:
+    """Declared shared settings override the defaults."""
+    write_project(
+        tmp_path,
+        """
+[tool.causaliq]
+package = "demo_pkg"
+shared_python_versions = ["3.12"]
+shared_extras = ["dev"]
+""",
+    )
+
+    shared = build_shared(read_section(tmp_path / "pyproject.toml"))
+
+    assert shared.python_versions == ("3.12",)
+    assert shared.extras == ("dev",)

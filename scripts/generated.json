@@ -1,8 +1,9 @@
 {
   "files": {
-    "scripts/activate.ps1": "f61d316f5416e95c9d6f104925f83b7d4c0f1d735811f9a70bc1ee5c9a066b1d",
-    "scripts/check_ci.ps1": "b664eebbcfad825543907c50d2c7a18dae68fe01cff6485d6a0d51bc4449a8b9",
-    "scripts/setup-env.ps1": "536f15fc9ffd3dd07db67e65a4ca974fa43e856db78b7666d41615ec7ab46873"
+    "scripts/activate.ps1": "cc92753f898a72677a8357fa79327f14f08dbbee03d57e99aac1f5b072e15d47",
+    "scripts/check_ci.ps1": "b5fa593f0a0346732ab6ec43d6b0d060e89640c0209df4bb3e45e7fed156acd2",
+    "scripts/setup-env.ps1": "7bddd77753b33deb63d2dd85774a456668986ba294bb21d221df5a6e815b501d",
+    "scripts/setup_dev_env.py": "a8aa902d1d82c734bebc865cfbb5008f4c58f05668d384902ecf1dc43b9b8ad7"
   },
-  "source": "causaliq@27a2f560f378"
+  "source": "causaliq@693e2bfe00df-dirty"
 }

@@ -259,3 +259,55 @@ def test_source_ref_without_git(
     monkeypatch.setattr(sync, "_git", fail)
 
     assert sync.source_ref(tmp_path) == "causaliq@unknown"
+
+
+def test_bootstrap_update_writes_the_dev_env_entry_point(
+    tmp_path: Path,
+) -> None:
+    """Bootstrap mode adds the shared-environment entry point."""
+    target = make_target(tmp_path / "target")
+    source = make_source(tmp_path)
+
+    code = sync.main(
+        [
+            "--update",
+            "--bootstrap",
+            "--source",
+            str(source),
+            "--target",
+            str(target),
+            "--ref",
+            "causaliq@abc",
+        ]
+    )
+
+    entry = target / "scripts" / "setup_dev_env.py"
+    assert code == 0
+    assert entry.is_file()
+    assert "causaliq.devtools.devenv" in entry.read_text(encoding="utf-8")
+
+
+def test_package_update_omits_the_dev_env_entry_point(
+    tmp_path: Path,
+) -> None:
+    """Packages never receive a script that installs their siblings."""
+    target = make_target(tmp_path / "target")
+    sync.update(target, make_source(tmp_path), "causaliq@abc")
+
+    assert not (target / "scripts" / "setup_dev_env.py").exists()
+
+
+def test_dev_env_modules_are_not_vendored(tmp_path: Path) -> None:
+    """Umbrella-only tooling is excluded from the vendored copy."""
+    target = make_target(tmp_path / "target")
+    source = make_source(tmp_path)
+    devtools = source / "src" / "causaliq" / "devtools"
+    (devtools / "devenv.py").write_text("def main():\n    return 0\n")
+    (devtools / "devenv_env.py").write_text("VALUE = 1\n")
+
+    sync.update(target, source, "causaliq@abc")
+
+    vendor = target / "scripts" / "_vendor" / "causaliq_devtools"
+    assert (vendor / "gate.py").is_file()
+    assert not (vendor / "devenv.py").exists()
+    assert not (vendor / "devenv_env.py").exists()

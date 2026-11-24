@@ -72,6 +72,20 @@ PowerShell wrapper forwards every switch to the Python gate.
    .\scripts\activate.ps1 310    # Or Python 3.10 for testing
    ```
 
+Contributors who work across several CausalIQ repositories can use the
+umbrella's shared environments instead. From the umbrella repository:
+
+```bash
+python scripts/setup_dev_env.py          # venv/py312 and venv/py314
+python scripts/setup_dev_env.py --check  # confirm both are complete
+```
+
+Both environments install every package editable in one resolution, so a
+local change is visible from every repository. The command derives its
+locations from the checkout and reads no environment variables; see
+[Development Scripts](docs/development_policy/05-scripts.md#shared-development-environments)
+for the switches and caveats.
+
 ## Development Workflow
 
 ### Making Changes

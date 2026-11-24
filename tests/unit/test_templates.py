@@ -76,3 +76,12 @@ def test_unknown_placeholders_are_left_alone() -> None:
     rendered = templates._fill("@@KNOWN@@ @@OTHER@@", {"KNOWN": "x"})
 
     assert rendered == "x @@OTHER@@"
+
+
+def test_setup_dev_env_uses_the_canonical_package() -> None:
+    """The umbrella entry point runs devtools from src, not from a vendor."""
+    script = templates.setup_dev_env_entry_point()
+
+    assert 'parents[1] / "src"' in script
+    assert "_vendor" not in script
+    assert "from causaliq.devtools.devenv import main" in script

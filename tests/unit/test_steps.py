@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 from dataclasses import replace
 from pathlib import Path
 
@@ -45,6 +46,16 @@ def test_default_step_order() -> None:
         "mypy",
         "tests",
     ]
+
+
+@pytest.mark.parametrize("name", ["black", "isort", "flake8", "mypy"])
+def test_tool_commands_run_in_utf8_mode(name: str) -> None:
+    """The gate tools run with -X utf8 so non-ASCII files are read."""
+    built = {
+        step.name: step.command
+        for step in steps.build_steps(CONFIG, GateOptions())
+    }
+    assert built[name][:4] == (sys.executable, "-X", "utf8", "-m")
 
 
 def test_fast_skips_typing_and_narrower_tests() -> None:

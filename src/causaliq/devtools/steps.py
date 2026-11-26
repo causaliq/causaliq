@@ -75,8 +75,8 @@ def _quality_steps(options: GateOptions) -> list[Step]:
 
 
 def _module_command(module: str, *paths: str) -> tuple[str, ...]:
-    """Return a ``python -m <module>`` command for the current interpreter."""
-    return (sys.executable, "-m", module, *paths)
+    """Return a UTF-8 ``python -m <module>`` command for this interpreter."""
+    return (sys.executable, "-X", "utf8", "-m", module, *paths)
 
 
 def _black_command(fix: bool) -> tuple[str, ...]:

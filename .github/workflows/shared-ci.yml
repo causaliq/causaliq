@@ -118,6 +118,7 @@ jobs:
     - name: Run quality gate
       env:
         PYTHONIOENCODING: utf-8
+        PYTHONUTF8: "1"
         ZENODO_SYNC_SANDBOX: ${{ secrets.ZENODO_SYNC_SANDBOX }}
         ZENODO_SYNC_EMAIL: ${{ secrets.ZENODO_SYNC_EMAIL }}
       shell: bash

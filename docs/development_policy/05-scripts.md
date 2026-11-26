@@ -190,6 +190,10 @@ The gate prints the repository root, the interpreter and the selected test
 paths before it starts, and refuses to run in another project's environment
 unless `--ci` is given.
 
+A gate step runs its tools as `python -X utf8 -m <tool>`, so a non-ASCII
+source file is read as UTF-8 even when the process locale is `cp1252` (the
+Windows default). CI also sets `PYTHONUTF8=1` for the rest of the job.
+
 The PowerShell wrapper forwards its arguments, so the previous spellings
 `-Fast`, `-Fix` and `-IncludeSlow` are still accepted and map to the long
 options above.

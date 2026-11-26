@@ -5,10 +5,6 @@ the PowerShell templates contain braces of their own. ``sync`` prepends the
 provenance header to every rendered file.
 """
 
-from __future__ import annotations
-
-from typing import Dict
-
 from .config import CausaliqConfig
 
 ACTIVATE = """# Usage: .\\scripts\\activate.ps1 [@@KEYS@@]
@@ -186,7 +182,7 @@ def entry_point(module: str, function: str, doc: str) -> str:
     )
 
 
-def _values(config: CausaliqConfig) -> Dict[str, str]:
+def _values(config: CausaliqConfig) -> dict[str, str]:
     """Return the placeholder values shared by the script templates."""
     pairs = [
         (version.replace(".", ""), version)
@@ -204,7 +200,7 @@ def _values(config: CausaliqConfig) -> Dict[str, str]:
     }
 
 
-def _fill(template: str, values: Dict[str, str]) -> str:
+def _fill(template: str, values: dict[str, str]) -> str:
     """Replace every ``@@NAME@@`` placeholder in ``template``."""
     rendered = template
     for name, value in values.items():

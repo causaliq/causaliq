@@ -7,15 +7,13 @@ tail and mirrors the recorded exit code; a timeout kills the process tree and
 reports exit 124.
 """
 
-from __future__ import annotations
-
 import argparse
 import os
 import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import List, Optional, Sequence
+from typing import Sequence
 
 from . import processes
 
@@ -25,7 +23,7 @@ STARTUP_SECONDS = 10.0
 DEFAULT_TAIL = 40
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     """Dispatch to the supervisor, the launcher or the waiter."""
     arguments = list(sys.argv[1:] if argv is None else argv)
     if arguments and arguments[0] == "--supervise":
@@ -80,8 +78,8 @@ def _spawn_detached(
 
 
 def _supervisor_command(
-    log: Path, timeout: Optional[float], command: Sequence[str]
-) -> List[str]:
+    log: Path, timeout: float | None, command: Sequence[str]
+) -> list[str]:
     """Return the argv for the detached supervisor process.
 
     The supervisor is started through ``-c`` rather than by path: the module
@@ -119,7 +117,7 @@ def _bootstrap_code() -> str:
     )
 
 
-def _supervise(argv: List[str]) -> int:
+def _supervise(argv: list[str]) -> int:
     """Run the child, record its exit code and return."""
     parser = argparse.ArgumentParser(prog="run_checked --supervise")
     parser.add_argument("--log", required=True)
@@ -137,7 +135,7 @@ def _supervise(argv: List[str]) -> int:
 
 
 def _run_child(
-    command: Sequence[str], log: Path, timeout: Optional[float]
+    command: Sequence[str], log: Path, timeout: float | None
 ) -> int:
     """Run the command with its output in ``log`` and return its code."""
     handle = log.open("wb")
@@ -147,9 +145,7 @@ def _run_child(
         handle.close()
 
 
-def _wait_child(
-    child: subprocess.Popen[bytes], timeout: Optional[float]
-) -> int:
+def _wait_child(child: subprocess.Popen[bytes], timeout: float | None) -> int:
     """Wait for the child, killing the tree if the timeout expires."""
     try:
         return int(child.wait(timeout=timeout))
@@ -176,7 +172,7 @@ def _wait(options: argparse.Namespace) -> int:
     return code
 
 
-def _has_timed_out(deadline: Optional[float]) -> bool:
+def _has_timed_out(deadline: float | None) -> bool:
     """Return True when the wait deadline has passed."""
     if deadline is None:
         return False
@@ -204,14 +200,14 @@ def _await_pid(log: Path) -> int:
     return 0
 
 
-def _deadline(timeout: Optional[float]) -> Optional[float]:
+def _deadline(timeout: float | None) -> float | None:
     """Return the monotonic deadline for a timeout, if one was given."""
     if timeout is None:
         return None
     return time.monotonic() + timeout
 
 
-def _clean(command: Sequence[str]) -> List[str]:
+def _clean(command: Sequence[str]) -> list[str]:
     """Drop the ``--`` separator that argparse keeps in the remainder."""
     return [item for item in command if item != "--"]
 

@@ -7,13 +7,11 @@ come from this checkout and from ``[tool.causaliq]``: no environment variable
 is read or set.
 """
 
-from __future__ import annotations
-
 import argparse
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Sequence, Tuple
+from typing import Sequence
 
 from .config import ConfigError, load_shared
 from .devenv_check import check
@@ -35,18 +33,18 @@ LAUNCHER_HINT = "py -0p"
 class Options:
     """Resolved command-line switches."""
 
-    python: Tuple[str, ...] = ()
-    extras: Tuple[str, ...] = ()
-    repos: Tuple[Tuple[str, Path], ...] = ()
+    python: tuple[str, ...] = ()
+    extras: tuple[str, ...] = ()
+    repos: tuple[tuple[str, Path], ...] = ()
     install_only: bool = False
     recreate: bool = False
     check: bool = False
     dry_run: bool = False
     strict: bool = False
-    interpreter: Optional[str] = None
+    interpreter: str | None = None
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     """Run the shared-environment command and return an exit code."""
     arguments = list(sys.argv[1:] if argv is None else argv)
     try:
@@ -184,7 +182,7 @@ def _to_options(parsed: argparse.Namespace) -> Options:
     )
 
 
-def _parse_override(item: str) -> Tuple[str, Path]:
+def _parse_override(item: str) -> tuple[str, Path]:
     """Return the ``NAME=PATH`` pair supplied to ``--repo``."""
     name, separator, path = item.partition("=")
     if not separator or not name.strip() or not path.strip():
@@ -192,7 +190,7 @@ def _parse_override(item: str) -> Tuple[str, Path]:
     return name.strip(), Path(path.strip())
 
 
-def _split_extras(value: Optional[str]) -> Tuple[str, ...]:
+def _split_extras(value: str | None) -> tuple[str, ...]:
     """Return the comma-separated extras, dropping empty items."""
     if not value:
         return ()

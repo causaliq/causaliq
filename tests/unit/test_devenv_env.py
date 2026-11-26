@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import List, Tuple
 
 import pytest
 
@@ -169,9 +168,9 @@ def test_run_returns_the_child_exit_code(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """The child exit code is passed through."""
-    seen: List[Tuple[str, ...]] = []
+    seen: list[tuple[str, ...]] = []
 
-    def fake_call(command: List[str]) -> int:
+    def fake_call(command: list[str]) -> int:
         seen.append(tuple(command))
         return 3
 
@@ -186,7 +185,7 @@ def test_run_reports_a_missing_command(
 ) -> None:
     """A launcher that is not installed is reported, not raised."""
 
-    def fail(command: List[str]) -> int:
+    def fail(command: list[str]) -> int:
         raise FileNotFoundError("no such command")
 
     monkeypatch.setattr(devenv_env.subprocess, "call", fail)

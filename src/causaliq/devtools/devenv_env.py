@@ -6,14 +6,12 @@ under the checkout that owns this module. Keeping the command builders pure
 lets the tests assert them without creating anything.
 """
 
-from __future__ import annotations
-
 import shlex
 import shutil
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Sequence, Tuple
+from typing import Sequence
 
 from .devenv_repos import Repo
 from .processes import IS_WINDOWS
@@ -51,9 +49,7 @@ def _key(version: str) -> str:
     return version.replace(".", "")
 
 
-def launcher(
-    version: str, interpreter: Optional[str] = None
-) -> Tuple[str, ...]:
+def launcher(version: str, interpreter: str | None = None) -> tuple[str, ...]:
     """Return the command prefix that runs the requested interpreter."""
     if interpreter:
         return (interpreter,)
@@ -72,9 +68,9 @@ def _posix_interpreter(version: str) -> str:
 
 def create_command(
     env: Environment,
-    interpreter: Optional[str],
+    interpreter: str | None,
     clear: bool,
-) -> Tuple[str, ...]:
+) -> tuple[str, ...]:
     """Return the command that creates or clears one environment."""
     arguments = ["-m", "venv"]
     if clear:
@@ -85,17 +81,17 @@ def create_command(
 
 def install_command(
     env: Environment, repos: Sequence[Repo]
-) -> Tuple[str, ...]:
+) -> tuple[str, ...]:
     """Return the single pip resolve that installs every package editable."""
     return (str(env.python), "-m", "pip", "install", *_editable(repos))
 
 
-def _editable(repos: Sequence[Repo]) -> Tuple[str, ...]:
+def _editable(repos: Sequence[Repo]) -> tuple[str, ...]:
     """Return one ``-e <requirement>`` pair per repository."""
     return tuple(part for repo in repos for part in ("-e", repo.requirement))
 
 
-def smoke_command(env: Environment, repo: Repo) -> Tuple[str, ...]:
+def smoke_command(env: Environment, repo: Repo) -> tuple[str, ...]:
     """Return the command that imports a package and prints its location."""
     probe = f"import {repo.package} as m; print(m.__file__)"
     return (str(env.python), "-c", probe)

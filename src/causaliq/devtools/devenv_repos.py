@@ -7,11 +7,9 @@ directory qualifies when its ``pyproject.toml`` declares the same
 agree about which repositories exist.
 """
 
-from __future__ import annotations
-
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Mapping, Optional, Sequence, Tuple
+from typing import Mapping, Sequence
 
 from .config import SECTION, CausaliqConfig, build_config, read_section
 
@@ -27,7 +25,7 @@ class Repo:
     distribution: str
     package: str
     path: Path
-    extras: Tuple[str, ...]
+    extras: tuple[str, ...]
 
     @property
     def requirement(self) -> str:
@@ -40,8 +38,8 @@ class Repo:
 def discover(
     root: Path,
     extras: Sequence[str],
-    overrides: Optional[Mapping[str, Path]] = None,
-) -> List[Repo]:
+    overrides: Mapping[str, Path] | None = None,
+) -> list[Repo]:
     """Return the repositories below ``root``, with overrides applied."""
     found = [_repo_at(path, extras) for path in sorted(root.iterdir())]
     repos = [repo for repo in found if repo is not None]
@@ -57,9 +55,9 @@ def apply_overrides(
     repos: Sequence[Repo],
     overrides: Mapping[str, Path],
     extras: Sequence[str],
-) -> List[Repo]:
+) -> list[Repo]:
     """Return ``repos`` with each ``--repo NAME=PATH`` entry applied."""
-    merged: Dict[str, Repo] = {repo.distribution: repo for repo in repos}
+    merged: dict[str, Repo] = {repo.distribution: repo for repo in repos}
     for name, path in overrides.items():
         merged[name] = _repo(name, path, _read_config(path), extras)
     return [merged[name] for name in sorted(merged)]
@@ -67,12 +65,12 @@ def apply_overrides(
 
 def select_extras(
     config: CausaliqConfig, wanted: Sequence[str]
-) -> Tuple[str, ...]:
+) -> tuple[str, ...]:
     """Return the requested extras the package actually declares."""
     return tuple(extra for extra in wanted if extra in config.dev_extras)
 
 
-def _repo_at(path: Path, extras: Sequence[str]) -> Optional[Repo]:
+def _repo_at(path: Path, extras: Sequence[str]) -> Repo | None:
     """Return the repository at ``path``, or None when it is not one."""
     if not path.is_dir() or path.name.endswith(SKIP_SUFFIX):
         return None

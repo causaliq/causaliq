@@ -7,11 +7,9 @@ resolve into its own sibling checkout, which is what separates a real shared
 environment from a stale one that still has published wheels installed.
 """
 
-from __future__ import annotations
-
 import subprocess
 from pathlib import Path
-from typing import Optional, Sequence
+from typing import Sequence
 
 from .devenv_env import Environment, environment, smoke_command
 from .devenv_repos import Repo
@@ -56,7 +54,7 @@ def _report_version(env: Environment) -> int:
     return 1
 
 
-def _reported_version(env: Environment) -> Optional[str]:
+def _reported_version(env: Environment) -> str | None:
     """Return the ``X.Y`` version reported by the environment interpreter."""
     completed = _probe((str(env.python), "-c", VERSION_PROBE))
     if completed.returncode != 0:
@@ -71,9 +69,7 @@ def _report_import(env: Environment, repo: Repo, strict: bool) -> int:
     return 1 if problem else 0
 
 
-def _import_problem(
-    env: Environment, repo: Repo, strict: bool
-) -> Optional[str]:
+def _import_problem(env: Environment, repo: Repo, strict: bool) -> str | None:
     """Return a message when ``repo`` does not import from its own tree."""
     completed = _probe(smoke_command(env, repo))
     if completed.returncode != 0:

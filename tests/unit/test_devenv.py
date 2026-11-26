@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import List
 
 import pytest
 
@@ -167,7 +166,7 @@ def test_build_reports_every_failure(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     """Without strict mode every version is attempted."""
-    seen: List[str] = []
+    seen: list[str] = []
 
     def fake_prepare(
         env: Environment, repos: object, options: Options
@@ -187,7 +186,7 @@ def test_build_stops_at_the_first_failure_in_strict_mode(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     """Strict mode abandons the run once a version fails."""
-    seen: List[str] = []
+    seen: list[str] = []
 
     def fake_prepare(
         env: Environment, repos: object, options: Options
@@ -257,7 +256,7 @@ def test_prepare_installs_and_smoke_tests(
     """A prepared environment runs one resolve then one import per package."""
     env = make_env(tmp_path)
     env.target.mkdir(parents=True)
-    commands: List[tuple] = []
+    commands: list[tuple] = []
 
     def fake_run(command: tuple, dry_run: bool) -> int:
         commands.append(command)

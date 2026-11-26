@@ -16,12 +16,10 @@ Usage:
     python -m causaliq.devtools.code_rules --strict src/
 """
 
-from __future__ import annotations
-
 import ast
 import sys
 from pathlib import Path
-from typing import Iterable, List, Tuple
+from typing import Iterable
 
 # Limits from the development policy
 MAX_DEPTH = 2
@@ -62,14 +60,14 @@ def _is_guard(node: ast.If) -> bool:
     return isinstance(node.body[0], GUARD_NODES)
 
 
-def _is_excluded(node: ast.AST, lines: List[str]) -> bool:
+def _is_excluded(node: ast.AST, lines: list[str]) -> bool:
     """Return True when a statement carries a coverage pragma."""
     if not hasattr(node, "lineno") or node.lineno > len(lines):
         return False
     return PRAGMA in lines[node.lineno - 1]
 
 
-def _count_statements(node: ast.AST, lines: List[str]) -> int:
+def _count_statements(node: ast.AST, lines: list[str]) -> int:
     """Count executable statements below a node, including nested ones."""
     total = 0
     for child in ast.iter_child_nodes(node):
@@ -104,15 +102,15 @@ def _deepest_level(node: ast.AST, level: int = 0) -> int:
 
 def _measure_function(
     func: ast.AST,
-    lines: List[str],
-) -> Tuple[int, int]:
+    lines: list[str],
+) -> tuple[int, int]:
     """Return the nesting depth and statement count of a function."""
     body = getattr(func, "body", [])
     depth = max((_deepest_level(stmt) for stmt in body), default=0)
     return depth, _count_statements(func, lines)
 
 
-def _report_function(path: Path, func: ast.AST, lines: List[str]) -> int:
+def _report_function(path: Path, func: ast.AST, lines: list[str]) -> int:
     """Report a function whose depth or statement count breaches."""
     depth, stmts = _measure_function(func, lines)
     if depth <= MAX_DEPTH and stmts <= TARGET_STATEMENTS:
@@ -124,7 +122,7 @@ def _report_function(path: Path, func: ast.AST, lines: List[str]) -> int:
     return 1
 
 
-def _report_functions(path: Path, tree: ast.AST, lines: List[str]) -> int:
+def _report_functions(path: Path, tree: ast.AST, lines: list[str]) -> int:
     """Report every breaching function in a module."""
     breaches = 0
     for node in ast.walk(tree):
@@ -134,7 +132,7 @@ def _report_functions(path: Path, tree: ast.AST, lines: List[str]) -> int:
     return breaches
 
 
-def _report_module_size(path: Path, tree: ast.AST, lines: List[str]) -> int:
+def _report_module_size(path: Path, tree: ast.AST, lines: list[str]) -> int:
     """Report a module that exceeds the module statement target."""
     total = _count_statements(tree, lines)
     if total <= MAX_MODULE_STATEMENTS:
@@ -156,7 +154,7 @@ def _report_module(path: Path) -> int:
     return breaches
 
 
-def _load_lines(path: Path) -> List[str]:
+def _load_lines(path: Path) -> list[str]:
     """Return the source lines of a module."""
     return path.read_text(encoding="utf-8").splitlines()
 
@@ -166,9 +164,9 @@ def _is_source(path: Path) -> bool:
     return not any(part in SKIP_PARTS for part in path.parts)
 
 
-def _python_files(targets: Iterable[str]) -> List[Path]:
+def _python_files(targets: Iterable[str]) -> list[Path]:
     """Expand path arguments into a sorted list of source modules."""
-    paths: List[Path] = []
+    paths: list[Path] = []
     for target in targets:
         path = Path(target)
         if path.is_file():
@@ -187,7 +185,7 @@ def _print_summary(checked: int, breaches: int, strict: bool) -> None:
         print("Advisory mode: legacy breaches are quarantined.")
 
 
-def main(argv: List[str]) -> int:
+def main(argv: list[str]) -> int:
     """Report breaches for the requested paths and return an exit code."""
     strict = "--strict" in argv
     targets = [item for item in argv[1:] if not item.startswith("--")]

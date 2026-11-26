@@ -4,8 +4,6 @@ The behaviour differs enough between Windows and POSIX that keeping it in one
 place makes the run/wait protocol in :mod:`run_checked` easier to follow.
 """
 
-from __future__ import annotations
-
 import os
 import signal
 import subprocess

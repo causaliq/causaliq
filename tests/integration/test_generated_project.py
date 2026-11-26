@@ -18,8 +18,8 @@ CONFIG = """
 [tool.causaliq]
 distribution = "causaliq-demo"
 package = "demo"
-python_versions = ["3.9", "3.11"]
-default_python = "3.11"
+python_versions = ["3.10", "3.12"]
+default_python = "3.12"
 dev_extras = ["dev"]
 testpaths = ["tests/unit"]
 fast_testpaths = ["tests/unit"]

@@ -36,6 +36,7 @@ class CausaliqConfig:
     fast_testpaths: tuple[str, ...]
     slow_marker: str = "slow"
     extra_steps: tuple[str, ...] = ()
+    extra_index_url: str = ""
 
     @property
     def slow_filter(self) -> tuple[str, ...]:
@@ -120,6 +121,7 @@ def build_config(values: Mapping[str, object]) -> CausaliqConfig:
         ),
         slow_marker=_optional_str(values, "slow_marker", "slow"),
         extra_steps=_str_tuple(values, "extra_steps", ()),
+        extra_index_url=_optional_text(values, "extra_index_url", ""),
     )
 
 
@@ -249,6 +251,16 @@ def _optional_str(values: Mapping[str, object], key: str, default: str) -> str:
     value = values.get(key, default)
     if not isinstance(value, str) or not value:
         raise ConfigError(f"{SECTION}.{key} must be a non-empty string")
+    return value
+
+
+def _optional_text(
+    values: Mapping[str, object], key: str, default: str
+) -> str:
+    """Return an optional string setting, allowing an empty value."""
+    value = values.get(key, default)
+    if not isinstance(value, str):
+        raise ConfigError(f"{SECTION}.{key} must be a string")
     return value
 
 

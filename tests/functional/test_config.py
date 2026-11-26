@@ -22,13 +22,14 @@ BLOCK = """
 [tool.causaliq]
 distribution = "causaliq-demo"
 package = "causaliq_demo"
-python_versions = ["3.9", "3.11"]
-default_python = "3.11"
+python_versions = ["3.10", "3.12"]
+default_python = "3.12"
 dev_extras = ["dev", "test"]
 testpaths = ["tests/unit"]
 fast_testpaths = ["tests/unit"]
 slow_marker = "slow"
 extra_steps = []
+extra_index_url = "https://test.pypi.org/simple/"
 """
 
 
@@ -47,8 +48,9 @@ def test_loads_every_setting(tmp_path: Path) -> None:
 
     assert config.distribution == "causaliq-demo"
     assert config.package == "causaliq_demo"
-    assert config.python_versions == ("3.9", "3.11")
-    assert config.default_python == "3.11"
+    assert config.python_versions == ("3.10", "3.12")
+    assert config.default_python == "3.12"
+    assert config.extra_index_url == "https://test.pypi.org/simple/"
     assert config.dev_extras == ("dev", "test")
     assert config.testpaths == ("tests/unit",)
     assert config.slow_marker == "slow"
@@ -65,6 +67,7 @@ def test_defaults_are_applied(tmp_path: Path) -> None:
     assert config.dev_extras == ("dev",)
     assert config.testpaths == ("tests",)
     assert config.fast_testpaths == ("tests/unit", "tests/functional")
+    assert config.extra_index_url == ""
 
 
 def test_slow_filter_and_extras_spec(tmp_path: Path) -> None:
@@ -75,6 +78,35 @@ def test_slow_filter_and_extras_spec(tmp_path: Path) -> None:
 
     assert config.slow_filter == ("-m", "not slow")
     assert config.extras_spec == "dev,test"
+
+
+def test_empty_extra_index_is_allowed(tmp_path: Path) -> None:
+    """An explicitly empty index means production PyPI only."""
+    write_project(
+        tmp_path,
+        """
+[tool.causaliq]
+package = "demo"
+extra_index_url = ""
+""",
+    )
+
+    assert load_config(tmp_path).extra_index_url == ""
+
+
+def test_extra_index_must_be_a_string(tmp_path: Path) -> None:
+    """A non-string index is rejected."""
+    write_project(
+        tmp_path,
+        """
+[tool.causaliq]
+package = "demo"
+extra_index_url = 3
+""",
+    )
+
+    with pytest.raises(ConfigError, match="extra_index_url"):
+        load_config(tmp_path)
 
 
 def test_finds_pyproject_above_the_start(tmp_path: Path) -> None:
@@ -108,14 +140,14 @@ def test_multiline_arrays_and_comments(tmp_path: Path) -> None:
 package = "demo_pkg"
 python_versions = [
     "3.10",  # oldest supported
-    "3.11",
+    "3.12",
 ]
 """,
     )
 
     config = load_config(tmp_path)
 
-    assert config.python_versions == ("3.10", "3.11")
+    assert config.python_versions == ("3.10", "3.12")
 
 
 def test_booleans_and_integers_are_parsed(tmp_path: Path) -> None:

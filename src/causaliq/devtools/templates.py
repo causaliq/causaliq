@@ -74,8 +74,9 @@ foreach ($key in $Environments.Keys) {
         continue
     }
     $python = "$envPath\\Scripts\\python.exe"
+@@EXTRA_INDEX@@
     & $python -m pip install --upgrade pip setuptools wheel --quiet
-    & $python -m pip install -e ".[@@EXTRAS@@]"
+    & $python -m pip install @index -e ".[@@EXTRAS@@]"
 }
 
 Write-Host "Environment setup complete."
@@ -182,6 +183,13 @@ def entry_point(module: str, function: str, doc: str) -> str:
     )
 
 
+def _extra_index_line(url: str) -> str:
+    """Return the PowerShell line that builds the pip index arguments."""
+    if not url:
+        return "    $index = @()"
+    return f'    $index = @("--extra-index-url", "{url}")'
+
+
 def _values(config: CausaliqConfig) -> dict[str, str]:
     """Return the placeholder values shared by the script templates."""
     pairs = [
@@ -195,6 +203,7 @@ def _values(config: CausaliqConfig) -> dict[str, str]:
         "DEFAULT_KEY": config.default_python.replace(".", ""),
         "DEFAULT_PYTHON": config.default_python,
         "EXTRAS": config.extras_spec,
+        "EXTRA_INDEX": _extra_index_line(config.extra_index_url),
         "PACKAGE": config.package,
         "DISTRIBUTION": config.distribution,
     }

@@ -147,6 +147,7 @@ testpaths = ["tests/unit", "tests/functional", "tests/integration"]
 fast_testpaths = ["tests/unit", "tests/functional"]
 slow_marker = "slow"
 extra_steps = []
+extra_index_url = ""
 ```
 
 | Key | Meaning |
@@ -162,6 +163,7 @@ extra_steps = []
 | `fast_testpaths` | directories run by `--fast` |
 | `slow_marker` | marker excluded unless `--include-slow` is given |
 | `extra_steps` | additional commands, run with POSIX-style quoting |
+| `extra_index_url` | extra pip index passed to `setup-env.ps1` (empty to omit) |
 
 ## Running the gate
 

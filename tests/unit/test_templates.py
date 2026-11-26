@@ -15,8 +15,8 @@ def make_config(**overrides: object) -> CausaliqConfig:
     values = {
         "distribution": "causaliq-demo",
         "package": "causaliq_demo",
-        "python_versions": ("3.9", "3.11"),
-        "default_python": "3.11",
+        "python_versions": ("3.10", "3.12"),
+        "default_python": "3.12",
         "dev_extras": ("dev", "test"),
         "testpaths": ("tests/unit",),
         "fast_testpaths": ("tests/unit",),
@@ -29,9 +29,9 @@ def test_activate_lists_every_version() -> None:
     """The activation script exposes each supported interpreter."""
     script = templates.activate_ps1(make_config())
 
-    assert '"39" = "3.9"' in script
-    assert '"311" = "3.11"' in script
-    assert '$Version = "311"' in script
+    assert '"310" = "3.10"' in script
+    assert '"312" = "3.12"' in script
+    assert '$Version = "312"' in script
     assert "@@" not in script
 
 
@@ -40,8 +40,19 @@ def test_setup_env_installs_the_declared_extras() -> None:
     script = templates.setup_env_ps1(make_config())
 
     assert ".[dev,test]" in script
-    assert '"310"' not in script
+    assert '"314"' not in script
     assert "@@" not in script
+    assert "$index = @()" in script
+    assert "--extra-index-url" not in script
+
+
+def test_setup_env_passes_the_extra_index() -> None:
+    """A configured extra index is forwarded to pip."""
+    config = make_config(extra_index_url="https://test.pypi.org/simple/")
+    script = templates.setup_env_ps1(config)
+
+    assert '--extra-index-url", "https://test.pypi.org/simple/' in script
+    assert "$index = @()" not in script
 
 
 def test_publish_uses_distribution_and_package() -> None:

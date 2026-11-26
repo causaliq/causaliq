@@ -42,9 +42,9 @@ Write-Host "Activating Python $($Environments[$Version]) environment..."
 & "$EnvPath\\Scripts\\Activate.ps1"
 """
 
-SETUP_ENV = """# Usage: .\\scripts\\setup-env.ps1 [-InstallOnly] [-Help]
+SETUP_ENV = """# Usage: .\\scripts\\setup-env.ps1 [-ExistingOnly] [-Help]
 param(
-    [switch]$InstallOnly,
+    [switch]$ExistingOnly,
     [switch]$Help
 )
 
@@ -53,7 +53,7 @@ $Environments = [ordered]@{
 }
 
 if ($Help) {
-    Write-Host "Usage: .\\scripts\\setup-env.ps1 [-InstallOnly] [-Help]"
+    Write-Host "Usage: .\\scripts\\setup-env.ps1 [-ExistingOnly] [-Help]"
     Write-Host "Creates one virtual environment per supported Python version."
     exit 0
 }
@@ -61,7 +61,7 @@ if ($Help) {
 foreach ($key in $Environments.Keys) {
     $version = $Environments[$key]
     $envPath = "venv\\py$key"
-    if ($InstallOnly -and -not (Test-Path $envPath)) {
+    if ($ExistingOnly -and -not (Test-Path $envPath)) {
         Write-Host "Skipping $envPath (missing)"
         continue
     }

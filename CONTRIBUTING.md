@@ -59,11 +59,11 @@ PowerShell wrapper forwards every switch to the Python gate.
 2. **Set up the development environment**:
    ```bash
    # Windows - create all Python environments and install package
-   .\scripts\setup-env.ps1 -Install
+   .\scripts\setup-env.ps1
    
    # Or step by step:
    .\scripts\setup-env.ps1                  # Create environments only
-   .\scripts\setup-env.ps1 -InstallOnly     # Install package
+   .\scripts\setup-env.ps1 -ExistingOnly     # Install package
    ```
 
 3. **Activate your development environment**:
@@ -211,7 +211,7 @@ When adding new dependencies:
 1. **Add to `pyproject.toml`** in the appropriate section
 2. **Update all environments**:
    ```bash
-   .\scripts\setup-env.ps1 -InstallOnly
+   .\scripts\setup-env.ps1 -ExistingOnly
    ```
 3. **Test across Python versions** to ensure compatibility
 

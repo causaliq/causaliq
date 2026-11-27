@@ -19,6 +19,16 @@ support for 3.10 to 3.14.
 After completing this, I would then manually release each package on 
 production PyPI with a 0.x.0 (no dev) version number
 
+## Status (November 2026)
+
+- Stage 1 (drop 3.9, add 3.14, default 3.12) is committed and green in every
+  repository.
+- Stage 2 (typing, tooling, dependency and documentation refactor) is complete
+  for the umbrella. The remaining repositories follow in dependency order.
+- Umbrella round-2 items landed: UTF-8 gate invocation, `extra_index_url`,
+  `-ExistingOnly`, PEP 639 licence metadata, isort capped below 9, the legacy
+  `setup_venv.ps1` removed, and an ecosystem co-install CI job.
+
 ---
 
 ## Known issues and round-2 backlog

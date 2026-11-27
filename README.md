@@ -1,5 +1,7 @@
 # 👋 Welcome to CausalIQ
 
+![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue)
+
 I’m an **independent researcher** and **research visitor** at Queen Mary University of London working on **causal discovery** and **Bayesian network structure learning**.
 The CausalIQ ecosystem brings together algorithms, experiments, and datasets that support research into more accurate and transparent methods for causal discovery that integrate statistical algorithms with Large Language Models (LLMs).
 All the results and analyses in CausalIQ academic papers can be reproduced using thr CausalIQ Ecosystem.

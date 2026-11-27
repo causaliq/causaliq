@@ -1,4 +1,4 @@
-# generated from causaliq@7783c42bf150 src/causaliq/devtools/templates.py - do not edit
+# generated from causaliq@a7fc1db88992da9d8accb50690aa204212bd3d00 src/causaliq/devtools/templates.py - do not edit
 # Usage: .\scripts\activate.ps1 [310|311|312|313|314]
 # Defaults to Python 3.12
 param(

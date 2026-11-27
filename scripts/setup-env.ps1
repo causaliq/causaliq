@@ -1,7 +1,7 @@
-# generated from causaliq@7783c42bf150 src/causaliq/devtools/templates.py - do not edit
-# Usage: .\scripts\setup-env.ps1 [-InstallOnly] [-Help]
+# generated from causaliq@a7fc1db88992da9d8accb50690aa204212bd3d00 src/causaliq/devtools/templates.py - do not edit
+# Usage: .\scripts\setup-env.ps1 [-ExistingOnly] [-Help]
 param(
-    [switch]$InstallOnly,
+    [switch]$ExistingOnly,
     [switch]$Help
 )
 
@@ -14,7 +14,7 @@ $Environments = [ordered]@{
 }
 
 if ($Help) {
-    Write-Host "Usage: .\scripts\setup-env.ps1 [-InstallOnly] [-Help]"
+    Write-Host "Usage: .\scripts\setup-env.ps1 [-ExistingOnly] [-Help]"
     Write-Host "Creates one virtual environment per supported Python version."
     exit 0
 }
@@ -22,7 +22,7 @@ if ($Help) {
 foreach ($key in $Environments.Keys) {
     $version = $Environments[$key]
     $envPath = "venv\py$key"
-    if ($InstallOnly -and -not (Test-Path $envPath)) {
+    if ($ExistingOnly -and -not (Test-Path $envPath)) {
         Write-Host "Skipping $envPath (missing)"
         continue
     }
@@ -35,8 +35,9 @@ foreach ($key in $Environments.Keys) {
         continue
     }
     $python = "$envPath\Scripts\python.exe"
+    $index = @()
     & $python -m pip install --upgrade pip setuptools wheel --quiet
-    & $python -m pip install -e ".[dev]"
+    & $python -m pip install @index -e ".[dev]"
 }
 
 Write-Host "Environment setup complete."
